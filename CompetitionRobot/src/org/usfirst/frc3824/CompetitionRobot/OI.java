@@ -27,6 +27,8 @@ import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleVisionDri
 import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleVisionWaitForHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.commands.DriveInFrontOfBoxTimeAndPowerWaitForHot;
 import org.usfirst.frc3824.CompetitionRobot.commands.DriveInFrontOfBoxUltraSonicWaitForHot;
+import org.usfirst.frc3824.CompetitionRobot.commands.DriveLeftBox;
+import org.usfirst.frc3824.CompetitionRobot.commands.DriveRightBox;
 import org.usfirst.frc3824.CompetitionRobot.commands.DriveStraight;
 import org.usfirst.frc3824.CompetitionRobot.commands.DrivetrainNormalDrive;
 import org.usfirst.frc3824.CompetitionRobot.commands.ShootBall;
