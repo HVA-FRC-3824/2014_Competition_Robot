@@ -33,7 +33,7 @@ public class DriveInFrontOfBoxTimeAndPowerWaitForHot extends CommandGroup
          }
          addSequential(new waittimer)
          */
-        addSequential(new ShootBall());
+        addSequential(new CannonShoot());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
