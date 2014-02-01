@@ -12,6 +12,7 @@ import org.usfirst.frc3824.CompetitionRobot.RobotMap;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
+import org.usfirst.frc3824.CompetitionRobot.commands.Teleoperated;
 /**
  *
  */
