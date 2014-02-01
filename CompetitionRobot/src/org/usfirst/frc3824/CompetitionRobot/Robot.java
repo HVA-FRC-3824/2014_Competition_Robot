@@ -77,9 +77,10 @@ public class Robot extends IterativeRobot
     public void autonomousInit()
     {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null)
+        Object selected = chooser.getSelected();
+        if((selected != null))
         {
-            autonomousCommand.start();
+            ((Command) selected).start();
         }
     }
     /**
