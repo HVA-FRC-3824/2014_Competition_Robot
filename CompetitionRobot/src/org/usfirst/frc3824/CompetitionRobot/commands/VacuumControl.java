@@ -8,21 +8,16 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
-<<<<<<< HEAD
-=======
 import edu.wpi.first.wpilibj.Relay;
->>>>>>> 106bf450c0a7ef44455d55145c9ba9f19bff17e6
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
 public class  VacuumControl extends Command {
-<<<<<<< HEAD
-=======
+
     private boolean m_active = false;
     
->>>>>>> 106bf450c0a7ef44455d55145c9ba9f19bff17e6
     public VacuumControl() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

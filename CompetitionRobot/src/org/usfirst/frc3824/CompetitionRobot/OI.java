@@ -11,26 +11,7 @@ package org.usfirst.frc3824.CompetitionRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
-<<<<<<< HEAD
-import org.usfirst.frc3824.CompetitionRobot.commands.ChassisTurnAngle;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleTimeAndPowerDriveAtHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleTimeAndPowerWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleUltraSonicDriveAtHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleUltraSonicWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleVisionDriveAtHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleVisionWaitForHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveInFrontOfBoxTimeAndPowerWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveInFrontOfBoxUltraSonicWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveLeftBox;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveRightBox;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveStraight;
-import org.usfirst.frc3824.CompetitionRobot.commands.DrivetrainNormalDrive;
-import org.usfirst.frc3824.CompetitionRobot.commands.ShootBall;
-import org.usfirst.frc3824.CompetitionRobot.commands.UpdatePID;
-import org.usfirst.frc3824.CompetitionRobot.commands.VacuumControl;
-=======
 import org.usfirst.frc3824.CompetitionRobot.commands.*;
->>>>>>> 106bf450c0a7ef44455d55145c9ba9f19bff17e6
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
