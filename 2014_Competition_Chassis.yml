@@ -516,6 +516,30 @@ Children:
           name: When to Run
           validators: null
           value: whileHeld
+    - Name: Joystick Toggle Vacuum
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id014
+          value: VacuumControl
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id015
+          default: '1'
+          name: Button
+          validators: null
+          value: '11'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: Drive Joystick}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id016
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenReleased
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: ['1', '2', '3', '4']

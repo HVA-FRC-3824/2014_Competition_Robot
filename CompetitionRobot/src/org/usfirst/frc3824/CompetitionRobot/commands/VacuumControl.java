@@ -8,12 +8,21 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
+<<<<<<< HEAD
+=======
+import edu.wpi.first.wpilibj.Relay;
+>>>>>>> 106bf450c0a7ef44455d55145c9ba9f19bff17e6
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
 public class  VacuumControl extends Command {
+<<<<<<< HEAD
+=======
+    private boolean m_active = false;
+    
+>>>>>>> 106bf450c0a7ef44455d55145c9ba9f19bff17e6
     public VacuumControl() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,13 +33,25 @@ public class  VacuumControl extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        
+        // sets m_active to true if the state of the vacuum is on
+        m_active = Robot.pickup.getVacuum().get() == Relay.Value.kOn;
+        
+        if(m_active == true)
+        {
+            Robot.pickup.getVacuum().set(Relay.Value.kOff);
+        }
+        else
+        {
+            Robot.pickup.getVacuum().set(Relay.Value.kOn);
+        }
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {
@@ -38,5 +59,6 @@ public class  VacuumControl extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }
