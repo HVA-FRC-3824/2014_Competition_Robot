@@ -107,8 +107,8 @@ public class SetShooterAngle extends Command
     protected boolean isFinished()
     {
         // determine if the shooter angle is within the desired range
-        //return Math.abs(angle - Robot.shooterAngleAdjustPID.getPotentiometer().pidGet()) < Constants.SHOOTER_ANGLE_THRESHOLD;
-        return false;
+        return Math.abs(angle - Robot.shooterAngleAdjustPID.getPotentiometer().pidGet()) < Constants.SHOOTER_ANGLE_THRESHOLD;
+        //return false;
     }
     // Called once after isFinished returns true
     protected void end()
