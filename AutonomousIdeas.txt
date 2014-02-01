@@ -1,0 +1,16 @@
+A) Options for driving
+1.straight forward (not for C2)
+2.drive to infront of the box (not for C3)
+3.drive at a small angle
+
+B) Options for Distance
+1. Time and power
+2. ultra sonic 
+3. vision (for A1 and A2)
+
+c) Options for Hot-goal
+1. ignore
+2. drive to hot goal in first 5 s and then shoot in 2nd 5s
+3. drive to some goal in shot either in first 5s or 2nd 5s
+
+
