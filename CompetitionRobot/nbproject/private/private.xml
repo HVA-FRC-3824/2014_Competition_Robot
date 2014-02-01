@@ -3,39 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ShootBall.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousCommandGroup.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Constants.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/LocateHotGoal.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Drivetrain.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtASmallAngleVisionDriveAtHotGoal.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DrivetrainNormalDrive.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Pump.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/UpdatePID.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ChassisTurnAngle.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/OI.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtASmallAngleUltraSonicDriveAtHotGoal.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveLeftBox.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveStraight.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/Teleoperated.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtAngle.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/SetShooterAngle.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtASmallAngleVisionWaitForHotGoal.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/RobotMap.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtASmallAngleTimeAndPowerDriveAtHotGoal.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ShooterAngleDown.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Shooter.java</file>
             <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Robot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ShooterAngleUp.java</file>
             <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/CannonShoot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtASmallAngleTimeAndPowerWaitForHot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveAtASmallAngleUltraSonicWaitForHot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveInFrontOfBoxUltraSonicWaitForHot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Pickup.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveInFrontOfBoxTimeAndPowerWaitForHot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DriveRightBox.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/ShooterAngleAdjust.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousCommand.java</file>
+            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/SetShooterAngle.java</file>
         </group>
     </open-files>
 </project-private>
