@@ -1,1 +1,11 @@
 /CompetitionRobot/build/
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/HotGoalDetection/nbproject/private/
+/HotGoalDetection/build/
+/CompetitionRobot/nbproject/private/
+*~
