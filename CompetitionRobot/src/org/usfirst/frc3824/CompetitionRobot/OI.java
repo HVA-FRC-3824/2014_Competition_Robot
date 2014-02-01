@@ -33,6 +33,7 @@ import org.usfirst.frc3824.CompetitionRobot.commands.DriveStraight;
 import org.usfirst.frc3824.CompetitionRobot.commands.DrivetrainNormalDrive;
 import org.usfirst.frc3824.CompetitionRobot.commands.ShootBall;
 import org.usfirst.frc3824.CompetitionRobot.commands.UpdatePID;
+import org.usfirst.frc3824.CompetitionRobot.commands.VacuumControl;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -87,7 +88,6 @@ public class OI
         SmartDashboard.putData("Cannon Shoot", new CannonShoot());
         SmartDashboard.putData("Shooter Angle Up", new ShooterAngleUp());
         SmartDashboard.putData("Shooter Angle Down", new ShooterAngleDown());
-        SmartDashboard.putData("Drivetrain Normal Drive", new DrivetrainNormalDrive());
         SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
         SmartDashboard.putData("Teleoperated", new Teleoperated());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());
