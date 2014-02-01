@@ -1,4 +1,3 @@
-/CompetitionRobot/build/
 *.class
 
 # Package Files #
@@ -7,5 +6,10 @@
 *.ear
 /HotGoalDetection/nbproject/private/
 /HotGoalDetection/build/
+
 /CompetitionRobot/nbproject/private/
+/CompetitionRobot/nbproject/project.xml
+/CompetitionRobot/nbproject/project.bak.xml
+/CompetitionRobot/build/
+
 *~
