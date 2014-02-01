@@ -30,7 +30,7 @@ public class DriveAtASmallAngleUltraSonicWaitForHot extends CommandGroup
          Needs parameters to drive at left goal
          }
          */
-        addSequential(new ShootBall());
+        addSequential(new CannonShoot());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

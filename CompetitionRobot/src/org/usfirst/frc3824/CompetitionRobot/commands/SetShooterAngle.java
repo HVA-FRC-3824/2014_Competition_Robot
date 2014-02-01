@@ -11,6 +11,7 @@ package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStationEnhancedIO;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
@@ -18,7 +19,7 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  */
 public class SetShooterAngle extends Command
 {
-    private static double m_Angle;
+    private static double m_Angle, angle = 0;
     private static boolean angleSpecifiedInConstructor;
     public SetShooterAngle(double angleParam)
     {
@@ -46,8 +47,6 @@ public class SetShooterAngle extends Command
     // Called just before this Command runs the first time
     protected void initialize()
     {
-        double angle = 0;
-        
         // determine if the shooter angle should be pulled from the SmartDashboard
         if (angleSpecifiedInConstructor == false) {
             try {
@@ -71,7 +70,7 @@ public class SetShooterAngle extends Command
         }
         // Convert the angle which is stored in degrees to ADC
         // ADC   = (angle - Y_INTERCEPT) / SLOPE
-        //angle = (angle - SHOOTER_ANGLE_Y_INTERCEPT) / SHOOTER_ANGLE_SLOPE;
+        //angle = (angle - Constants.SHOOTER_ANGLE_Y_INTERCEPT) / Constants.SHOOTER_ANGLE_SLOPE;
         
         Robot.shooterAngleAdjustPID.enable();
         Robot.shooterAngleAdjustPID.setSetpoint(angle);
@@ -79,16 +78,42 @@ public class SetShooterAngle extends Command
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
+        if(angleSpecifiedInConstructor == false)
+	{
+            try {
+                // Angle is currently in 0V to 3.3V
+                angle = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID);
+            } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
+                ex.printStackTrace();
+            }
+		// Convert the Voltage to Degrees
+		angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE)/3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
+		
+		if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE)
+			angle = Constants.SHOOTER_ANGLE_MAX_VALUE;
+		if (angle < Constants.SHOOTER_ANGLE_MIN_VALUE)
+			angle = Constants.SHOOTER_ANGLE_MIN_VALUE;
+		
+		// Convert the angle which is stored in degrees to ADC
+		// ADC   = (angle - Y_INTERCEPT) / SLOPE
+		//angle = (angle - Constants.SHOOTER_ANGLE_Y_INTERCEPT) / Constants.SHOOTER_ANGLE_SLOPE;
+		   
+		// Set the setpoint in ADC
+		//Robot::shooterAngleAdjust->getPIDController()->SetSetpoint(angle);
+                Robot.shooterAngleAdjustPID.getPIDController().setSetpoint(angle);
+	}
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
-        return Robot.shooterAngleAdjustPID.onTarget();
+        // determine if the shooter angle is within the desired range
+        //return Math.abs(angle - Robot.shooterAngleAdjustPID.getPotentiometer().pidGet()) < Constants.SHOOTER_ANGLE_THRESHOLD;
+        return false;
     }
     // Called once after isFinished returns true
     protected void end()
     {
-        Robot.shooterAngleAdjustPID.disable();
+        SmartDashboard.putNumber("Shooter Angle", Robot.shooterAngleAdjustPID.getPotentiometer().pidGet());
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
