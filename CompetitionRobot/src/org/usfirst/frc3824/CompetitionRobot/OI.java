@@ -8,31 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 package org.usfirst.frc3824.CompetitionRobot;
-import org.usfirst.frc3824.CompetitionRobot.commands.ShooterAngleUp;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousCommand;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousCommandGroup;
-import org.usfirst.frc3824.CompetitionRobot.commands.ShooterAngleDown;
-import org.usfirst.frc3824.CompetitionRobot.commands.Teleoperated;
-import org.usfirst.frc3824.CompetitionRobot.commands.SetShooterAngle;
-import org.usfirst.frc3824.CompetitionRobot.commands.CannonShoot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc3824.CompetitionRobot.commands.ChassisTurnAngle;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleTimeAndPowerDriveAtHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleTimeAndPowerWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleUltraSonicDriveAtHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleUltraSonicWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleVisionDriveAtHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleVisionWaitForHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveInFrontOfBoxTimeAndPowerWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveInFrontOfBoxUltraSonicWaitForHot;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveLeftBox;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveRightBox;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveStraight;
-import org.usfirst.frc3824.CompetitionRobot.commands.DrivetrainNormalDrive;
-import org.usfirst.frc3824.CompetitionRobot.commands.ShootBall;
-import org.usfirst.frc3824.CompetitionRobot.commands.UpdatePID;
+import org.usfirst.frc3824.CompetitionRobot.commands.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
