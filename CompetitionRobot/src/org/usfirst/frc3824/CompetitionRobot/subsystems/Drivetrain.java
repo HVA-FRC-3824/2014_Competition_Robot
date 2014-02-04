@@ -39,6 +39,7 @@ public class Drivetrain extends Subsystem
     private double magnitude;
     private double direction;
     private double angle;
+    private static double UNITS_TO_INCHES = 0.544124212;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void initDefaultCommand()
@@ -62,6 +63,11 @@ public class Drivetrain extends Subsystem
     public void straightHolonomicDrive(double x, double y, double rotation)
     {
         holonomicDrive.mecanumDrive_Cartesian(x, y, rotation, gyro.getAngle());
+    }
+    
+    public double getFrontDistance()
+    {
+        return ultrasonicFront.getValue() * UNITS_TO_INCHES;
     }
     
     public Gyro getGyro()
