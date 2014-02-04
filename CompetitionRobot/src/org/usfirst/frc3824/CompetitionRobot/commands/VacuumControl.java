@@ -15,7 +15,6 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  VacuumControl extends Command {
-
     private boolean m_active = false;
     
     public VacuumControl() {

@@ -25,6 +25,7 @@ public class RobotMap
     public static SpeedController drivetrainRearLeft;
     public static RobotDrive drivetrainHolonomicDrive;
     public static Gyro drivetrainGyro;
+    public static AnalogChannel drivetrainUltrasonicFront;
     public static Solenoid shooterShootSolenoid1;
     public static Solenoid shooterShootSolenoid2;
     public static Solenoid shooterShootSolenoid3;
@@ -64,6 +65,9 @@ public class RobotMap
         drivetrainGyro = new Gyro(1, 1);
 	LiveWindow.addSensor("Drivetrain", "Gyro", drivetrainGyro);
         drivetrainGyro.setSensitivity(0.007);
+        drivetrainUltrasonicFront = new AnalogChannel(1, 4);
+	LiveWindow.addSensor("Drivetrain", "Ultrasonic Front", drivetrainUltrasonicFront);
+        
         shooterShootSolenoid1 = new Solenoid(1, 1);
 	LiveWindow.addActuator("Shooter", "Shoot Solenoid 1", shooterShootSolenoid1);
         
