@@ -30,9 +30,7 @@ public class UpdatePID extends Command
     // Called just before this Command runs the first time
     protected void initialize()
     {
-        double P;
-        double I;
-        double D;
+        double P, I, D;
         P = SmartDashboard.getNumber("P") / 100;
         I = SmartDashboard.getNumber("I") / 100;
         D = SmartDashboard.getNumber("D") / 100;
@@ -57,5 +55,6 @@ public class UpdatePID extends Command
     // subsystems is scheduled to run
     protected void interrupted()
     {
+        this.end();
     }
 }

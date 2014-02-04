@@ -8,7 +8,7 @@ public class Constants
     /* Contants which might require tuning */
     public final static double DrivetrainAngleGyroControllerP = .1;
     public final static double DrivetrainAngleGyroControllerI = .01;
-    public final static double DrivetrainAngleGyroControllerD = .01;
+    public final static double DrivetrainAngleGyroControllerD = .001;
     
     public final static int ANALOG_SHOOTER_ADJUST_PID = 3; // pot input channel
     

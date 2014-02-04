@@ -15,7 +15,7 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  VacuumControl extends Command {
-    private boolean m_active = false;
+    private boolean m_Active = false;
     
     public VacuumControl() {
         // Use requires() here to declare subsystem dependencies
@@ -28,10 +28,10 @@ public class  VacuumControl extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         
-        // sets m_active to true if the state of the vacuum is on
-        m_active = Robot.pickup.getVacuum().get() == Relay.Value.kOn;
+        // sets m_Active to true if the state of the vacuum is on
+        m_Active = Robot.pickup.getVacuum().get() == Relay.Value.kOn;
         
-        if(m_active == true)
+        if(m_Active == true)
         {
             Robot.pickup.getVacuum().set(Relay.Value.kOff);
         }
