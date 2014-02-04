@@ -49,11 +49,7 @@ public class AutonomousCommand extends Command
     protected boolean isFinished()
     {
         SmartDashboard.putNumber("Time", time.get());
-        if (time.get() > DriveDuration)
-        {
-            return true;
-        }
-        return false;
+        return time.get() > DriveDuration;
     }
     // Called once after isFinished returns true
     protected void end()
