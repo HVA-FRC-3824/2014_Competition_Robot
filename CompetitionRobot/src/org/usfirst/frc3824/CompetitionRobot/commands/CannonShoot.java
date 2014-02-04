@@ -42,11 +42,7 @@ public class CannonShoot extends Command
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
-        if (timer.get() >= 1.0)
-        {
-            return true;
-        }
-        return false;
+        return timer.get() >= 1.0;
     }
     // Called once after isFinished returns true
     protected void end()
