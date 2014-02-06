@@ -29,7 +29,7 @@ public class  VacuumToggle extends Command {
     protected void initialize() {
         
         // sets m_Active to true if the state of the vacuum is on
-        m_Active = Robot.vacuum.getVacuum().get() == Relay.Value.kOn;
+        m_Active = Robot.vacuum.getVacuum().get() == Relay.Value.kForward;
         
         if(m_Active == true)
         {
@@ -37,7 +37,7 @@ public class  VacuumToggle extends Command {
         }
         else
         {
-            Robot.vacuum.getVacuum().set(Relay.Value.kOn);
+            Robot.vacuum.getVacuum().set(Relay.Value.kForward);
         }
     }
     // Called repeatedly when this Command is scheduled to run
