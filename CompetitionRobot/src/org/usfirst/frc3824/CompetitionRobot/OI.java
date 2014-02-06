@@ -69,7 +69,7 @@ public class OI
         joystickShooterUp.whileHeld(new ShooterAngleUp());
         joystickShoot = new JoystickButton(driveJoystick, 1);
         joystickShoot.whenPressed(new CannonShoot());
-	    
+        
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("Autonomous Drive to Right Box from Center", new AutonomousDrivetoRightBoxfromCenter());

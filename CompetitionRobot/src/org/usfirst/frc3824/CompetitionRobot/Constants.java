@@ -10,7 +10,8 @@ public class Constants
     public final static double DrivetrainAngleGyroControllerI = .01;
     public final static double DrivetrainAngleGyroControllerD = .001;
     
-    public final static int ANALOG_SHOOTER_ADJUST_PID = 3; // pot input channel
+    // Cypress IO defines
+    public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // pot input channel
     
     /****** SHOOTER POSITION ******/
     // Note: The shooter angle is greater than possible to ensure the new shooter 
