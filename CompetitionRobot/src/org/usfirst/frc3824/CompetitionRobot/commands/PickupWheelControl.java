@@ -8,12 +8,17 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStationEnhancedIO;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
 public class  PickupWheelControl extends Command {
+    private static double m_voltage = 0;
+    
     public PickupWheelControl() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -27,10 +32,23 @@ public class  PickupWheelControl extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        /*
         double throttle = Robot.oi.driveJoystick.getThrottle();
         if(throttle <= 0.2 && throttle >= -0.2)
             throttle = 0;
         Robot.pickup.setWheelSpeed(throttle);
+                */
+        try {
+            // read the value from the pot
+            m_voltage = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_PICKUP_WHEEL_SPEED);
+        } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
+            ex.printStackTrace();
+        }
+        
+        // Convert the pot value to a positive 0-1 motor value
+        m_voltage = m_voltage / (3.3/2) - 1;
+        
+        Robot.pickup.setWheelSpeed(m_voltage);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -32,17 +32,7 @@ public class  SetPickupWheelSpeed extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        try {
-            // read the value from the pot
-            m_voltage = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_PICKUP_WHEEL_SPEED);
-        } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
-            ex.printStackTrace();
-        }
         
-        // Convert the pot value to a positive 0-1 motor value
-        m_voltage /= 3.3;
-        
-        Robot.pickup.setWheelSpeed(m_voltage);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
