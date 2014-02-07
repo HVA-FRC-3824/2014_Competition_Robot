@@ -18,7 +18,6 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  */
 public class  SetPickupWheelSpeed extends Command {
     private static double m_voltage = 0;
-
     public SetPickupWheelSpeed() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

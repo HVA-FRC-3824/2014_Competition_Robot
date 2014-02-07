@@ -92,7 +92,7 @@ public class RobotMap
         pickupWheelPickup = new Talon(1, 6);
 	LiveWindow.addActuator("Pickup", "Wheel Pickup", (Talon) pickupWheelPickup);
         
-        shooterAngleAdjustPIDShooterAnglePID = new AnalogChannel(1, 3);
+        shooterAngleAdjustPIDShooterAnglePID = new AnalogChannel(1, 5);
 	LiveWindow.addSensor("Shooter Angle Adjust PID", "Shooter Angle PID", shooterAngleAdjustPIDShooterAnglePID);
         
         shooterAngleAdjustPIDAngleMotorPID = new Talon(1, 7);
