@@ -11,10 +11,11 @@ public class Constants
     public final static double DrivetrainAngleGyroControllerD = .001;
     
     // Cypress IO defines
-    public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // pot input channel
-    public final static int INPUT_SHOOTER_UP = 10; // double toggle
-    public final static int INPUT_SHOOTER_DOWN = 1; // double toggle
-    public final static int INPUT_VACUUM_TOGGLE = 4; //Toggle switch
+    public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // Pot input channel
+    public final static int INPUT_SHOOTER_UP = 10; // Double toggle
+    public final static int INPUT_SHOOTER_DOWN = 1; // Double toggle
+    public final static int INPUT_VACUUM_TOGGLE = 4; // Toggle switch
+    public final static int INPUT_CANNON_SHOOT = 11; // Button
     
     /****** SHOOTER POSITION ******/
     // Note: The shooter angle is greater than possible to ensure the new shooter 
