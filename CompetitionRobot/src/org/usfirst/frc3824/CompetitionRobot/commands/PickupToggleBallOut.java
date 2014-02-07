@@ -28,8 +28,7 @@ private boolean m_Active = false;
     // Called just before this Command runs the first time
     protected void initialize() {
         
-        // sets m_Active to true if the state of the vacuum is on
-        m_Active = !m_Active;
+        m_Active = Robot.pickup.getWheelSpeed() == 0.0;
         
         if(m_Active == false)
         {
