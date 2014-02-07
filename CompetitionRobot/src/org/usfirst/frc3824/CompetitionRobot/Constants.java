@@ -12,6 +12,7 @@ public class Constants
     
     // Cypress IO defines
     public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // Pot input channel
+    public final static int ANALOG_PICKUP_WHEEL_SPEED = 1; // Pot input channel
     public final static int INPUT_SHOOTER_UP = 10; // Double toggle
     public final static int INPUT_SHOOTER_DOWN = 1; // Double toggle
     public final static int INPUT_VACUUM_TOGGLE = 4; // Toggle switch
@@ -49,8 +50,8 @@ public class Constants
     public final static double SHOOTER_SPEED_MAX_VALUE = 4000.0;
     public final static double SHOOTER_SPEED_MIN_VALUE = 1000.0;
     /****** PICKUP VOLTAGE ******/
-    public final static double PICKUP_OUT_VOLTAGE = -0.5;
-    public final static double PICKUP_IN_VOLTAGE = 0.4;
+    public final static double PICKUP_OUT_VOLTAGE = -0.2;
+    public final static double PICKUP_IN_VOLTAGE = 0.2;
     /****** CYPRESS POSITION DEFINES ******/
     // front of pyramid
     public final static double POSITION_1_ANGLE = 40.793;  // 700.0

@@ -9,12 +9,13 @@
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
 public class  PickupToggleBallIn extends Command {
-    private boolean m_Active = true;
+    private boolean m_Active = false;
     
     public PickupToggleBallIn() {
         // Use requires() here to declare subsystem dependencies
@@ -32,7 +33,7 @@ public class  PickupToggleBallIn extends Command {
         
         if(m_Active == false)
         {
-            Robot.pickup.setWheelSpeed(0.5);
+            Robot.pickup.setWheelSpeed(Constants.PICKUP_IN_VOLTAGE);
         }
         else
         {

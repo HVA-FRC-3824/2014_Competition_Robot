@@ -15,7 +15,7 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  PickupToggleBallOut extends Command {
-private boolean m_Active = true;
+private boolean m_Active = false;
     
     public PickupToggleBallOut() {
         // Use requires() here to declare subsystem dependencies
