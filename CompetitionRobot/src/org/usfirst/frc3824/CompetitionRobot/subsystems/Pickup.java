@@ -35,4 +35,9 @@ public class Pickup extends Subsystem {
     {
         wheelPickup.set(speed);
     }
+    
+    public double getWheelSpeed()
+    {
+        return wheelPickup.get();
+    }
 }
