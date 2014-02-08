@@ -94,12 +94,16 @@ public class LocateHotGoal extends Command
     protected void initialize()
     {
         finished = false;
-        camera = AxisCamera.getInstance();  // get an instance of the camera
+        camera = AxisCamera.getInstance("10.38.24.11");  // get an instance of the camera
        
         cc = new CriteriaCollection();      // create the criteria for the particle filter
         cc.addCriteria(NIVision.MeasurementType.IMAQ_MT_AREA, AREA_MINIMUM, 65535, false);
 
         elapsedTime = new Timer();
+        
+        SmartDashboard.putString("ImageProcessStatus", "");
+        SmartDashboard.putString("ImageProcessTime", "Image process time (ms): ");
+
         //---------------------
         // Use this if processing sample files on cRIO.  FTP the files to the cRIO
         // If using camera, comment these out.
@@ -143,6 +147,7 @@ public class LocateHotGoal extends Command
              * "testImage.jpg"
              *
              */
+            SmartDashboard.putString("ImageProcessStatus", "Getting image");
              image = camera.getImage();     // comment if using stored images
             //ColorImage image;                           // next 2 lines read image from flash on cRIO
             
@@ -278,7 +283,7 @@ public class LocateHotGoal extends Command
         
         elapsedTime.stop();
         double time = elapsedTime.get() * 1000;
-        SmartDashboard.putString("ImageProcessTime", "Image process time: " + time);
+        SmartDashboard.putString("ImageProcessTime", "Image process time (ms): " + time);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
@@ -289,9 +294,9 @@ public class LocateHotGoal extends Command
     protected void end()
     {
         try{
-            filteredImage.free();
-            thresholdImage.free();
-            image.free();
+            if(filteredImage != null) filteredImage.free();
+            if(thresholdImage != null) thresholdImage.free();
+            if(image != null) image.free();
         }
         catch(NIVisionException e){
         }
@@ -300,6 +305,7 @@ public class LocateHotGoal extends Command
     // subsystems is scheduled to run
     protected void interrupted()
     {
+        end();
     }
     
         /**
