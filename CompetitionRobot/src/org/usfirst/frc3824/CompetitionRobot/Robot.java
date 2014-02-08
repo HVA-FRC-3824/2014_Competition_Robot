@@ -84,7 +84,7 @@ public class Robot extends IterativeRobot
         chooser.addObject("2) Drive to right box", new AutonomousDrivetoRightBoxfromCenter());
         chooser.addObject("3) Drive to left box", new AutonomousDrivetoLeftBoxfromCenter());
       // show the autonomous modes
-        SmartDashboard.putData("Autonomous modes:", chooser); 
+        SmartDashboard.putData("AutonomousModes", chooser); 
     }
     public void autonomousInit()
     {
