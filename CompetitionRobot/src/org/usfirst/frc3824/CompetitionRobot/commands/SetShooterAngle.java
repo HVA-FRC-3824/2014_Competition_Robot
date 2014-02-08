@@ -71,7 +71,7 @@ public class SetShooterAngle extends Command
         }
         // Convert the requested angle into a voltage in the range 0-5V
         //  The voltage is what the PID requires.
-        angle = ((angle - 10.0) / 40.0) * 5.0;
+        angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
         
         Robot.shooterAngleAdjustPID.setSetpoint(angle);
         Robot.shooterAngleAdjustPID.enable();

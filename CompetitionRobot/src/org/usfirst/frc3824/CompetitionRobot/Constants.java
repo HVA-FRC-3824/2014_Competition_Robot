@@ -13,14 +13,14 @@ public class Constants
     // Cypress IO defines
     public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // Pot input channel
     public final static int ANALOG_PICKUP_WHEEL_SPEED = 1; // Pot input channel
-    public final static int INPUT_SHOOTER_UP = 10; // Double toggle
-    public final static int INPUT_SHOOTER_DOWN = 1; // Double toggle
+    public final static int INPUT_PICKUP_IN = 10; // Double toggle
+    public final static int INPUT_PICKUP_OUT = 1; // Double toggle
     public final static int INPUT_VACUUM_TOGGLE = 4; // Toggle switch
     public final static int INPUT_CANNON_SHOOT = 11; // Button
     public final static int INPUT_SHOOTER_ANGLE_ADJUSTMENT_MANUAL = 7; // Toggle switch
-    public final static int SHOOTER_ANGLE_TEST_HIGH = 16; // Button
-    public final static int SHOOTER_ANGLE_TEST_MID = 3; // Button
-    public final static int SHOOTER_ANGLE_TEST_LOW = 8; // Button
+    public final static int SHOOTER_ANGLE_SHOOT = 16; // Button
+    public final static int SHOOTER_ANGLE_PASS = 3; // Button
+    public final static int SHOOTER_ANGLE_PICKUP = 8; // Button
     
     /****** SHOOTER POSITION ******/
     // Note: The shooter angle is greater than possible to ensure the new shooter 

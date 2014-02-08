@@ -14,10 +14,9 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
-public class  PickupToggleBallIn extends Command {
-    private boolean m_Active = false;
+public class  PickupBallOut extends Command {
     
-    public PickupToggleBallIn() {
+    public PickupBallOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -27,17 +26,7 @@ public class  PickupToggleBallIn extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-        m_Active = Robot.pickup.getWheelSpeed() == 0.0;
-        
-        if(m_Active == false)
-        {
-            Robot.pickup.setWheelSpeed(Constants.PICKUP_IN_VOLTAGE);
-        }
-        else
-        {
-            Robot.pickup.setWheelSpeed(0.0);
-        }
+            Robot.pickup.setWheelSpeed(Constants.PICKUP_OUT_VOLTAGE);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
