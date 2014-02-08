@@ -53,6 +53,7 @@ public class SetShooterAngle extends Command
                 // Angle is currently in 0V to 3.3V
                 //angle = DriverStation::GetInstance()->GetEnhancedIO().GetAnalogIn(ANALOG_SHOOTER_ADJUST);
                 angle = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID);
+                System.out.println("Potentiometer" + angle);
             } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
                 ex.printStackTrace();
             }
@@ -60,6 +61,7 @@ public class SetShooterAngle extends Command
             angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
         } else {
             angle = m_Angle;
+            System.out.println("SetAngle: " + angle);
         }
         // ensure the range of the shooter angle
         if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE) {
@@ -72,8 +74,8 @@ public class SetShooterAngle extends Command
         // ADC   = (angle - Y_INTERCEPT) / SLOPE
         angle = (angle - Constants.SHOOTER_ANGLE_Y_INTERCEPT) / Constants.SHOOTER_ANGLE_SLOPE;
         
-        Robot.shooterAngleAdjustPID.enable();
         Robot.shooterAngleAdjustPID.setSetpoint(angle);
+        Robot.shooterAngleAdjustPID.enable();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
@@ -119,7 +121,7 @@ public class SetShooterAngle extends Command
     // subsystems is scheduled to run
     protected void interrupted()
     {
-        System.out.println("SetShooterAngle Interrupted");
+        System.out.println("SetShooterAngle Interrupted (Angle: " + m_Angle + ")");
         end();
     }
 }

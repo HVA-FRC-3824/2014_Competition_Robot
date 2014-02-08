@@ -17,6 +17,10 @@ public class Constants
     public final static int INPUT_SHOOTER_DOWN = 1; // Double toggle
     public final static int INPUT_VACUUM_TOGGLE = 4; // Toggle switch
     public final static int INPUT_CANNON_SHOOT = 11; // Button
+    public final static int INPUT_SHOOTER_ANGLE_ADJUSTMENT_MANUAL = 7; // Toggle switch
+    public final static int SHOOTER_ANGLE_TEST_HIGH = 16; // Button
+    public final static int SHOOTER_ANGLE_TEST_MID = 3; // Button
+    public final static int SHOOTER_ANGLE_TEST_LOW = 8; // Button
     
     /****** SHOOTER POSITION ******/
     // Note: The shooter angle is greater than possible to ensure the new shooter 
