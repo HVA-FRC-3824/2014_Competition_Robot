@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
@@ -26,7 +27,7 @@ public class  PickupBallOut extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-            Robot.pickup.setWheelSpeed(Constants.PICKUP_OUT_VOLTAGE);
+        Robot.pickup.getWheelPickup().set(Relay.Value.kForward);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

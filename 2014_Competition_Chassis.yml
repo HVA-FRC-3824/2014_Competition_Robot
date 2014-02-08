@@ -332,30 +332,24 @@ Children:
     Base: Subsystem
     Children:
     - Name: Wheel Pickup
-      Base: Speed Controller
+      Base: Spike
       Children: []
       Properties:
         Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id001
+          choices: &id014 ['1', '2']
           default: '1'
           name: Output Module (Digital)
-          validators: *id002
+          validators: &id015 [RelayOutput]
           value: '1'
-        Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id003
-          default: Victor
-          name: Type
-          validators: null
-          value: Talon
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
+        Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id016 ['1', '2', '3', '4', '5', '6', '7', '8']
           default: '1'
-          name: Output Channel (PWM)
-          validators: *id005
-          value: '6'
+          name: Output Channel (Relay)
+          validators: &id017 [RelayOutput]
+          value: '5'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: PickupWheelControl}
+        name: Default Command, type: Command, validators: null, value: None}
   - Name: Shooter Angle Adjust PID
     Base: PID Subsystem
     Children:
@@ -444,16 +438,16 @@ Children:
       Children: []
       Properties:
         Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id014 ['1', '2']
+          choices: *id014
           default: '1'
           name: Output Module (Digital)
-          validators: &id015 [RelayOutput]
+          validators: *id015
           value: '1'
         Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id016 ['1', '2', '3', '4', '5', '6', '7', '8']
+          choices: *id016
           default: '1'
           name: Output Channel (Relay)
-          validators: &id017 [RelayOutput]
+          validators: *id017
           value: '2'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -956,22 +950,6 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: PickupBallStop
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Pickup}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: PickupWheelControl
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Pickup}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: Set Pickup Wheel Speed
     Base: Command
     Children: []
     Properties:
