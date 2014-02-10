@@ -71,7 +71,7 @@ public class SetShooterAngle extends Command
         }
         // Convert the requested angle into a voltage in the range 0-5V
         //  The voltage is what the PID requires.
-        angle = ((angle - 10.0) / 40.0) * 5.0;
+        angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
         
         Robot.shooterAngleAdjustPID.setSetpoint(angle);
         Robot.shooterAngleAdjustPID.enable();
@@ -97,7 +97,7 @@ public class SetShooterAngle extends Command
 		
         // Convert the requested angle into a voltage in the range 0-5V
         //  The voltage is what the PID requires.
-               angle = ((angle - 10.0) / 40.0) * 5.0;
+               angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
 		   
 		// Set the setpoint in ADC
                 Robot.shooterAngleAdjustPID.setSetpoint(angle);
@@ -109,7 +109,8 @@ public class SetShooterAngle extends Command
     protected boolean isFinished()
     {
         // determine if the shooter angle is within the desired range
-        return Math.abs(Robot.shooterAngleAdjustPID.getSetpoint() - Robot.shooterAngleAdjustPID.getPosition()) < 0.1;
+        // TODO - set threshold to accurate value!!
+        return Math.abs(Robot.shooterAngleAdjustPID.getSetpoint() - Robot.shooterAngleAdjustPID.getPosition()) < 0.02;
     }
     // Called once after isFinished returns true
     protected void end()

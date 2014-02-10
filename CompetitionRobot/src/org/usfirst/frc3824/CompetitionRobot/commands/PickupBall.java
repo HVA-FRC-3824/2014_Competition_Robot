@@ -33,7 +33,7 @@ public class  PickupBall extends Command {
         timer.reset();
         timer.start();
         
-        Robot.pickup.setWheelSpeed(0.5);
+        Robot.pickup.getWheelPickup().set(Relay.Value.kForward);
         Robot.vacuum.getVacuum().set(Relay.Value.kOn);
     }
     // Called repeatedly when this Command is scheduled to run
@@ -45,8 +45,7 @@ public class  PickupBall extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
-        Robot.pickup.setWheelSpeed(0);
-        Robot.vacuum.getVacuum().set(Relay.Value.kOff);
+        Robot.pickup.getWheelPickup().set(Relay.Value.kOff);        Robot.vacuum.getVacuum().set(Relay.Value.kOff);
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
