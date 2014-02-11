@@ -117,7 +117,8 @@ public class Robot extends IterativeRobot
     public void teleopPeriodic()
     {
         // Print out sensor information
-        SmartDashboard.putNumber("Shooter Angle", Robot.shooterAngleAdjustPID.getPotentiometer().pidGet());
+        SmartDashboard.putNumber("Shooter Angle (ADC)", Robot.shooterAngleAdjustPID.getPotentiometer().pidGet());
+        SmartDashboard.putNumber("Shooter Angle (Degrees)", (0.0387*Robot.shooterAngleAdjustPID.getPotentiometer().pidGet()) + 11.916);
         SmartDashboard.putNumber("Gyro", Robot.drivetrain.getGyroValue());
         Scheduler.getInstance().run();
     }
