@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3824.CompetitionRobot.commands;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 
@@ -19,6 +20,7 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  */
 public class  AuxilaryRightVacuumToggle extends Command {
 
+    boolean m_active = true;
     public AuxilaryRightVacuumToggle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -29,6 +31,14 @@ public class  AuxilaryRightVacuumToggle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        if(m_active == true)
+        {
+            Robot.auxiliaryRight.getVacuum().set(Relay.Value.kOff);
+        }
+        else
+        {
+            Robot.auxiliaryRight.getVacuum().set(Relay.Value.kForward);
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,7 +47,7 @@ public class  AuxilaryRightVacuumToggle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

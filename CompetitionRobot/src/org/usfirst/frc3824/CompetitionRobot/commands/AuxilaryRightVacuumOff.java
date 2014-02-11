@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3824.CompetitionRobot.commands;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 
@@ -29,6 +30,7 @@ public class  AuxilaryRightVacuumOff extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        Robot.auxiliaryRight.getVacuum().set(Relay.Value.kOff);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,7 +39,7 @@ public class  AuxilaryRightVacuumOff extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
