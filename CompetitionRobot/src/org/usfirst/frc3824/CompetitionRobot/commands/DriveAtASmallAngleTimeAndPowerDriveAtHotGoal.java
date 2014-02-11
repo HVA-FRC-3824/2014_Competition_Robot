@@ -20,11 +20,8 @@ public class DriveAtASmallAngleTimeAndPowerDriveAtHotGoal extends CommandGroup
 
     public DriveAtASmallAngleTimeAndPowerDriveAtHotGoal()
     {
-        Timer timer = new Timer();
-        timer.reset();
-        timer.start();
-        timer.stop();
-        addSequential(new DriveStraight(3.0, 0.3, 45.0));
+        addSequential(new LocateHotGoal());
+        //addSequential(new DriveStraight(3.0, 0.3, 45.0));
 
         //addSequential(new LocateHotGoal());
         /*if(The left goal is hot){

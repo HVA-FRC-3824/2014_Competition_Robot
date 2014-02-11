@@ -32,4 +32,35 @@ public class AuxiliaryRight extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public Solenoid getShootSolenoid1()
+    {
+        return rightShootSolenoid1;
+    }
+    
+    public Solenoid getShootSolenoid2()
+    {
+        return rightShootSolenoid2;
+    }
+    
+    public Solenoid getVerticalAdjustSolenoid()
+    {
+        return rightVerticalAdjust;
+    }
+    
+    public Relay getVacuum()
+    {
+        return rightVacuum;
+    }
+    
+    public void setShootSolenoids(boolean on)
+    {
+        rightShootSolenoid1.set(on);
+        rightShootSolenoid2.set(on);
+    }
+    
+    public void setVerticalAdjustSolenoid(boolean up)
+    {
+        rightVerticalAdjust.set(up);
+    }
 }
