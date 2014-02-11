@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Robot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/CannonShoot.java</file>
-            <file>file:/C:/Users/FIRST/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/SetShooterAngle.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Constants.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/RobotMap.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousCommand.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Vacuum.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxilaryLeftToggle.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Pickup.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/AuxiliaryLeft.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/ShooterAngleAdjust.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Shooter.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxilaryRightToggle.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousCommandGroup.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/AuxiliaryRight.java</file>
+            <file>file:/C:/Users/Kyle/Documents/GitHub/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Robot.java</file>
         </group>
     </open-files>
 </project-private>

@@ -14,6 +14,8 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  AuxilaryRightToggle extends Command {
+    
+    boolean m_active = true;
     public AuxilaryRightToggle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -23,6 +25,17 @@ public class  AuxilaryRightToggle extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        
+        if(m_active == true)
+        {
+            Robot.auxiliaryRight.setVerticalAdjustSolenoid(false);
+        }
+        else
+        {
+            Robot.auxiliaryRight.setVerticalAdjustSolenoid(true);
+        }
+        
+        m_active = !m_active;
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
