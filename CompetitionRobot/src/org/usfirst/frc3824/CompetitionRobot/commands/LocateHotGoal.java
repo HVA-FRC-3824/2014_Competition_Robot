@@ -81,6 +81,14 @@ public class LocateHotGoal extends Command
         public static final int RIGHT = 2;
     }
     
+    public class TargetInfo
+    {
+        public int hotTarget;                  // HOT TARGET: TargetSide.LEFT, TargetSide.RIGHT or NO HOT TARGET: TargetSide.NONE
+        public double targetDistance;          // Distance to the Target (whether HOT or NOT)
+        public double lastDistanceFoundAtTime; // time in seconds with uSec resolution since distance was last set
+    }
+    
+    protected TargetInfo lastTarget;
     // SendableChooser testImageChooser;
     
     public LocateHotGoal()
@@ -238,14 +246,15 @@ public class LocateHotGoal extends Command
                     //To get measurement information such as sizes or locations use the
                     //horizontal or vertical index to get the particle report as shown below
                     ParticleAnalysisReport distanceReport = filteredImage.getParticleAnalysisReport(target.verticalIndex);
-                    double distance = computeDistance(filteredImage, distanceReport, target.verticalIndex);
+                    lastTarget.targetDistance = computeDistance(filteredImage, distanceReport, target.verticalIndex);
                     if (target.Hot) {
-                        System.out.println("Hot target FOUND, distanct to target: " + distance);
-                        if(targetWhichSide(target) == TargetSide.LEFT)
+                        lastTarget.hotTarget = targetWhichSide(target);
+                        System.out.println("Hot target FOUND, distanct to target: " + lastTarget.targetDistance);
+                        if(TargetSide.LEFT == lastTarget.hotTarget)
                         {
                             SmartDashboard.putString("ImageProcessStatus", "HOT Target LEFT");
                         }
-                        else if(targetWhichSide(target) == TargetSide.RIGHT)
+                        else if(TargetSide.RIGHT == lastTarget.hotTarget)
                         {
                             SmartDashboard.putString("ImageProcessStatus", "HOT Target RIGHT");
                         }
@@ -255,9 +264,15 @@ public class LocateHotGoal extends Command
                         }
 
                     } else {
-                        System.out.println("Hot target NOT FOUND, distance to target: " + distance);
+                        lastTarget.hotTarget = TargetSide.NONE;
+                        System.out.println("Hot target NOT FOUND, distance to target: " + lastTarget.targetDistance);
                         SmartDashboard.putString("ImageProcessStatus", "HOT NOT FOUND");
                     }
+                    lastTarget.lastDistanceFoundAtTime = Timer.getFPGATimestamp();
+                }
+                else
+                {
+                   lastTarget.hotTarget = TargetSide.NONE;
                 }
             }
 
@@ -444,4 +459,22 @@ public class LocateHotGoal extends Command
         return ts;
     }
 
+    /**
+     * Provide information about the last object seen
+     * possible cases are:
+     *  - HOT TARGET seen on LEFT (also updates distance and time)
+     *  - HOT TARGET seen on RIGHT (also updates distance and time)
+     *  - NO HOT TARGET, but a TARGET WAS SEEN (update distance and time)
+     *  - NO OBJECTS SEEN at all (distance and time are NOT updated)
+     * 
+     * TargetInfo.hotTarget - TargetSide.LEFT, TargetSide.RIGHT, TargetSide.NONE
+     * TargetInfo.targetDistance - distance to last seen target
+     * TargetInfo.lastDistanceFoundAtTime - time when the distance was last set
+     * 
+     * Returns a TargetInfo object that is a member of TargetSide object
+     */
+    public TargetInfo getTarget()
+    {
+        return lastTarget;
+    }
 }
