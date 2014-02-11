@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 package org.usfirst.frc3824.CompetitionRobot;
-import org.usfirst.frc3824.CompetitionRobot.subsystems.ShooterAngleAdjust;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.Shooter;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.Drivetrain;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.Pump;
@@ -41,7 +40,6 @@ public class Robot extends IterativeRobot
     public static Drivetrain drivetrain;
     public static Shooter shooter;
     public static Pump pump;
-    public static ShooterAngleAdjust shooterAngleAdjust;
     public static Pickup pickup;
     public static ShooterAngleAdjustPID shooterAngleAdjustPID;;
     public static Vacuum vacuum;
@@ -62,7 +60,6 @@ public class Robot extends IterativeRobot
         drivetrain = new Drivetrain();
         shooter = new Shooter();
         pump = new Pump();
-        shooterAngleAdjust = new ShooterAngleAdjust();
         pickup = new Pickup();
         shooterAngleAdjustPID = new ShooterAngleAdjustPID();
         vacuum = new Vacuum();
