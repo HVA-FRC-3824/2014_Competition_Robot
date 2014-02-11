@@ -54,6 +54,11 @@ public class AuxiliaryLeft extends Subsystem {
         return leftVacuum;
     }
     
+    public SpeedController getAuxilaryMotor()
+    {
+        return leftAuxilaryMotor;
+    }
+    
     public void setShootSolenoids(boolean on)
     {
         leftShootSolenoid1.set(on);
@@ -64,5 +69,7 @@ public class AuxiliaryLeft extends Subsystem {
     {
         leftVerticalAdjust.set(up);
     }
+    
+    
     
 }

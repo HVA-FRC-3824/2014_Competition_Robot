@@ -54,6 +54,11 @@ public class AuxiliaryRight extends Subsystem {
         return rightVacuum;
     }
     
+    public SpeedController getAuxilaryMotor()
+    {
+        return rightAuxilaryMotor;
+    }
+    
     public void setShootSolenoids(boolean on)
     {
         rightShootSolenoid1.set(on);
