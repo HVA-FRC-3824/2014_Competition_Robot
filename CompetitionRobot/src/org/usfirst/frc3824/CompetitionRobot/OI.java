@@ -112,7 +112,7 @@ public class OI
 	m_shooterAngleTestHigh.whenPressed(new SetShooterAngle(40.0));
         */
         DigitalIOButton m_shooterAnglePickup = new DigitalIOButton(Constants.SHOOTER_ANGLE_PICKUP);
-	m_shooterAnglePickup.whenPressed(new SetShooterAngle(7.9));
+	m_shooterAnglePickup.whenPressed(new SetShooterAngle(10.2));
         DigitalIOButton m_shooterAnglePass = new DigitalIOButton(Constants.SHOOTER_ANGLE_PASS);
 	m_shooterAnglePass.whenPressed(new SetShooterAngle(19.0));
         DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_SHOOT);
