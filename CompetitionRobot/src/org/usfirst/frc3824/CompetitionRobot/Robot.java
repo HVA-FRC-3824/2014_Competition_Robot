@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoLeftBoxfromCenter;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoRightBoxfromCenter;
-import org.usfirst.frc3824.CompetitionRobot.commands.DriveAtASmallAngleTimeAndPowerDriveAtHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.AuxiliaryLeft;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.AuxiliaryRight;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.ShooterAngleAdjustPID;
