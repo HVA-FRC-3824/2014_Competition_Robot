@@ -81,6 +81,7 @@ public class SetShooterAngle extends Command
         // process it (range limit) and covert to a voltage for the PID
         // then set the PID
         Robot.shooterAngleAdjustPID.setSetpoint(output_ConvertAngleToVolts(output_limitAngle(angle)));
+
         Robot.shooterAngleAdjustPID.enable();
     }
 
@@ -99,6 +100,7 @@ public class SetShooterAngle extends Command
             {
                 ex.printStackTrace();
             }
+
             // Convert the Voltage from the Driver's Station input into Degrees
             angle = input_ConvertVoltsToAngle(inputVoltage);
 
@@ -107,6 +109,7 @@ public class SetShooterAngle extends Command
             // then set the PID
             Robot.shooterAngleAdjustPID.setSetpoint(output_ConvertAngleToVolts(output_limitAngle(angle)));
         }
+
         SmartDashboard.putNumber("ShooterTarget", Robot.shooterAngleAdjustPID.getSetpoint());
         SmartDashboard.putNumber("ShooterPosition", Robot.shooterAngleAdjustPID.getPosition());
     }

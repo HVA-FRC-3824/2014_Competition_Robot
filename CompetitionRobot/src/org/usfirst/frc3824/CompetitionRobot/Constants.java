@@ -20,6 +20,8 @@ public class Constants
     public final static int SHOOTER_ANGLE_SHOOT = 16; // Button
     public final static int SHOOTER_ANGLE_PASS = 3; // Button
     public final static int SHOOTER_ANGLE_PICKUP = 8; // Button
+    public final static int SHOOTER_ANGLE_CORNER = 14; // Button
+    public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
 
     // SHOOTER POSITION
     public final static double SHOOTER_ANGLE_MAX_VALUE = 50.0;    // 850.0  - 45.848

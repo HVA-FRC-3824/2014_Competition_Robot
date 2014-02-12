@@ -74,7 +74,7 @@ public class OI
 	m_shooterAnglePass.whenPressed(new SetShooterAngle(Constants.SHOOTER_ANGLE_PASS_ANGLE));
         DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_SHOOT);
 	m_shooterAngleShoot.whenPressed(new SetShooterAngle(Constants.SHOOTER_ANGLE_SHOOT_HIGH));
-        
+      
         DigitalIOButton m_pickupIn = new DigitalIOButton(Constants.INPUT_PICKUP_IN);
         m_pickupIn.whileHeld(new PickupBallIn());
         m_pickupIn.whenReleased(new PickupBallStop());
