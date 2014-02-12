@@ -50,27 +50,30 @@ public class SetShooterAngle extends Command
     {
         // determine if the shooter angle should be pulled from the SmartDashboard
         if (angleSpecifiedInConstructor == false) {
-            //--- Must read the potentiometer from the SmartDashboard
-            double inputVoltage = 0;
             try {
-                // This is coming from the DRIVERS STATION/SmartDashboard, NOT from the robot
-                //  The analog reading will be in the range of 0V to 3.3V
-                 inputVoltage = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID);
+                // Angle is currently in 0V to 3.3V
+                //angle = DriverStation::GetInstance()->GetEnhancedIO().GetAnalogIn(ANALOG_SHOOTER_ADJUST);
+                angle = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID);
             } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
                 ex.printStackTrace();
             }
-     
             // Convert the Voltage to Degrees
-            angle = input_ConvertVoltsToAngle(inputVoltage);
+            angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
         } else {
-            //--- Angle was specified in the constructor
             angle = m_Angle;
         }
+        // ensure the range of the shooter angle
+        if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE) {
+            angle = Constants.SHOOTER_ANGLE_MAX_VALUE;
+        }
+        if (angle < Constants.SHOOTER_ANGLE_MIN_VALUE) {
+            angle = Constants.SHOOTER_ANGLE_MIN_VALUE;
+        }
+        // Convert the requested angle into a voltage in the range 0-5V
+        //  The voltage is what the PID requires.
+        angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
         
-        //--- We now have the angle we want in degrees
-        // process it (range limit) and covert to a voltage for the PID
-        // then set the PID
-        Robot.shooterAngleAdjustPID.setSetpoint(output_ConvertAngleToVolts(output_limitAngle(angle)));
+        Robot.shooterAngleAdjustPID.setSetpoint(angle);
         Robot.shooterAngleAdjustPID.enable();
     }
     // Called repeatedly when this Command is scheduled to run
@@ -78,22 +81,27 @@ public class SetShooterAngle extends Command
     {
         if(angleSpecifiedInConstructor == false)
 	{
-            double inputVoltage = 0;
             try {
                 // Angle is currently in 0V to 3.3V
                 angle = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID);
             } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
                 ex.printStackTrace();
             }
-
-            // Convert the Voltage from the Driver's Station input into Degrees
-            angle = input_ConvertVoltsToAngle(inputVoltage);
- 		
-            //--- We now have the angle we want in degrees
-            // process it (range limit) and covert to a voltage for the PID
-            // then set the PID
-            Robot.shooterAngleAdjustPID.setSetpoint(output_ConvertAngleToVolts(output_limitAngle(angle)));
- 	}
+		// Convert the Voltage to Degrees
+		angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE)/3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
+		
+		if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE)
+			angle = Constants.SHOOTER_ANGLE_MAX_VALUE;
+		if (angle < Constants.SHOOTER_ANGLE_MIN_VALUE)
+			angle = Constants.SHOOTER_ANGLE_MIN_VALUE;
+		
+        // Convert the requested angle into a voltage in the range 0-5V
+        //  The voltage is what the PID requires.
+               angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
+		   
+		// Set the setpoint in ADC
+                Robot.shooterAngleAdjustPID.setSetpoint(angle);
+	}
         SmartDashboard.putNumber("ShooterTarget", Robot.shooterAngleAdjustPID.getSetpoint());
         SmartDashboard.putNumber("ShooterPosition", Robot.shooterAngleAdjustPID.getPosition());
     }
@@ -115,42 +123,5 @@ public class SetShooterAngle extends Command
     {
         System.out.println("SetShooterAngle - Interrupted");
         end();
-    }
-    
-    protected double output_ConvertVoltsToAngle(double volts)
-    {
-        return volts;
-    }
-    
-    // Convert the requested angle into a voltage in the range 0-5V
-    //  The voltage is what the PID requires.
-    //  The input ANGLE is the actual angle of the shooter head
-    protected double output_ConvertAngleToVolts(double angle)
-    {
-        double volts;
-        volts = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
-
-        return volts;
-    }
-    
-    protected double output_limitAngle(double angle)
-    {
-       // ensure the range of the shooter angle
-        if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE) {
-            angle = Constants.SHOOTER_ANGLE_MAX_VALUE;
-        }
-        if (angle < Constants.SHOOTER_ANGLE_MIN_VALUE) {
-            angle = Constants.SHOOTER_ANGLE_MIN_VALUE;
-        }
-  
-        return angle;
-    }
-    // Convert the voltage fromt the input into a degrees for the shooter
-    protected double input_ConvertVoltsToAngle(double volts)
-    {
-        double angle;
-        angle = volts * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
-        
-        return angle;
     }
 }
