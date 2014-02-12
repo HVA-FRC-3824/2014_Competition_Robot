@@ -104,11 +104,17 @@ public class OI
 	m_shooterAngleTestHigh.whenPressed(new SetShooterAngle(25.0));
         */
         DigitalIOButton m_shooterAnglePickup = new DigitalIOButton(Constants.SHOOTER_ANGLE_PICKUP);
-	m_shooterAnglePickup.whenPressed(new SetShooterAngle(10.2));
+	m_shooterAnglePickup.whenPressed(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
         DigitalIOButton m_shooterAnglePass = new DigitalIOButton(Constants.SHOOTER_ANGLE_PASS);
-	m_shooterAnglePass.whenPressed(new SetShooterAngle(19));
+	m_shooterAnglePass.whenPressed(new SetShooterAngle(Constants.SHOOTER_PASS_POSITION));
         DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_SHOOT);
-	m_shooterAngleShoot.whenPressed(new SetShooterAngle(28));
+	m_shooterAngleShoot.whenPressed(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
+        
+        DigitalIOButton m_shooterAngleCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_CORNER);
+	m_shooterAngleCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_CORNER_POSITION));
+        DigitalIOButton m_shooterAngleAngledCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_ANGLED_CORNER);
+	m_shooterAngleAngledCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_ANGLED_CORNER_POSITION));
+        
         
         DigitalIOButton m_pickupIn = new DigitalIOButton(Constants.INPUT_PICKUP_IN);
         m_pickupIn.whileHeld(new PickupBallIn());

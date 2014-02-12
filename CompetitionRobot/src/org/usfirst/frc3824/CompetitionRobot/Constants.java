@@ -6,9 +6,9 @@ package org.usfirst.frc3824.CompetitionRobot;
 public class Constants {
     /* Contants which might require tuning */
 
-    public final static double DrivetrainAngleGyroControllerP = 0.1;
-    public final static double DrivetrainAngleGyroControllerI = 0.01;
-    public final static double DrivetrainAngleGyroControllerD = 0.001;
+    public final static double DrivetrainAngleGyroControllerP = 0.04;
+    public final static double DrivetrainAngleGyroControllerI = 0.004;
+    public final static double DrivetrainAngleGyroControllerD = 0.04;
 
     // Cypress IO defines
     public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // Pot input channel
@@ -20,6 +20,8 @@ public class Constants {
     public final static int SHOOTER_ANGLE_SHOOT = 16; // Button
     public final static int SHOOTER_ANGLE_PASS = 3; // Button
     public final static int SHOOTER_ANGLE_PICKUP = 8; // Button
+    public final static int SHOOTER_ANGLE_CORNER = 14; // Button
+    public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
 
     /**
      * **** SHOOTER POSITION *****
@@ -29,4 +31,10 @@ public class Constants {
     //       recalibrated)
     public final static double SHOOTER_ANGLE_MAX_VALUE = 50.0;    // 850.0  - 45.848
     public final static double SHOOTER_ANGLE_MIN_VALUE = 10.0;    //   0.0  - 17.203
+    
+    public final static double SHOOTER_PICKUP_POSITION = 10.2;
+    public final static double SHOOTER_PASS_POSITION = 18.379;
+    public final static double SHOOTER_LONG_SHOT_POSITION = 34.942;
+    public final static double SHOOTER_CORNER_POSITION = 37.071;
+    public final static double SHOOTER_ANGLED_CORNER_POSITION = 38.232;
 }

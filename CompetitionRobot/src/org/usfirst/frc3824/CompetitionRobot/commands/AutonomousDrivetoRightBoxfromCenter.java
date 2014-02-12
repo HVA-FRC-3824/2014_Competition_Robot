@@ -23,7 +23,7 @@ public class AutonomousDrivetoRightBoxfromCenter extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addSequential(new ChassisDriveStraight(3.0, 0.25, 45.0));
+        addSequential(new ChassisDriveStraight(3.0, 0.5, 45.0));
         addSequential(new WaitCommand(1.0));
         addSequential(new CannonShoot());
         
