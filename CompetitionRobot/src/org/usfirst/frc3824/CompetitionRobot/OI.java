@@ -72,6 +72,7 @@ public class OI
 	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        SmartDashboard.putData("Autonomous Drive to Not Hot Goal", new AutonomousDrivetoNotHotGoal());
         SmartDashboard.putData("Autonomous Drive to Right Box from Center", new AutonomousDrivetoRightBoxfromCenter());
         SmartDashboard.putData("Autonomous Drive to Left Box from Center", new AutonomousDrivetoLeftBoxfromCenter());
         SmartDashboard.putData("Cannon Shoot", new CannonShoot());
