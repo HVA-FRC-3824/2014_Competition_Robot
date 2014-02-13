@@ -85,7 +85,6 @@ public class SetShooterAngle extends Command
             } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
                 ex.printStackTrace();
             }
-
             // Convert the Voltage from the Driver's Station input into Degrees
             angle = input_ConvertVoltsToAngle(inputVoltage);
  		
@@ -125,11 +124,36 @@ public class SetShooterAngle extends Command
     // Convert the requested angle into a voltage in the range 0-5V
     //  The voltage is what the PID requires.
     //  The input ANGLE is the actual angle of the shooter head
+    //      0 is horizontal
+    //      -angle is below horizontal
+    //      +angle is above horizontal
     protected double output_ConvertAngleToVolts(double angle)
     {
         double volts;
-        volts = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
-
+        
+        //----
+        // First, convert the angle to the requested length of the linear actuator
+        //  - use law of cosines
+        
+        // convert from horizon relative to vertical relative
+        angle += 90;
+        
+        // subtract the offset due to the mounting
+        angle -= Constants.SHOOTER_MOUNTING_OFFSET_ANGLE;    // 25 deg
+        
+        // law of cosines:
+        //  a = sqrt(b^2 + h^2 - 2bhCos(theta))
+        //  a -- actuation length
+        //  b -- length from pivot to actuator connection point
+        //  h -- height from pivot to base
+        //  theta is our requested angle
+        
+        double a = Math.sqrt(Constants.SHOOTER_B_SQUARE_PLUS_H_SQUARE - Constants.SHOOTER_TWO_B_H * Math.cos(Math.toRadians(angle)));
+        
+        // convert full length 'a' to the variable length
+        a -= Constants.SHOOTER_ACTUATOR_MIN_LENGTH;
+        
+        volts = (a / (Constants.SHOOTER_ACTUATOR_MAX_LENGTH - Constants.SHOOTER_ACTUATOR_MIN_LENGTH)) * 5.0;
         return volts;
     }
     

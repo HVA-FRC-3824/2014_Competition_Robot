@@ -27,6 +27,26 @@ public class Constants {
     // Note: The shooter angle is greater than possible to ensure the new shooter 
     //       can move the full range (after the slope and y-intercept have been 
     //       recalibrated)
-    public final static double SHOOTER_ANGLE_MAX_VALUE = 50.0;    // 850.0  - 45.848
-    public final static double SHOOTER_ANGLE_MIN_VALUE = 10.0;    //   0.0  - 17.203
+    public final static double SHOOTER_ANGLE_MAX_VALUE = 100.0;    // 850.0  - 45.848
+    public final static double SHOOTER_ANGLE_MIN_VALUE = -20.0;    //   0.0  - 17.203
+    
+    // law of cosines:
+    //  a = sqrt(b^2 + h^2 - 2bhCos(theta))
+    //  a -- 35.6cm - 55.9cm    actuation length
+    //  b -- 11.4cm             length from pivot to actuator connection point
+    //  h -- 47.6cm             height from pivot to base
+    //  psi is our requested angle
+    //  phi is offset angle (constant)
+    //  theta is the acutal calculated angle
+    // Angle from shooter head to shooter pivot to shooter/linear actuator mount
+    private final static double b = 11.4;
+    private final static double h = 47.6;
+    private final static double a_min = 35.6;
+    private final static double a_max = 55.9;
+    
+    public final static double SHOOTER_MOUNTING_OFFSET_ANGLE = 25.0;    
+    public final static double SHOOTER_B_SQUARE_PLUS_H_SQUARE = ((b*b) + (h*h));
+    public final static double SHOOTER_TWO_B_H = (2*b*h);
+    public final static double SHOOTER_ACTUATOR_MIN_LENGTH = a_min;
+    public final static double SHOOTER_ACTUATOR_MAX_LENGTH = a_max;
 }
