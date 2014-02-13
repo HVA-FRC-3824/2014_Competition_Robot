@@ -35,6 +35,7 @@ public class RobotMap
     public static AnalogChannel shooterAngleAdjustPIDShooterAnglePID;
     public static SpeedController shooterAngleAdjustPIDAngleMotorPID;
     public static Relay vacuumVacuum;
+    public static Solenoid auxiliaryLeftLeftVerticalAdjust;
     public static Solenoid auxiliaryLeftLeftShootSolenoid;
     public static Relay auxiliaryLeftLeftVacuum;
     public static SpeedController auxiliaryLeftLeftShooterAdjust;
@@ -99,6 +100,8 @@ public class RobotMap
         vacuumVacuum = new Relay(1, 2);
 	LiveWindow.addActuator("Vacuum", "Vacuum", vacuumVacuum);
         
+        auxiliaryLeftLeftVerticalAdjust = new Solenoid(1, 7);
+	LiveWindow.addActuator("Auxiliary Left", "Left Vertical Adjust", auxiliaryLeftLeftVerticalAdjust);
         auxiliaryLeftLeftShootSolenoid = new Solenoid(1, 5);
 	LiveWindow.addActuator("Auxiliary Left", "Left Shoot Solenoid", auxiliaryLeftLeftShootSolenoid);
         
@@ -108,6 +111,8 @@ public class RobotMap
         auxiliaryLeftLeftShooterAdjust = new Talon(1, 6);
 	LiveWindow.addActuator("Auxiliary Left", "Left Shooter Adjust", (Talon) auxiliaryLeftLeftShooterAdjust);
         
+        auxiliaryRightRightVerticalAdjust = new Solenoid(2, 2);
+	LiveWindow.addActuator("Auxiliary Right", "Right Vertical Adjust", auxiliaryRightRightVerticalAdjust);
         auxiliaryRightRightShootSolenoid = new Solenoid(1, 8);
 	LiveWindow.addActuator("Auxiliary Right", "Right Shoot Solenoid", auxiliaryRightRightShootSolenoid);
         
