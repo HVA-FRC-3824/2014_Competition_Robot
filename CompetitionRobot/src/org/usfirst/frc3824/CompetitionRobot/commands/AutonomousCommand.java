@@ -34,29 +34,34 @@ public class AutonomousCommand extends Command
         DriveDirection = 0;
         time = new Timer();
     }
+    
     // Called just before this Command runs the first time
     protected void initialize()
     {
         time.reset();
         time.start();
     }
+    
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
         Robot.drivetrain.straightHolonomicDrive(0, -0.3, 0);
     }
+    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
         SmartDashboard.putNumber("Time", time.get());
         return time.get() > DriveDuration;
     }
+    
     // Called once after isFinished returns true
     protected void end()
     {
         Robot.drivetrain.holonomicDrive(0, 0, 0);
         time.stop();
     }
+    
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted()
