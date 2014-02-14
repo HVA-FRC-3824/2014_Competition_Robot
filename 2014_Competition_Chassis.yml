@@ -411,7 +411,7 @@ Children:
   - Name: Auxiliary Left
     Base: Subsystem
     Children:
-    - Name: Left Shoot Solenoid
+    - Name: Left Shoot Solenoid 1
       Base: Solenoid
       Children: []
       Properties:
@@ -427,7 +427,7 @@ Children:
           name: Output Channel (Solenoid)
           validators: *id009
           value: '5'
-    - Name: Left Vertical Adjust
+    - Name: Left Shoot Solenoid 2
       Base: Solenoid
       Children: []
       Properties:
@@ -442,7 +442,23 @@ Children:
           default: '1'
           name: Output Channel (Solenoid)
           validators: *id009
-          value: '7'
+          value: '6'
+    - Name: Left Vertical Adjust
+      Base: Solenoid
+      Children: []
+      Properties:
+        Output Module (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '1'
+          name: Output Module (Solenoid)
+          validators: *id007
+          value: '2'
+        Output Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id008
+          default: '1'
+          name: Output Channel (Solenoid)
+          validators: *id009
+          value: '1'
     - Name: Left Vacuum
       Base: Spike
       Children: []
@@ -487,7 +503,23 @@ Children:
   - Name: Auxiliary Right
     Base: Subsystem
     Children:
-    - Name: Right Shoot Solenoid
+    - Name: Right Shoot Solenoid 1
+      Base: Solenoid
+      Children: []
+      Properties:
+        Output Module (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '1'
+          name: Output Module (Solenoid)
+          validators: *id007
+          value: '1'
+        Output Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id008
+          default: '1'
+          name: Output Channel (Solenoid)
+          validators: *id009
+          value: '7'
+    - Name: Right Shoot Solenoid 2
       Base: Solenoid
       Children: []
       Properties:
@@ -882,6 +914,6 @@ Properties:
     validators: null, value: 3824}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
-  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\YoungAsus\NetBeansProjects',
+  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\FIRST\NetBeansProjects',
     extension: null, folder: true, name: Java Project Directory, validators: null,
     value: .\}
