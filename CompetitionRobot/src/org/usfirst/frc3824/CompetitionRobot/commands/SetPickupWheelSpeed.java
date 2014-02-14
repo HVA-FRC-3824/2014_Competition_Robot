@@ -8,16 +8,17 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
-import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStationEnhancedIO;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
-public class  PickupBallIn extends Command {
-    
-    public PickupBallIn() {
+public class  SetPickupWheelSpeed extends Command {
+    private static double m_voltage = 0;
+    public SetPickupWheelSpeed() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -27,10 +28,10 @@ public class  PickupBallIn extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.pickup.getWheelPickup().set(Relay.Value.kReverse);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
