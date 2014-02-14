@@ -22,6 +22,7 @@ public class Constants {
     public final static int SHOOTER_ANGLE_PICKUP = 8; // Button
     public final static int SHOOTER_ANGLE_CORNER = 14; // Button
     public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
+    public final static int SHOOTER_ANGLE_START = 13; // Button
 
     /**
      * **** SHOOTER POSITION *****
@@ -32,9 +33,10 @@ public class Constants {
     public final static double SHOOTER_ANGLE_MAX_VALUE = 50.0;    // 850.0  - 45.848
     public final static double SHOOTER_ANGLE_MIN_VALUE = 10.0;    //   0.0  - 17.203
     
-    public final static double SHOOTER_PICKUP_POSITION = 10.2;
+    public final static double SHOOTER_PICKUP_POSITION = 13.5;
     public final static double SHOOTER_PASS_POSITION = 18.379;
-    public final static double SHOOTER_LONG_SHOT_POSITION = 34.942;
+    public final static double SHOOTER_LONG_SHOT_POSITION = 36.1;
     public final static double SHOOTER_CORNER_POSITION = 37.071;
     public final static double SHOOTER_ANGLED_CORNER_POSITION = 38.232;
+    public final static double SHOOTER_START_POSITION = 45;
 }

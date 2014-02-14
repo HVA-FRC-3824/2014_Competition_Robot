@@ -12,6 +12,7 @@
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 
 /**
  *
@@ -23,9 +24,11 @@ public class AutonomousDrivetoRightBoxfromCenter extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addSequential(new ChassisDriveStraight(3.0, 0.5, 45.0));
-        addSequential(new WaitCommand(1.0));
+        addSequential(new VacuumOn());
+        addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
+        addSequential(new ChassisDriveStraight(1.6, 0.5, 45.0));
         addSequential(new CannonShoot());
+        addSequential(new VacuumOff());
         
         // To run multiple commands at the same time,
         // use addParallel()

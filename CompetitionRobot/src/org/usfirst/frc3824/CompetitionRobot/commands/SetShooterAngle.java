@@ -104,6 +104,10 @@ public class SetShooterAngle extends Command
 	}
         SmartDashboard.putNumber("ShooterTarget", Robot.shooterAngleAdjustPID.getSetpoint());
         SmartDashboard.putNumber("ShooterPosition", Robot.shooterAngleAdjustPID.getPosition());
+        try {
+            SmartDashboard.putNumber("Pot Value", DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID));
+        } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
