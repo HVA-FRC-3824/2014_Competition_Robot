@@ -49,7 +49,6 @@ public class ChassisDriveStraight extends Command
         Robot.drivetrain.getAngleGyroController().setSetpoint(Robot.drivetrain.getGyroValue());
         Robot.drivetrain.setDirection(driveDirection);
         Robot.drivetrain.setMagnitude(drivePower);
-        Robot.drivetrain.getAngleGyroController().reset();
         Robot.drivetrain.getAngleGyroController().enable();
         timer.reset();
         timer.start();
