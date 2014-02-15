@@ -105,7 +105,7 @@ public class RobotMap
         auxiliaryLeftShootSolenoid2 = new Solenoid(1, 6);
 	LiveWindow.addActuator("Auxiliary Left", "Shoot Solenoid 2", auxiliaryLeftShootSolenoid2);
         
-        auxiliaryLeftVerticalAdjust = new Solenoid(2, 1);
+        auxiliaryLeftVerticalAdjust = new Solenoid(1, 7);
 	LiveWindow.addActuator("Auxiliary Left", "Vertical Adjust", auxiliaryLeftVerticalAdjust);
         
         auxiliaryLeftVacuum = new Relay(1, 3);

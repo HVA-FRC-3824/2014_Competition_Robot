@@ -92,6 +92,7 @@ public class Robot extends IterativeRobot
       // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser); 
         
+        /*
         AxisCamera primeImageStream = AxisCamera.getInstance();
         ColorImage image;
         do{
@@ -110,6 +111,7 @@ public class Robot extends IterativeRobot
                 
             }
         } while (image == null);
+        */
     }
     public void autonomousInit()
     {
