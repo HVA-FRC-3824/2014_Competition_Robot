@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.image.NIVision;
 import edu.wpi.first.wpilibj.image.NIVisionException;
 import edu.wpi.first.wpilibj.image.ParticleAnalysisReport;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
@@ -31,26 +32,22 @@ public class LocateHotGoal extends Command
     //final double VIEW_ANGLE = 41.7;		//Axis 206 camera
     //final double VIEW_ANGLE = 37.4;  //Axis M1011 camera
     final double PI = 3.141592653;
-
     //Score limits used for target identification
     final int  RECTANGULARITY_LIMIT = 40;
     final int ASPECT_RATIO_LIMIT = 55;
-
     //Score limits used for hot target determination
     final int TAPE_WIDTH_LIMIT = 50;
     final int  VERTICAL_SCORE_LIMIT = 50;
     final int LR_SCORE_LIMIT = 50;
-
     //Minimum area of particles to be considered
     final int AREA_MINIMUM = 150;
-
     //Maximum number of particles to process
     final int MAX_PARTICLES = 8;
-
     AxisCamera camera;          // the axis camera object (connected to the switch)
     CriteriaCollection cc;      // the criteria for doing the particle filter operation
     boolean finished;
     Timer elapsedTime;
+    Timer timeForFirstImage;
     
     //---
     // image objects for the NIVision stuff - this MUST be free'd when done
@@ -88,7 +85,7 @@ public class LocateHotGoal extends Command
         public double lastDistanceFoundAtTime; // time in seconds with uSec resolution since distance was last set
     }
     
-    protected TargetInfo lastTarget;
+    protected static TargetInfo lastTarget;
     // SendableChooser testImageChooser;
     
     public LocateHotGoal()
@@ -102,16 +99,21 @@ public class LocateHotGoal extends Command
     protected void initialize()
     {
         finished = false;
-        camera = AxisCamera.getInstance("10.38.24.11");  // get an instance of the camera
+        camera = AxisCamera.getInstance();  // get an instance of the camera
+        lastTarget = new TargetInfo();
+        lastTarget.hotTarget = TargetSide.NONE;
+        lastTarget.lastDistanceFoundAtTime = -1;
+        lastTarget.targetDistance = -1;
        
         cc = new CriteriaCollection();      // create the criteria for the particle filter
         cc.addCriteria(NIVision.MeasurementType.IMAQ_MT_AREA, AREA_MINIMUM, 65535, false);
-
         elapsedTime = new Timer();
+        timeForFirstImage = new Timer();
+        timeForFirstImage.reset();
+        timeForFirstImage.start();
         
         SmartDashboard.putString("ImageProcessStatus", "");
         SmartDashboard.putString("ImageProcessTime", "Image process time (ms): ");
-
         //---------------------
         // Use this if processing sample files on cRIO.  FTP the files to the cRIO
         // If using camera, comment these out.
@@ -131,7 +133,6 @@ public class LocateHotGoal extends Command
 //        testImageChooser.addObject("GamePieces1", "/samples/2014VisionTarget/GamePieces1.jpg");
 //        testImageChooser.addObject("GamePieces2", "/samples/2014VisionTarget/GamePieces2.jpg");
 //        SmartDashboard.putData("TestImages", testImageChooser); 
-
  }
     
     // Called repeatedly when this Command is scheduled to run
@@ -143,9 +144,7 @@ public class LocateHotGoal extends Command
         int verticalTargets[] = new int[MAX_PARTICLES];
         int horizontalTargets[] = new int[MAX_PARTICLES];
         int verticalTargetCount, horizontalTargetCount;
-
         SmartDashboard.putString("ImageProcessStatus", "Starting Execute");
-
         try {
             /**
              * Do the image capture with the camera and apply the algorithm
@@ -155,8 +154,10 @@ public class LocateHotGoal extends Command
              * "testImage.jpg"
              *
              */
-            SmartDashboard.putString("ImageProcessStatus", "Getting image");
+             SmartDashboard.putString("ImageProcessStatus", "Getting image");
              image = camera.getImage();     // comment if using stored images
+             timeForFirstImage.stop();
+             System.out.println("Image Found After " + (timeForFirstImage.get() * 1000)  + "(in ms)");
             //ColorImage image;                           // next 2 lines read image from flash on cRIO
             
             //String imageToProcess = (String) testImageChooser.getSelected();
@@ -169,22 +170,22 @@ public class LocateHotGoal extends Command
             // thresholdImage.write("/threshold.bmp");
              filteredImage = thresholdImage.particleFilter(cc);           // filter out small particles
             // filteredImage.write("/filteredImage.bmp");
-
+             
             //iterate through each particle and score to see if it is a target
             Scores scores[] = new Scores[filteredImage.getNumberParticles()];
             horizontalTargetCount = verticalTargetCount = 0;
-
+            
             if (filteredImage.getNumberParticles() > 0) {
                 SmartDashboard.putString("ImageProcessStatus", "Particles Found: " + filteredImage.getNumberParticles());
                 for (int i = 0; i < MAX_PARTICLES && i < filteredImage.getNumberParticles(); i++) {
                     ParticleAnalysisReport report = filteredImage.getParticleAnalysisReport(i);
                     scores[i] = new Scores();
-
+                    
                     //Score each particle on rectangularity and aspect ratio
                     scores[i].rectangularity = scoreRectangularity(report);
                     scores[i].aspectRatioVertical = scoreAspectRatio(filteredImage, report, i, true);
                     scores[i].aspectRatioHorizontal = scoreAspectRatio(filteredImage, report, i, false);
-
+                    
                     //Check if the particle is a horizontal target, if not, check if it's a vertical target
                     if (scoreCompare(scores[i], false)) {
                         System.out.println();
@@ -200,7 +201,7 @@ public class LocateHotGoal extends Command
                     }
                     System.out.println("      rect: " + scores[i].rectangularity + " -- ARHoriz: " + scores[i].aspectRatioHorizontal + " -- ARVert: " + scores[i].aspectRatioVertical);
                 }
-
+                
                 //Zero out scores and set verticalIndex to first target in case there are no horizontal targets
                 target.totalScore = target.leftScore = target.rightScore = target.tapeWidthScore = target.verticalScore = 0;
                 target.verticalIndex = verticalTargets[0];
@@ -209,12 +210,12 @@ public class LocateHotGoal extends Command
                     for (int j = 0; j < horizontalTargetCount; j++) {
                         ParticleAnalysisReport horizontalReport = filteredImage.getParticleAnalysisReport(horizontalTargets[j]);
                         double horizWidth, horizHeight, vertWidth, leftScore, rightScore, tapeWidthScore, verticalScore, total;
-
+                        
                         //Measure equivalent rectangle sides for use in score calculation
                         horizWidth = NIVision.MeasureParticle(filteredImage.image, horizontalTargets[j], false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE);
                         vertWidth = NIVision.MeasureParticle(filteredImage.image, verticalTargets[i], false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_SHORT_SIDE);
                         horizHeight = NIVision.MeasureParticle(filteredImage.image, horizontalTargets[j], false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_SHORT_SIDE);
-
+                        
                         //Determine if the horizontal target is in the expected location to the left of the vertical target
                         leftScore = ratioToScore(1.2 * (verticalReport.boundingRectLeft - horizontalReport.center_mass_x) / horizWidth);
                         //Determine if the horizontal target is in the expected location to the right of the  vertical target
@@ -225,7 +226,7 @@ public class LocateHotGoal extends Command
                         verticalScore = ratioToScore(1 - (verticalReport.boundingRectTop - horizontalReport.center_mass_y) / (4 * horizHeight));
                         total = leftScore > rightScore ? leftScore : rightScore;
                         total += tapeWidthScore + verticalScore;
-
+                        
                         //If the target is the best detected so far store the information about it
                         if (total > target.totalScore) {
                             target.horizontalIndex = horizontalTargets[j];
@@ -240,7 +241,7 @@ public class LocateHotGoal extends Command
                     //Determine if the best target is a Hot target
                     target.Hot = hotOrNot(target);
                 }
-
+                
                 if (verticalTargetCount > 0) {
                     //Information about the target is contained in the "target" structure
                     //To get measurement information such as sizes or locations use the
@@ -262,8 +263,8 @@ public class LocateHotGoal extends Command
                         {
                             SmartDashboard.putString("ImageProcessStatus", "HOT NOT FOUND");
                         }
-
-                    } else {
+                    } 
+                    else {
                         lastTarget.hotTarget = TargetSide.NONE;
                         System.out.println("Hot target NOT FOUND, distance to target: " + lastTarget.targetDistance);
                         SmartDashboard.putString("ImageProcessStatus", "HOT NOT FOUND");
@@ -273,9 +274,12 @@ public class LocateHotGoal extends Command
                 else
                 {
                    lastTarget.hotTarget = TargetSide.NONE;
+                   SmartDashboard.putString("ImageProcessStatus", "No Targets Found");
                 }
             }
-
+            
+            Robot.hotGoalInfo = lastTarget;
+            
             /**
              * all images in Java must be freed after they are used since they
              * are allocated out of C data structures. Not calling free() will
@@ -284,17 +288,18 @@ public class LocateHotGoal extends Command
             filteredImage.free();
             thresholdImage.free();
             image.free();
+
+            finished = true;
         } 
         catch (AxisCameraException ex) {        // this is needed if the camera.getImage() is called
                 // happens BEFORE the images are allocated
-                ex.printStackTrace();
+                //ex.printStackTrace();
+                System.out.println("No Image Available");
         } 
         catch (NIVisionException ex) {
             // happens AFTER the images are allocated
             ex.printStackTrace();
         }
-
-        finished = true;
         
         elapsedTime.stop();
         double time = elapsedTime.get() * 1000;
@@ -335,13 +340,11 @@ public class LocateHotGoal extends Command
     double computeDistance (BinaryImage image, ParticleAnalysisReport report, int particleNumber) throws NIVisionException {
             double rectLong, height;
             int targetHeight;
-
             rectLong = NIVision.MeasureParticle(image.image, particleNumber, false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE);
             //using the smaller of the estimated rectangle long side and the bounding rectangle height results in better performance
             //on skewed rectangles
             height = Math.min(report.boundingRectHeight, rectLong);
             targetHeight = 32;
-
             return Y_IMAGE_RES * targetHeight / (height * 12 * 2 * Math.tan(VIEW_ANGLE*Math.PI/(180*2)));
     }
     
@@ -359,11 +362,9 @@ public class LocateHotGoal extends Command
      */
     public double scoreAspectRatio(BinaryImage image, ParticleAnalysisReport report, int particleNumber, boolean vertical) throws NIVisionException {
         double rectLong, rectShort, aspectRatio, idealAspectRatio;
-
         rectLong = NIVision.MeasureParticle(image.image, particleNumber, false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE);
         rectShort = NIVision.MeasureParticle(image.image, particleNumber, false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_SHORT_SIDE);
         idealAspectRatio = vertical ? (4.0 / 32) : (23.5 / 4);	//Vertical reflector 4" wide x 32" tall, horizontal 23.5" wide x 4" tall
-
         //Divide width by height to measure aspect ratio
         if (report.boundingRectWidth > report.boundingRectHeight) {
             //particle is wider than it is tall, divide long by short
@@ -374,7 +375,6 @@ public class LocateHotGoal extends Command
         }
         return aspectRatio;
     }
-
     /**
      * Compares scores to defined limits and returns true if the particle
      * appears to be a target
@@ -385,14 +385,12 @@ public class LocateHotGoal extends Command
      */
     boolean scoreCompare(Scores scores, boolean vertical) {
         boolean isTarget = true;
-
         isTarget &= scores.rectangularity > RECTANGULARITY_LIMIT;
         if (vertical) {
             isTarget &= scores.aspectRatioVertical > ASPECT_RATIO_LIMIT;
         } else {
             isTarget &= scores.aspectRatioHorizontal > ASPECT_RATIO_LIMIT;
         }
-
         return isTarget;
     }
    
@@ -429,11 +427,9 @@ public class LocateHotGoal extends Command
      */
     boolean hotOrNot(TargetReport target) {
         boolean isHot = true;
-
         isHot &= target.tapeWidthScore >= TAPE_WIDTH_LIMIT;
         isHot &= target.verticalScore >= VERTICAL_SCORE_LIMIT;
         isHot &= (target.leftScore > LR_SCORE_LIMIT) | (target.rightScore > LR_SCORE_LIMIT);
-
         return isHot;
     }
     
@@ -458,7 +454,6 @@ public class LocateHotGoal extends Command
         
         return ts;
     }
-
     /**
      * Provide information about the last object seen
      * possible cases are:
@@ -473,7 +468,7 @@ public class LocateHotGoal extends Command
      * 
      * Returns a TargetInfo object that is a member of TargetSide object
      */
-    public TargetInfo getTarget()
+    public static TargetInfo getTarget()
     {
         return lastTarget;
     }

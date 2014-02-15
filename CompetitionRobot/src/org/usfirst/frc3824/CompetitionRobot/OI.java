@@ -82,6 +82,7 @@ public class OI
         SmartDashboard.putData("Teleoperated", new Teleoperated());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());
         SmartDashboard.putData("ChassisDriveStraight", new ChassisDriveStraight());
+        SmartDashboard.putData("ChassisDriveToNotHotGoal", new ChassisDriveToNotHotGoal());
         SmartDashboard.putData("Update PID", new UpdatePID());
         SmartDashboard.putData("VacuumOn", new VacuumOn());
         SmartDashboard.putData("VacuumToggle", new VacuumToggle());
