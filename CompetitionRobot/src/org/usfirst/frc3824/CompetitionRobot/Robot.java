@@ -100,7 +100,7 @@ public class Robot extends IterativeRobot
             {
                 image = primeImageStream.getImage();
                 System.out.println("ROBOT - prime: Image Found - primed");
-           }
+            }
             catch(AxisCameraException ex)
             {
                 System.out.println("ROBOT - prime: No Image Available");
