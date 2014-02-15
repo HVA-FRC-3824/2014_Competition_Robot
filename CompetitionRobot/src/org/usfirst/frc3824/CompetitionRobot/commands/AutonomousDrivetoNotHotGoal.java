@@ -12,6 +12,7 @@
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitUntilCommand;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 
 /**
@@ -25,10 +26,12 @@ public class AutonomousDrivetoNotHotGoal extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
 
+        addSequential(new VacuumOn());
+        addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
         addSequential(new LocateHotGoal()); // Find which side is HOT
         addSequential(new ChassisDriveToNotHotGoal());  // Drive to the OPPOSITE side
-        addSequential(new WaitUntilCommand(5.0));  // wait until 5.0 seconds into the game
-        addSequential(new CannonShoot());   // Shoot 
+        addSequential(new CannonShoot());
+        addSequential(new VacuumOff());
         
         // To run multiple commands at the same time,
         // use addParallel()

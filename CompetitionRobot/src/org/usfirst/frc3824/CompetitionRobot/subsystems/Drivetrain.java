@@ -78,6 +78,11 @@ public class Drivetrain extends Subsystem
     {
         return gyro.getAngle();
     }
+    public void resetGyro()
+    {
+        gyro.reset();
+    }
+    
     /**
      * Only to be used while controlled by PID controller
      */

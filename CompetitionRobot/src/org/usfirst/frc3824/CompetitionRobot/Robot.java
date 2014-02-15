@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj.image.NIVisionException;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDriveStraight;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoLeftBoxfromCenter;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoNotHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoRightBoxfromCenter;
@@ -90,6 +91,7 @@ public class Robot extends IterativeRobot
         chooser.addObject("2) Drive to NON-HOT goal", new AutonomousDrivetoNotHotGoal());
         chooser.addObject("3) Drive to right box", new AutonomousDrivetoRightBoxfromCenter());
         chooser.addObject("4) Drive to left box", new AutonomousDrivetoLeftBoxfromCenter());
+        chooser.addObject("4) Drive straight", new AutonomousDriveStraight());
       // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser); 
         

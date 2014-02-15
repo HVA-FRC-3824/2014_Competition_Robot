@@ -27,6 +27,7 @@ public class AutonomousDrivetoLeftBoxfromCenter extends CommandGroup {
         addSequential(new VacuumOn());
         addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
         addSequential(new ChassisDriveStraight(2.2, 0.83, -50));
+
         //addSequential(new ChassisTurnAngle(-45));
         addSequential(new CannonShoot());
         addSequential(new VacuumOff());
