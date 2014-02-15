@@ -452,13 +452,13 @@ Children:
           default: '1'
           name: Output Module (Solenoid)
           validators: *id007
-          value: '2'
+          value: '1'
         Output Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id008
           default: '1'
           name: Output Channel (Solenoid)
           validators: *id009
-          value: '1'
+          value: '7'
     - Name: Vacuum
       Base: Spike
       Children: []
@@ -879,7 +879,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Auxiliary Left}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: Auxiliary Left Angle
+  - Name: Set Auxiliary Left Angle
     Base: Command
     Children: []
     Properties:

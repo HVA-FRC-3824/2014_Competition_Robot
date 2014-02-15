@@ -70,6 +70,4 @@ public class AuxiliaryLeft extends Subsystem {
     {
         return shooterAngle;
     }
-    
-    
 }
