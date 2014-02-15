@@ -288,7 +288,6 @@ public class LocateHotGoal extends Command
             filteredImage.free();
             thresholdImage.free();
             image.free();
-
             finished = true;
         } 
         catch (AxisCameraException ex) {        // this is needed if the camera.getImage() is called

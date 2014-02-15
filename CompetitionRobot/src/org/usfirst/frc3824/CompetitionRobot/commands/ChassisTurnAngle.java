@@ -44,11 +44,8 @@ public class ChassisTurnAngle extends Command
         {
             degreesToTurn = 10.0;
         }
-
         double goToGyro = (degreesToTurn + Robot.drivetrain.getGyro().getAngle());
-
         Robot.drivetrain.getAngleGyroController().setAbsoluteTolerance(Constants.TURN_THRESHOLD);
-
         Robot.drivetrain.getAngleGyroController().setSetpoint(goToGyro);
         Robot.drivetrain.getAngleGyroController().enable();
     }

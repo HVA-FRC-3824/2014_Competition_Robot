@@ -30,7 +30,7 @@ public class  ChassisDriveToNotHotGoal extends Command {
         if(LocateHotGoal.TargetSide.LEFT == Robot.hotGoalInfo.hotTarget)
         {
             // found left, move right
-            driver = new ChassisDriveStraight(3.0, 0.25, 45.0);  // 3 sec, 25% power, 45 degrees from straight
+            driver = new ChassisDriveStraight(1.6, 0.5, 0);  // 3 sec, 25% power, 45 degrees from straight
             System.out.println("ChassisDriveToNotHotGoal - driving right");
         }
         else if ((LocateHotGoal.TargetSide.RIGHT == Robot.hotGoalInfo.hotTarget))
@@ -42,7 +42,7 @@ public class  ChassisDriveToNotHotGoal extends Command {
         else
         {
             // found right, move left
-            driver = new ChassisDriveStraight(3.0, 0.25, -45.0);  // 3 sec, 25% power, -45 degrees from straight            
+            driver = new ChassisDriveStraight(2.2, 0.83, 50.0);  // 3 sec, 25% power, -45 degrees from straight            
             System.out.println("ChassisDriveToNotHotGoal - driving left - none found");
        }
         driver.start();
