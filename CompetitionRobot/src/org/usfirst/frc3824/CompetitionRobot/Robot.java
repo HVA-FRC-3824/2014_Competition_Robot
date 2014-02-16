@@ -113,13 +113,15 @@ public class Robot extends IterativeRobot
             }
             catch(AxisCameraException ex)
             {
-                System.out.println("ROBOT - prime: No Image Available");
+                System.out.println("ROBOT - prime: No Image Available -- " + ex.getMessage());
             }
             catch(NIVisionException ex)
             {
                 
             }
-        } while (image == null && (startupTimeout.get() < Constants.CAMERA_STARTUP_TIMEOUT));
+            Timer.delay(0.25);
+        } while ((image == null) && (startupTimeout.get() < Constants.CAMERA_STARTUP_TIMEOUT));
+        startupTimeout.stop();
         
         // if the image is null, set cameraAvailable to FALSE;
         cameraAvailable = !(null == image);
