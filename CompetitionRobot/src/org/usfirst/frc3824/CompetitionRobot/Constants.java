@@ -53,4 +53,13 @@ public class Constants {
     public final static double SHOOTER_START_POSITION = 45;
     
     public final static double TURN_THRESHOLD = 1.5; //works with 1 but is a bit slow
+    
+    //------------------------------
+    // Auxiliary Shooter
+    
+    // Motor angle constants
+    public final static double AUX_MIN_ANGLE = -90.0;   // 90 degrees below horizontal
+    public final static double AUX_MAX_ANGLE = 90.0;    // 90 degrees above horizontal
+    public final static double AUX_MIN_ANGLE_ADCVAL = 100;  // value read from the ADC of the POT
+    public final static double AUX_MAX_ANGLE_ADCVAL = 800;  // value read from the ADC of the POT
 }

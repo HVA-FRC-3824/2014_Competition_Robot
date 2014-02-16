@@ -15,7 +15,6 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  AuxiliaryLeftVacuumToggle extends Command {
-    boolean m_active = true;
     public AuxiliaryLeftVacuumToggle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -26,14 +25,7 @@ public class  AuxiliaryLeftVacuumToggle extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        if(m_active == true)
-        {
-            Robot.auxiliaryLeft.getVacuum().set(Relay.Value.kOff);
-        }
-        else
-        {
-            Robot.auxiliaryLeft.getVacuum().set(Relay.Value.kForward);
-        }
+        Robot.auxiliaryLeft.setVacuumToggle();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

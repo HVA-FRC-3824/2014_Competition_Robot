@@ -14,8 +14,7 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  SetAuxiliaryLeftAngle extends Command {
-    private double angle, startVoltage, targetVoltage;
-    private int motorDirection;
+    private double angle;
     public SetAuxiliaryLeftAngle(double angleParam) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -35,24 +34,18 @@ public class  SetAuxiliaryLeftAngle extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        startVoltage = Robot.auxiliaryLeft.getShooterAngle().getAverageVoltage();
-        targetVoltage = angle / 54;
-        if(targetVoltage > startVoltage)
-            motorDirection = 1;
-        else
-            motorDirection = -1;
+        Robot.auxiliaryLeft.setShooterAngle(angle);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.auxiliaryLeft.getAuxilaryMotor().set(motorDirection);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(Robot.auxiliaryLeft.getShooterAngle().getAverageVoltage() - targetVoltage) < 0.05;
+        return Robot.auxiliaryLeft.getAtAngle();
     }
     // Called once after isFinished returns true
     protected void end() {
-       Robot.auxiliaryLeft.getAuxilaryMotor().set(0); 
+       Robot.auxiliaryLeft.setShooterStop(); 
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
