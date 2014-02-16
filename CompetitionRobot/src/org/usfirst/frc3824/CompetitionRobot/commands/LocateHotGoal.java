@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.image.NIVision;
 import edu.wpi.first.wpilibj.image.NIVisionException;
 import edu.wpi.first.wpilibj.image.ParticleAnalysisReport;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
@@ -137,6 +138,16 @@ public class LocateHotGoal extends Command
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
+        // This prevents the code from hanging when autonomous starts.  
+        // The test for camera present should have happened in RobotInit() at 
+        // boot time.
+        if(!Robot.cameraAvailable)
+        {
+           finished = true;
+           return;
+        }
+        
         elapsedTime.reset();
         elapsedTime.start();
         
@@ -303,6 +314,12 @@ public class LocateHotGoal extends Command
         elapsedTime.stop();
         double time = elapsedTime.get() * 1000;
         SmartDashboard.putString("ImageProcessTime", "Image process time (ms): " + time);
+        
+        if(timeForFirstImage.get() > Constants.CAMERA_STARTUP_TIMEOUT)
+        {
+            Robot.cameraAvailable = false;
+            finished = true;
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
