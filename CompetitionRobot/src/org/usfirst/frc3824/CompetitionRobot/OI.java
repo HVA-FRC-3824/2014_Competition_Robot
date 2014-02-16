@@ -75,6 +75,9 @@ public class OI
         SmartDashboard.putData("Autonomous Drive to Not Hot Goal", new AutonomousDrivetoNotHotGoal());
         SmartDashboard.putData("Autonomous Drive to Left Box from Center", new AutonomousDrivetoLeftBoxfromCenter());
         SmartDashboard.putData("Autonomous Drive to Right Box from Center", new AutonomousDrivetoRightBoxfromCenter());
+        SmartDashboard.putData("Autonomous with Vision From Left", new AutonomouswithVisionFromLeft());
+        SmartDashboard.putData("Autonomous with Vision From Right", new AutonomouswithVisionFromRight());
+        SmartDashboard.putData("DelayIfTargetNotHot", new DelayIfTargetNotHot());
         SmartDashboard.putData("Cannon Shoot", new CannonShoot());
         SmartDashboard.putData("ChassisDriveStraight", new ChassisDriveStraight());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());

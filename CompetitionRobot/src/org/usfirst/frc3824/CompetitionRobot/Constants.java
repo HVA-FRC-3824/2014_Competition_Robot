@@ -24,6 +24,10 @@ public class Constants {
     public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
     public final static int SHOOTER_ANGLE_START = 13; // Button
 
+    public final static double AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH = 5.0;    // Hot goal switches at 5.0 seconds into the game
+    public final static double AUTONOMOUS_STRAIGHT_DRIVE_TIME = 1.6; 
+    public final static double AUTONOMOUS_STRAIGHT_DRIVER_POWER = 0.5;
+    public final static double AUTONOMOUS_STRAIGHT_DRIVE_ANGLE = 0.0;
     /**
      * **** SHOOTER POSITION *****
      */
