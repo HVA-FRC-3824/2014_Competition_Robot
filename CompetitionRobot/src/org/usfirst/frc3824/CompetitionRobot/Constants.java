@@ -11,6 +11,7 @@ public class Constants {
     public final static double DrivetrainAngleGyroControllerD = 0.04;
 
     // Cypress IO defines
+    public final static int ANALOG_AUXILIARY_ANGLE = 1; // Pot input channel
     public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // Pot input channel
     public final static int INPUT_PICKUP_IN = 10; // Double toggle
     public final static int INPUT_PICKUP_OUT = 1; // Double toggle
@@ -23,7 +24,8 @@ public class Constants {
     public final static int SHOOTER_ANGLE_CORNER = 14; // Button
     public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
     public final static int SHOOTER_ANGLE_START = 13; // Button
-
+    public final static int AUXILIARY_ANGLE_CONTROL = 5; // Toggle switch
+    
     //------------------------------
     // Camera related values
     public final static double CAMERA_STARTUP_TIMEOUT = 5.0;
@@ -62,4 +64,10 @@ public class Constants {
     public final static double AUX_MAX_ANGLE = 90.0;    // 90 degrees above horizontal
     public final static double AUX_MIN_ANGLE_ADCVAL = 100;  // value read from the ADC of the POT
     public final static double AUX_MAX_ANGLE_ADCVAL = 800;  // value read from the ADC of the POT
+    
+    
+    // Home position constants
+    public final static double SHOOTER_HOME_POSITION = 45;
+    public final static double AUX_HOME_POSITION = 90; // degrees
+    
 }

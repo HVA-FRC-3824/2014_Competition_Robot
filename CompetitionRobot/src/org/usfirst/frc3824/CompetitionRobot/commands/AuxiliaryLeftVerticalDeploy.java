@@ -13,9 +13,8 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
-public class  AuxiliaryLeftVerticalToggle extends Command {
-    private boolean m_active = true;
-    public AuxiliaryLeftVerticalToggle() {
+public class  AuxiliaryLeftVerticalDeploy extends Command {
+    public AuxiliaryLeftVerticalDeploy() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -25,16 +24,7 @@ public class  AuxiliaryLeftVerticalToggle extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        if(m_active == true)
-        {
-            Robot.auxiliaryLeft.setVerticalAdjustSolenoid(false);
-        }
-        else
-        {
-            Robot.auxiliaryLeft.setVerticalAdjustSolenoid(true);
-        }
-        
-        m_active = !m_active;
+        Robot.auxiliaryLeft.setVerticalDeploy();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -49,5 +39,6 @@ public class  AuxiliaryLeftVerticalToggle extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }
