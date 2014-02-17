@@ -27,6 +27,7 @@ public class GoHome extends CommandGroup {
         addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_HOME_POSITION));
         addSequential(new AuxiliaryLeftVerticalRetract());
         addSequential(new VacuumOff());
+        addSequential(new AuxiliaryLeftVacuumOff());
         addSequential(new PickupBallStop());
         
     }

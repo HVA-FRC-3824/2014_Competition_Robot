@@ -67,7 +67,7 @@ public class Constants {
     
     
     // Home position constants
-    public final static double SHOOTER_HOME_POSITION = 45;
-    public final static double AUX_HOME_POSITION = 90; // degrees
+    public final static double SHOOTER_HOME_POSITION = 40.554; // degree
+    public final static double AUX_HOME_POSITION = 85; // degree
     
 }

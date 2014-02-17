@@ -390,21 +390,27 @@ Children:
     Base: Subsystem
     Children:
     - Name: Vacuum
-      Base: Spike
+      Base: Speed Controller
       Children: []
       Properties:
         Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
+          choices: *id001
           default: '1'
           name: Output Module (Digital)
-          validators: *id011
+          validators: *id002
           value: '1'
-        Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id012
+        Type: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id003
+          default: Victor
+          name: Type
+          validators: null
+          value: Talon
+        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id004
           default: '1'
-          name: Output Channel (Relay)
-          validators: *id013
-          value: '2'
+          name: Output Channel (PWM)
+          validators: *id005
+          value: '5'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}

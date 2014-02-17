@@ -15,7 +15,6 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
  *
  */
 public class  VacuumToggle extends Command {
-    private boolean m_Active = false;
     
     public VacuumToggle() {
         // Use requires() here to declare subsystem dependencies
@@ -27,18 +26,7 @@ public class  VacuumToggle extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-        // sets m_Active to true if the state of the vacuum is on
-        m_Active = Robot.vacuum.getVacuum().get() == Relay.Value.kForward;
-        
-        if(m_Active == true)
-        {
-            Robot.vacuum.getVacuum().set(Relay.Value.kOff);
-        }
-        else
-        {
-            Robot.vacuum.getVacuum().set(Relay.Value.kForward);
-        }
+       Robot.vacuum.toggleVacuum();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
