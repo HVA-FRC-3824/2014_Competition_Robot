@@ -28,10 +28,7 @@ public class CannonShoot extends Command
     // Called just before this Command runs the first time
     protected void initialize()
     {
-        Robot.shooter.getSolenoid1().set(true);
-        Robot.shooter.getSolenoid2().set(true);
-        Robot.shooter.getSolenoid3().set(true);
-        Robot.shooter.getSolenoid4().set(true);
+        Robot.shooter.setShooterSolenoids(true);
         timer.reset();
         timer.start();
     }
@@ -47,10 +44,7 @@ public class CannonShoot extends Command
     // Called once after isFinished returns true
     protected void end()
     {
-        Robot.shooter.getSolenoid1().set(false);
-        Robot.shooter.getSolenoid2().set(false);
-        Robot.shooter.getSolenoid3().set(false);
-        Robot.shooter.getSolenoid4().set(false);
+        Robot.shooter.setShooterSolenoids(false);
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

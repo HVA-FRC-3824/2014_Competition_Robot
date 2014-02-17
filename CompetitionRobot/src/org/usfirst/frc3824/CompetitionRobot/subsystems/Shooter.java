@@ -31,20 +31,17 @@ public class Shooter extends Subsystem
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public Solenoid getSolenoid1()
+    
+    //------------------------------------------------------------------------------------
+    // Sets Shooter Solenoids to the value of shoot.
+    // if shoot is true, the solenoids will fire.
+    // if shoot is false, the solenoids will retract.
+    //------------------------------------------------------------------------------------
+    public void setShooterSolenoids(boolean shoot)
     {
-        return shootSolenoid1;
-    }
-    public Solenoid getSolenoid2()
-    {
-        return shootSolenoid2;
-    }
-    public Solenoid getSolenoid3()
-    {
-        return shootSolenoid3;
-    }
-    public Solenoid getSolenoid4()
-    {
-        return shootSolenoid4;
+        shootSolenoid1.set(shoot);
+        shootSolenoid2.set(shoot);
+        shootSolenoid3.set(shoot);
+        shootSolenoid4.set(shoot);
     }
 }
