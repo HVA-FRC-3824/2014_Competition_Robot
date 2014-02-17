@@ -34,4 +34,19 @@ public class Pickup extends Subsystem {
     {
         return wheelPickup;
     }
+    
+    public void setPickupIn()
+    {
+        wheelPickup.set(Relay.Value.kReverse);
+    }
+    
+    public void setPickupOut()
+    {
+        wheelPickup.set(Relay.Value.kForward);
+    }
+    
+    public void setPickupOff()
+    {
+        wheelPickup.set(Relay.Value.kOff);
+    }
 }
