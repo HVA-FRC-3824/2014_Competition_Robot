@@ -29,6 +29,7 @@ public class ChassisDriveStraight extends Command
         // TESTING
         driveDuration = 2;
         drivePower = 0.5;
+        driveDirection = 0.0;
     }
     public ChassisDriveStraight(double duration, double power, double direction)
     {
