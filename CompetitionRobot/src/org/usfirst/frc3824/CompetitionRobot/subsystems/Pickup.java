@@ -30,11 +30,9 @@ public class Pickup extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public Relay getWheelPickup()
-    {
-        return wheelPickup;
-    }
-    
+    //------------------------------------------------------------------------------------
+    // Pickup Control methods
+    //------------------------------------------------------------------------------------
     public void setPickupIn()
     {
         wheelPickup.set(Relay.Value.kReverse);
