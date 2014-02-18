@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitUntilCommand;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 
 /**
@@ -24,8 +25,11 @@ public class AutonomousDriveStraight extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
         addSequential(new VacuumOn());
-        addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
-        addSequential(new ChassisDriveStraight(1.6, 0.5, 0));
+        addSequential(new WaitUntilCommand(1.0));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME, 
+                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
+                                                Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));
         addSequential(new CannonShoot());
         addSequential(new VacuumOff());
 

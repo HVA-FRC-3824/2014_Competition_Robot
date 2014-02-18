@@ -121,7 +121,7 @@ public class OI
 	m_shooterAnglePass.whenPressed(new SetShooterAngle(Constants.SHOOTER_PASS_POSITION));
         
         DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_SHOOT);
-	m_shooterAngleShoot.whenPressed(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
+	m_shooterAngleShoot.whenPressed(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         
         DigitalIOButton m_shooterAngleCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_CORNER);
 	m_shooterAngleCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_CORNER_POSITION));

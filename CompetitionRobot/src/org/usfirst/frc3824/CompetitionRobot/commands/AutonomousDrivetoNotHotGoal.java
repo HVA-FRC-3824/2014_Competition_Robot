@@ -27,7 +27,7 @@ public class AutonomousDrivetoNotHotGoal extends CommandGroup {
         // these will run in order.
 
         addSequential(new VacuumOn());
-        addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new LocateHotGoal()); // Find which side is HOT
         addSequential(new ChassisDriveToNotHotGoal());  // Drive to the OPPOSITE side
         addSequential(new CannonShoot());

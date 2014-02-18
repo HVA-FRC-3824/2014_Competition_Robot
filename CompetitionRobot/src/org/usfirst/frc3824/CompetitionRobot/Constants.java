@@ -46,15 +46,15 @@ public class Constants {
     // Note: The shooter angle is greater than possible to ensure the new shooter 
     //       can move the full range (after the slope and y-intercept have been 
     //       recalibrated)
-    public final static double SHOOTER_ANGLE_MAX_VALUE = 50.0;    // 850.0  - 45.848
-    public final static double SHOOTER_ANGLE_MIN_VALUE = 10.0;    //   0.0  - 17.203
+    public final static double SHOOTER_ANGLE_MAX_VALUE = 100.0;    // 850.0  - 45.848   50
+    public final static double SHOOTER_ANGLE_MIN_VALUE = -25.0;    //   0.0  - 17.203   10
     
-    public final static double SHOOTER_PICKUP_POSITION = 10.2;
-    public final static double SHOOTER_PASS_POSITION = 18.379;
-    public final static double SHOOTER_LONG_SHOT_POSITION = 36.1;
-    public final static double SHOOTER_CORNER_POSITION = 37.071;
-    public final static double SHOOTER_ANGLED_CORNER_POSITION = 38.232;
-    public final static double SHOOTER_START_POSITION = 45;
+    public final static double SHOOTER_PICKUP_POSITION = -13.6;     // 13.85
+    public final static double SHOOTER_PASS_POSITION = 23;
+    public final static double SHOOTER_REGULAR_SHOT_POSITION = 66;
+    public final static double SHOOTER_CORNER_POSITION = 40;
+    public final static double SHOOTER_ANGLED_CORNER_POSITION = 40;
+    public final static double SHOOTER_START_POSITION = 96;
     
     public final static double TURN_THRESHOLD = 1.5; //works with 1 but is a bit slow
     
@@ -69,7 +69,7 @@ public class Constants {
     public final static double AUX_TRANSFER_ANGLE = 90.0;   // value for ball transfer
     
     // Home position constants
-    public final static double SHOOTER_HOME_POSITION = 50.0; // degree
+    public final static double SHOOTER_HOME_POSITION = 45.0; // degree
     public final static double AUX_HOME_POSITION = 180.0; // degree
     
 }

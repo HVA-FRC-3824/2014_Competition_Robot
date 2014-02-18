@@ -29,6 +29,8 @@ import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDriveStraight;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoLeftBoxfromCenter;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoNotHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoRightBoxfromCenter;
+import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromLeft;
+import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromRight;
 import org.usfirst.frc3824.CompetitionRobot.commands.LocateHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.AuxiliaryLeft;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.ShooterAngleAdjustPID;
@@ -95,6 +97,8 @@ public class Robot extends IterativeRobot
         chooser.addObject("3) Drive to right box", new AutonomousDrivetoRightBoxfromCenter());
         chooser.addObject("4) Drive to left box", new AutonomousDrivetoLeftBoxfromCenter());
         chooser.addObject("4) Drive straight", new AutonomousDriveStraight());
+        chooser.addObject("5) Vision from LEFT", new AutonomouswithVisionFromLeft());
+        chooser.addObject("6) Vision from RIGHT", new AutonomouswithVisionFromRight());
       // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser); 
         
@@ -159,7 +163,7 @@ public class Robot extends IterativeRobot
     {
         // Print out sensor information
         SmartDashboard.putNumber("Shooter Angle (ADC)", Robot.shooterAngleAdjustPID.getPotentiometer().pidGet());
-        SmartDashboard.putNumber("Shooter Angle (Degrees)", (0.0387*Robot.shooterAngleAdjustPID.getPotentiometer().pidGet()) + 11.916);
+        SmartDashboard.putNumber("Shooter Angle (Degrees)", Robot.shooterAngleAdjustPID.getCurrentAngle());
         SmartDashboard.putNumber("Gyro", Robot.drivetrain.getGyroValue());
           
         Scheduler.getInstance().run();

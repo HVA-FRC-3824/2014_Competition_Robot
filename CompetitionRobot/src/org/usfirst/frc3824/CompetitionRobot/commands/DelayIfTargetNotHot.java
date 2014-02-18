@@ -38,7 +38,7 @@ public class  DelayIfTargetNotHot extends Command {
         {
             // wait until 'delayUntil' time after the Autonomous starts.
             driver = new WaitUntilCommand(m_delayUntil);  // delay
-            System.out.println("DelayIfTargetNotHot - DELAY");
+            System.out.println("DelayIfTargetNotHot - DELAY" + m_delayUntil);
         }
         else
         {

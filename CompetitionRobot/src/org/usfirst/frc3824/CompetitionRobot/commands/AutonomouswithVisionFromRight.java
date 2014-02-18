@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitUntilCommand;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 
 /**
@@ -25,8 +26,9 @@ public class AutonomouswithVisionFromRight extends CommandGroup {
         // these will run in order.
         addSequential(new VacuumOn());
         addSequential(new LocateHotGoal());
+        addParallel(new WaitUntilCommand(1.0));
         addSequential(new DelayIfTargetNotHot(LocateHotGoal.TargetSide.RIGHT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
-        addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME, 
                                                 Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
                                                 Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));

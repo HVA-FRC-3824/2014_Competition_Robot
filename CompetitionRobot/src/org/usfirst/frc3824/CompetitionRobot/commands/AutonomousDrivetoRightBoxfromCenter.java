@@ -25,7 +25,7 @@ public class AutonomousDrivetoRightBoxfromCenter extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
         addSequential(new VacuumOn());
-        addParallel(new SetShooterAngle(Constants.SHOOTER_LONG_SHOT_POSITION));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new ChassisDriveStraight(2.2, 0.83, 50));
         //addSequential(new ChassisTurnAngle(45));
         addSequential(new CannonShoot());

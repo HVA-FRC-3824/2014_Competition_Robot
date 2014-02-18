@@ -62,18 +62,8 @@ public class SetShooterAngle extends Command
         } else {
             angle = m_Angle;
         }
-        // ensure the range of the shooter angle
-        if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE) {
-            angle = Constants.SHOOTER_ANGLE_MAX_VALUE;
-        }
-        if (angle < Constants.SHOOTER_ANGLE_MIN_VALUE) {
-            angle = Constants.SHOOTER_ANGLE_MIN_VALUE;
-        }
-        // Convert the requested angle into a voltage in the range 0-5V
-        //  The voltage is what the PID requires.
-        angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
         
-        Robot.shooterAngleAdjustPID.setSetpoint(angle);
+        Robot.shooterAngleAdjustPID.setTargetAngle(angle);
         Robot.shooterAngleAdjustPID.enable();
     }
     // Called repeatedly when this Command is scheduled to run
@@ -90,20 +80,11 @@ public class SetShooterAngle extends Command
 		// Convert the Voltage to Degrees
 		angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE)/3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
 		
-		if (angle > Constants.SHOOTER_ANGLE_MAX_VALUE)
-			angle = Constants.SHOOTER_ANGLE_MAX_VALUE;
-		if (angle < Constants.SHOOTER_ANGLE_MIN_VALUE)
-			angle = Constants.SHOOTER_ANGLE_MIN_VALUE;
-		
-        // Convert the requested angle into a voltage in the range 0-5V
-        //  The voltage is what the PID requires.
-               angle = ((angle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE-Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
-		   
 		// Set the setpoint in ADC
-                Robot.shooterAngleAdjustPID.setSetpoint(angle);
+                Robot.shooterAngleAdjustPID.setTargetAngle(angle);
 	}
-        SmartDashboard.putNumber("ShooterTarget", Robot.shooterAngleAdjustPID.getSetpoint());
-        SmartDashboard.putNumber("ShooterPosition", Robot.shooterAngleAdjustPID.getPosition());
+        SmartDashboard.putNumber("ShooterTarget", Robot.shooterAngleAdjustPID.getTargetAngle());
+        SmartDashboard.putNumber("ShooterPosition", Robot.shooterAngleAdjustPID.getCurrentAngle());
         try {
             SmartDashboard.putNumber("Pot Value", DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID));
         } catch (DriverStationEnhancedIO.EnhancedIOException ex) {
@@ -114,18 +95,17 @@ public class SetShooterAngle extends Command
     {
         // determine if the shooter angle is within the desired range
         // TODO - set threshold to accurate value!!
-        return Math.abs(Robot.shooterAngleAdjustPID.getSetpoint() - Robot.shooterAngleAdjustPID.getPosition()) < 0.02;
+        return Robot.shooterAngleAdjustPID.onTarget();
     }
     // Called once after isFinished returns true
     protected void end()
     {
-        System.out.println("SetShooterAngle - end");
+        Robot.shooterAngleAdjustPID.disable();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted()
     {
-        System.out.println("SetShooterAngle - Interrupted");
         end();
-    }
+    }  
 }
