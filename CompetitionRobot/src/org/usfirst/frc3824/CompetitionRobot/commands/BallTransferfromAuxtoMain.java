@@ -16,22 +16,15 @@ import org.usfirst.frc3824.CompetitionRobot.Constants;
 /**
  *
  */
-public class GoHome extends CommandGroup {
+public class BallTransferfromAuxtoMain extends CommandGroup {
     
-    public  GoHome() {
-        // Robot, you're drunk; go home.
+    public  BallTransferfromAuxtoMain() 
+    {
+        // Transfers the Ball from the Auxiliary arm to the main shooter.
         
-        // Defend the perimeter! Retreat, my robotic limbs!      
-        addSequential(new SetShooterAngle(Constants.SHOOTER_HOME_POSITION));
-        addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_HOME_POSITION));
-        addSequential(new AuxiliaryLeftVerticalRetract());
-        
-        // Die, vacuums, die!
-        addSequential(new VacuumOff());
-        addParallel(new AuxiliaryLeftVacuumOff());
-        
-        // Pickup, you need to stop now.
-        addParallel(new PickupBallStop());
-        
+        addSequential(new SetShooterAngle(Constants.SHOOTER_ANGLE_MAX_VALUE));
+        addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_TRANSFER_ANGLE));
+        addSequential(new AuxiliaryLeftRetractandVacuumOff());
+        addParallel(new VacuumOn());
     }
 }

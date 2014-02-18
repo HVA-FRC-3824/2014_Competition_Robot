@@ -112,9 +112,9 @@ public class RobotMap
         auxiliaryLeftShooterAngle = new AnalogChannel(1, 2);
 	LiveWindow.addSensor("Auxiliary Left", "Shooter Angle", auxiliaryLeftShooterAngle);
         
-        auxiliaryLeftShooterAnglePID = new PIDController(-0.5, 0.0, 0.0, 0.0, auxiliaryLeftShooterAngle, auxiliaryLeftShooterMotor, 0.02);
+        auxiliaryLeftShooterAnglePID = new PIDController(-0.01, 0.0, 0.0, 0.0, auxiliaryLeftShooterAngle, auxiliaryLeftShooterMotor, 0.02);
 	LiveWindow.addActuator("Auxiliary Left", "ShooterAnglePID", auxiliaryLeftShooterAnglePID);
-        auxiliaryLeftShooterAnglePID.setContinuous(false); auxiliaryLeftShooterAnglePID.setAbsoluteTolerance(10.0); 
+        auxiliaryLeftShooterAnglePID.setContinuous(false); auxiliaryLeftShooterAnglePID.setAbsoluteTolerance(50.0); 
         auxiliaryLeftShooterAnglePID.setOutputRange(-0.3, 0.3);        
         auxiliaryLeftVerticalAdjust = new DoubleSolenoid(1, 7, 8);      
 	

@@ -25,6 +25,8 @@ public class Constants {
     public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
     public final static int SHOOTER_ANGLE_START = 13; // Button
     public final static int AUXILIARY_ANGLE_CONTROL = 5; // Toggle switch
+    public final static int INPUT_BALL_TRANSFER = 6;  // Button
+    public final static int INPUT_HOME_POSITION = 15; // Button
     
     //------------------------------
     // Camera related values
@@ -64,10 +66,10 @@ public class Constants {
     public final static double AUX_MAX_ANGLE = 90.0;    // 90 degrees above horizontal
     public final static double AUX_MIN_ANGLE_ADCVAL = 100;  // value read from the ADC of the POT
     public final static double AUX_MAX_ANGLE_ADCVAL = 800;  // value read from the ADC of the POT
-    
+    public final static double AUX_TRANSFER_ANGLE = 90.0;   // value for ball transfer
     
     // Home position constants
-    public final static double SHOOTER_HOME_POSITION = 40.554; // degree
-    public final static double AUX_HOME_POSITION = 85; // degree
+    public final static double SHOOTER_HOME_POSITION = 50.0; // degree
+    public final static double AUX_HOME_POSITION = 180.0; // degree
     
 }

@@ -58,6 +58,11 @@ public class AuxiliaryLeft extends Subsystem
         verticalAdjust.set(DoubleSolenoid.Value.kReverse);
     }
     
+    public void setVerticalStop()
+    {
+        verticalAdjust.set(DoubleSolenoid.Value.kOff);
+    }
+    
     //------------------------------------------------------------------------------------
     // Shooter piston control methods
     //------------------------------------------------------------------------------------
