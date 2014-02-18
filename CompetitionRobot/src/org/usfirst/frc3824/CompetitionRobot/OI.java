@@ -80,6 +80,7 @@ public class OI
         SmartDashboard.putData("Autonomous Drive to Right Box from Center", new AutonomousDrivetoRightBoxfromCenter());
         SmartDashboard.putData("Autonomous with Vision From Left", new AutonomouswithVisionFromLeft());
         SmartDashboard.putData("Autonomous with Vision From Right", new AutonomouswithVisionFromRight());
+        SmartDashboard.putData("Autonomous Drive Straight", new AutonomousDriveStraight());
         SmartDashboard.putData("Cannon Shoot", new CannonShoot());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());
         SmartDashboard.putData("ChassisDriveStraight", new ChassisDriveStraight());
@@ -92,11 +93,9 @@ public class OI
         SmartDashboard.putData("Shooter Angle Up", new ShooterAngleUp());
         SmartDashboard.putData("VacuumOff", new VacuumOff());
         SmartDashboard.putData("VacuumOn", new VacuumOn());
-        SmartDashboard.putData("Autonomous Drive Straight", new AutonomousDriveStraight());
         SmartDashboard.putData("Auxiliary Left Vacuum Off", new AuxiliaryLeftVacuumOff());
         SmartDashboard.putData("Auxiliary Left Vacuum On", new AuxiliaryLeftVacuumOn());
         SmartDashboard.putData("Auxiliary Left Vacuum Toggle", new AuxiliaryLeftVacuumToggle());
-        SmartDashboard.putData("Auxilary Left Shoot", new AuxilaryLeftShoot());
         SmartDashboard.putData("Set Auxiliary Left Angle", new SetAuxiliaryLeftAngle());
         SmartDashboard.putData("Auxiliary Test", new AuxiliaryTest());
         SmartDashboard.putData("Auxiliary Left Vertical Deploy", new AuxiliaryLeftVerticalDeploy());
