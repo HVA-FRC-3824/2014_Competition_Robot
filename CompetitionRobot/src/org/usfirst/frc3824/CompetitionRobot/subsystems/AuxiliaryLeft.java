@@ -43,39 +43,58 @@ public class AuxiliaryLeft extends Subsystem
         verticalAdjust.set(DoubleSolenoid.Value.kOff);
     }
     
-    //------------------------------------------------------------------------------------
+    //====================================================================================
     // Deployment piston control methods
-    //------------------------------------------------------------------------------------
+    //====================================================================================
+    /** <b><u>Deployment Piston Control Method</u></b>
+     *  <p>Deploy Piston</p>
+     */
     public void setVerticalDeploy()
     {
         verticalAdjust.set(DoubleSolenoid.Value.kForward);
     }
     
+    /** <b><u>Deployment Piston Control Method</u></b>
+     *  <p>Retract Piston</p>
+     */
     public void setVerticalRetract()
     {
         verticalAdjust.set(DoubleSolenoid.Value.kReverse);
     }
     
+    /** <b><u>Deployment Piston Control Method</u></b>
+     *  <p>Stop Piston</p>
+     */
     public void setVerticalStop()
     {
         verticalAdjust.set(DoubleSolenoid.Value.kOff);
     }
         
-    //------------------------------------------------------------------------------------
+    //====================================================================================
     // Vacuum Control methods
-    //------------------------------------------------------------------------------------
+    //====================================================================================
+    
+    /** <b><u>Vacuum Control Method</u></b>
+     *  <p>Turns the vacuum on.</p>
+     */
     public void setVacuumOff()
     {
         vacuum.set(0.0);
         m_vacuumActive = false;
     }
     
+    /** <b><u>Vacuum Control Method</u></b>
+     *  <p>Turns the vacuum off.</p>
+     */
     public void setVacuumOn()
     {
         vacuum.set(1.0);
         m_vacuumActive = true;
     }
     
+    /** <b><u>Vacuum Control Method</u></b>
+     *  <p>Toggles the state of the vacuum.</p>
+     */
     public void vacuumToggle()
     {
        if(m_vacuumActive == true)
@@ -92,9 +111,16 @@ public class AuxiliaryLeft extends Subsystem
         }
     }
     
-    //------------------------------------------------------------------------------------
+    //====================================================================================
     // Shooter Angle Control methods
-    //------------------------------------------------------------------------------------
+    //====================================================================================
+    
+    /** Sets the motor angle of the auxiliary arm.
+     *  <p>Resets the PID Controller.
+     *  <br>Sets the setpoint to the angle value converted to ADC.</br>
+     *  <br>Enables the PID Controller.</br></p>
+     * @param angle - the angle to set
+     */
     public void setShooterAngle(double angle)
     { 
         // Convert angle into 0-5V for the PID
@@ -124,9 +150,14 @@ public class AuxiliaryLeft extends Subsystem
         return shooterAnglePID.onTarget();
     }
     
-    //------------------------------------------------------------------------------------
+    //====================================================================================
     // Conversion methods
-    //------------------------------------------------------------------------------------
+    //====================================================================================
+    /** Converts the input angle from degrees to an ADC value.
+     * 
+     * @param angle - degree value to convert to an ADC value
+     * @return converted ADC value
+     */
     private double convertAngleToADC(double angle)
     {
        double angleRatio;
@@ -135,6 +166,11 @@ public class AuxiliaryLeft extends Subsystem
        return (Constants.AUX_MAX_ANGLE_ADCVAL - Constants.AUX_MIN_ANGLE_ADCVAL) * angleRatio + Constants.AUX_MIN_ANGLE_ADCVAL;
     }
     
+    /** Converts the input ADC value to an angle in degrees.
+     * 
+     * @param ADC - ADC value to convert to an angle in degrees
+     * @return converted angle
+     */
     private double convertADCtoAngle(double ADC)
     {
        double adcRatio;
@@ -143,11 +179,19 @@ public class AuxiliaryLeft extends Subsystem
        return (Constants.AUX_MAX_ANGLE - Constants.AUX_MIN_ANGLE) * (adcRatio) + Constants.AUX_MIN_ANGLE;
     }
     
+    /** Returns the angle of the auxiliary motor.
+     * 
+     * @return angle of auxiliary motor
+     */
     public double getAuxiliaryAngle()
     {
         return convertADCtoAngle(shooterAngle.pidGet());
     }
     
+    /** Returns the ADC of the auxiliary motor.
+     * 
+     * @return ADC of auxiliary motor
+     */
     public double getAuxiliaryPIDValue()
     {
         return shooterAngle.pidGet();

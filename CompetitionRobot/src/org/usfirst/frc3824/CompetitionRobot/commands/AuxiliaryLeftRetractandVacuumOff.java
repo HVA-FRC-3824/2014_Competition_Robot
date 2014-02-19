@@ -29,12 +29,14 @@ public class  AuxiliaryLeftRetractandVacuumOff extends Command {
         timer.reset();
         timer.start();
         Robot.auxiliaryLeft.setVerticalRetract();
+        System.out.println("AuxiliaryLeftRetractandVacuumOff - Retracting Auxiliary Arm!");
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if(timer.get() >= 1.0)
         {
             Robot.auxiliaryLeft.setVacuumOff();
+            System.out.println("AuxiliaryLeftRetractandVacuumOff - Turning Vacuum Off!");
         }
     }
     // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +45,7 @@ public class  AuxiliaryLeftRetractandVacuumOff extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("AuxiliaryLeftRetractandVacuumOff - Finished with the command!");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
