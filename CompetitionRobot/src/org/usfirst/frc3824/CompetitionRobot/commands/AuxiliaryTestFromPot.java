@@ -37,8 +37,9 @@ public class  AuxiliaryTestFromPot extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
-        SmartDashboard.putNumber("Auxiliary Rotation Angle:", Robot.auxiliaryLeft.getAuxiliaryAngle());
+        SmartDashboard.putNumber("Auxiliary Rotation Angle: ", Robot.auxiliaryLeft.getAuxiliaryAngle());
         SmartDashboard.putNumber("Auxiliary Rotation PID Val: ", Robot.auxiliaryLeft.getAuxiliaryPIDValue());
+        SmartDashboard.putNumber("Auxiliary Rotation Motor Power: ", Robot.auxiliaryLeft.getMotorPower());
         try 
         {
             // Angle is currently in 0V to 3.3V
