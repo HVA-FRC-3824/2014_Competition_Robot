@@ -32,11 +32,11 @@ public class Shooter extends Subsystem
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    //------------------------------------------------------------------------------------
-    // Sets Shooter Solenoids to the value of shoot.
-    // if shoot is true, the solenoids will fire.
-    // if shoot is false, the solenoids will retract.
-    //------------------------------------------------------------------------------------
+    /** Sets Shooter Solenoids to the value of shoot.
+     * <br>if shoot is true, the solenoids will deploy.</br>
+     * <br>if shoot is false, the solenoids will retract.</br>
+     * @param shoot - true if desire to shoot is true
+     */
     public void setShooterSolenoids(boolean shoot)
     {
         shootSolenoid1.set(shoot);

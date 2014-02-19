@@ -32,21 +32,28 @@ public class Vacuum extends Subsystem {
     }
     
     
-    //------------------------------------------------------------------------------------
-    // Vacuum Control methods
-    //------------------------------------------------------------------------------------
+    
+    /** <b><u>Vacuum Control Method</u></b>
+     *  <p>Vacuum On</p>
+     */
     public void setVacuumOn()
     {
         vacuum.set(1.0);
         m_vacuumActive = true;
     }
     
+    /** <b><u>Vacuum Control Method</u></b>
+     *  <p>Vacuum Off</p>
+     */
     public void setVacuumOff()
     {
         vacuum.set(0.0);
         m_vacuumActive = false;
     }
     
+    /** <b><u>Vacuum Control Method</u></b>
+     *  <p>Vacuum Toggle</p>
+     */
     public void toggleVacuum()
     {        
         if(m_vacuumActive == true)
