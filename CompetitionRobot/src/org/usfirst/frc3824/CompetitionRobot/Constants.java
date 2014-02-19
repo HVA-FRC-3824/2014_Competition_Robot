@@ -55,6 +55,7 @@ public class Constants {
     public final static double SHOOTER_CORNER_POSITION = 40;
     public final static double SHOOTER_ANGLED_CORNER_POSITION = 40;
     public final static double SHOOTER_START_POSITION = 96;
+    public final static double SHOOTER_TRANSFER_POSITION = 96;
     
     public final static double TURN_THRESHOLD = 1.5; //works with 1 but is a bit slow
     
