@@ -113,7 +113,6 @@ public class AuxiliaryLeft extends Subsystem
     
     //====================================================================================
     // Shooter Angle Control methods
-<<<<<<< HEAD
     //====================================================================================
     
     /** Sets the motor angle of the auxiliary arm.
@@ -122,11 +121,8 @@ public class AuxiliaryLeft extends Subsystem
      *  <br>Enables the PID Controller.</br></p>
      * @param angle - the angle to set
      */
-    public void setShooterAngle(double angle)
-=======
     //------------------------------------------------------------------------------------
     public void setShooterAngle(double adcVal)
->>>>>>> origin/auxiliaryAngleTest
     { 
         // Convert angle into 0-5V for the PID
         //shooterAnglePID.reset();
@@ -159,8 +155,6 @@ public class AuxiliaryLeft extends Subsystem
     {
         return shooterAnglePID.onTarget();
     }
-    
-<<<<<<< HEAD
     //====================================================================================
     // Conversion methods
     //====================================================================================
@@ -169,23 +163,9 @@ public class AuxiliaryLeft extends Subsystem
      * @param angle - degree value to convert to an ADC value
      * @return converted ADC value
      */
-=======
     public double getMotorPower()
     {
         return shooterMotor.get();
-    }
-    
-    //------------------------------------------------------------------------------------
-    // Conversion methods
-    //------------------------------------------------------------------------------------
-    /*
->>>>>>> origin/auxiliaryAngleTest
-    private double convertAngleToADC(double angle)
-    {
-       double angleRatio;
-       
-       angleRatio = ((angle - Constants.AUX_MIN_ANGLE) / (Constants.AUX_MAX_ANGLE - Constants.AUX_MIN_ANGLE));
-       return (Constants.AUX_MAX_ANGLE_ADCVAL - Constants.AUX_MIN_ANGLE_ADCVAL) * angleRatio + Constants.AUX_MIN_ANGLE_ADCVAL;
     }
     
     /** Converts the input ADC value to an angle in degrees.
@@ -201,19 +181,14 @@ public class AuxiliaryLeft extends Subsystem
        return (Constants.AUX_MAX_ANGLE - Constants.AUX_MIN_ANGLE) * (adcRatio) + Constants.AUX_MIN_ANGLE;
     }
     
-<<<<<<< HEAD
     /** Returns the angle of the auxiliary motor.
      * 
      * @return angle of auxiliary motor
      */
-=======
-    
->>>>>>> origin/auxiliaryAngleTest
     public double getAuxiliaryAngle()
     {
         return convertADCtoAngle(shooterAngle.pidGet());
     }
-    */
     
     /** Returns the ADC of the auxiliary motor.
      * 
