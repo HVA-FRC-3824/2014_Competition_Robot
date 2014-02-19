@@ -105,7 +105,6 @@ public class ShooterAngleAdjustPID extends PIDSubsystem {
         // Convert the requested angle into a voltage in the range 0-5V
         //  The voltage is what the PID requires.
         volts = ((inputAngle - Constants.SHOOTER_ANGLE_MIN_VALUE) / (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE)) * 5.0;
-
         return volts;
     }
     
@@ -117,5 +116,4 @@ public class ShooterAngleAdjustPID extends PIDSubsystem {
         
         return angle;
     }
-
 }

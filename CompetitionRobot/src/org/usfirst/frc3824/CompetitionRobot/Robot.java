@@ -165,6 +165,10 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Shooter Angle (ADC)", Robot.shooterAngleAdjustPID.getPotentiometer().pidGet());
         SmartDashboard.putNumber("Shooter Angle (Degrees)", Robot.shooterAngleAdjustPID.getCurrentAngle());
         SmartDashboard.putNumber("Gyro", Robot.drivetrain.getGyroValue());
+        
+        SmartDashboard.putNumber("Auxiliary Rotation ADC Setpoint: ", Robot.auxiliaryLeft.getShooterSetpoint());
+        SmartDashboard.putNumber("Auxiliary Rotation PID Val: ", Robot.auxiliaryLeft.getAuxiliaryPIDValue());
+        SmartDashboard.putNumber("Auxiliary Rotation Motor Power: ", Robot.auxiliaryLeft.getMotorPower());
           
         Scheduler.getInstance().run();
     }

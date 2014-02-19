@@ -23,7 +23,7 @@ public class BallTransferfromAuxtoMain extends CommandGroup {
         // Transfers the Ball from the Auxiliary arm to the main shooter.
         
         addSequential(new SetShooterAngle(Constants.SHOOTER_ANGLE_MAX_VALUE));
-        addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_TRANSFER_ANGLE));
+        //addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_TRANSFER_ANGLE));
         addSequential(new AuxiliaryLeftRetractandVacuumOff());
         addParallel(new VacuumOn());
     }

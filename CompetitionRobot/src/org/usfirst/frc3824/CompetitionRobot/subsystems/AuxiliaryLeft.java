@@ -95,12 +95,17 @@ public class AuxiliaryLeft extends Subsystem
     //------------------------------------------------------------------------------------
     // Shooter Angle Control methods
     //------------------------------------------------------------------------------------
-    public void setShooterAngle(double angle)
+    public void setShooterAngle(double adcVal)
     { 
         // Convert angle into 0-5V for the PID
-        shooterAnglePID.reset();
-        shooterAnglePID.setSetpoint(convertAngleToADC(angle));
+        //shooterAnglePID.reset();
+        shooterAnglePID.setSetpoint(adcVal);
         shooterAnglePID.enable();
+    }
+    
+    public double getShooterSetpoint()
+    {
+        return shooterAnglePID.getSetpoint();
     }
     
     public void setShooterTestPID(double pid)
@@ -124,9 +129,15 @@ public class AuxiliaryLeft extends Subsystem
         return shooterAnglePID.onTarget();
     }
     
+    public double getMotorPower()
+    {
+        return shooterMotor.get();
+    }
+    
     //------------------------------------------------------------------------------------
     // Conversion methods
     //------------------------------------------------------------------------------------
+    /*
     private double convertAngleToADC(double angle)
     {
        double angleRatio;
@@ -143,10 +154,12 @@ public class AuxiliaryLeft extends Subsystem
        return (Constants.AUX_MAX_ANGLE - Constants.AUX_MIN_ANGLE) * (adcRatio) + Constants.AUX_MIN_ANGLE;
     }
     
+    
     public double getAuxiliaryAngle()
     {
         return convertADCtoAngle(shooterAngle.pidGet());
     }
+    */
     
     public double getAuxiliaryPIDValue()
     {
