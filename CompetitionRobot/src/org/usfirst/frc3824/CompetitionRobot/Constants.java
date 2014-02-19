@@ -10,26 +10,96 @@ public class Constants {
     public final static double DrivetrainAngleGyroControllerI = 0.004;
     public final static double DrivetrainAngleGyroControllerD = 0.04;
 
+    // ===================================================
     // Cypress IO defines
-    public final static int ANALOG_AUXILIARY_ANGLE = 1; // Pot input channel
-    public final static int ANALOG_SHOOTER_ADJUST_PID = 2; // Pot input channel
+    // ===================================================
+    /** Cypress IO Define.
+     *  <br> Analog 1
+     *  <br> Potentiometer. Used to change the auxiliary arm motor angle.
+     */
+    public final static int ANALOG_AUXILIARY_ANGLE = 1;
+    /** Cypress IO Define.
+     *  <br> Analog 2
+     *  <br> Potentiometer. Used to change the shooter angle.
+     */
+    public final static int ANALOG_SHOOTER_ADJUST_PID = 2; 
+    /** Cypress IO Define.
+     *  <br> Digital 10
+     *  <br> Double Toggle. 
+     *  <p> This is used to define the pickup in command.
+     */
     public final static int INPUT_PICKUP_IN = 10; // Double toggle
+    /** Cypress IO Define.
+     *  <br> Digital 1
+     *  <br> Double Toggle.
+     *  <p> This is used to define the pickup out command.
+     */
     public final static int INPUT_PICKUP_OUT = 1; // Double toggle
+    /** Cypress IO Define.
+     *  <br> Digital 4
+     *  <br> Toggle Switch.
+     */
     public final static int INPUT_VACUUM_TOGGLE = 4; // Toggle switch
+    /** Cypress IO Define.
+     *  <br> Digital 11
+     *  <br> Button.
+     */
     public final static int INPUT_CANNON_SHOOT = 11; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 7
+     *  <br> Toggle Switch.
+     */
     public final static int INPUT_SHOOTER_ANGLE_ADJUSTMENT_MANUAL = 7; // Toggle switch
+    /** Cypress IO Define.
+     *  <br> Digital 16
+     *  <br> Button.
+     */
     public final static int SHOOTER_ANGLE_SHOOT = 16; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 3
+     *  <br> Button.
+     */
     public final static int SHOOTER_ANGLE_PASS = 3; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 8
+     *  <br> Button
+     */
     public final static int SHOOTER_ANGLE_PICKUP = 8; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 14
+     *  <br> Button.
+     */
     public final static int SHOOTER_ANGLE_CORNER = 14; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 12
+     *  <br> Button.
+     */
     public final static int SHOOTER_ANGLE_ANGLED_CORNER = 12; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 13
+     *  <br> Button.
+     */
     public final static int SHOOTER_ANGLE_START = 13; // Button
+    /** Cypress IO Define.
+     *  <br> Digital 5
+     *  <br> Toggle Switch.
+     */
     public final static int AUXILIARY_ANGLE_CONTROL = 5; // Toggle switch
+    /** Cypress IO Define.
+     *  <br> Digital 6
+     *  <br> Button.
+     */
     public final static int INPUT_BALL_TRANSFER = 6;  // Button
+    /** Cypress IO Define.
+     *  <br> Digital 15
+     *  <br> Button.
+     */
     public final static int INPUT_HOME_POSITION = 15; // Button
     
-    //------------------------------
-    // Camera related values
+   
+    /** Camera related value.
+     *  <p> Start up timeout.
+     */
     public final static double CAMERA_STARTUP_TIMEOUT = 5.0;
     
     //------------------------------
@@ -37,18 +107,38 @@ public class Constants {
     public final static double AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH = 5.0;    // Hot goal switches at 5.0 seconds into the game
     
     // Drive straight and shoot configuration values
+    /** Autonomous Straight Drive
+     * <p> Straight Drive Time</p>
+     */
     public final static double AUTONOMOUS_STRAIGHT_DRIVE_TIME = 1.6; 
+    /** Autonomous Straight Drive
+     * <p> Straight Drive Power </p>
+     */
     public final static double AUTONOMOUS_STRAIGHT_DRIVER_POWER = 0.5;
+    /** Autonomous Straight Drive
+     * <p> Straight Drive Angle </p>
+     */
     public final static double AUTONOMOUS_STRAIGHT_DRIVE_ANGLE = 0.0;
-    /**
+    
+    /*
      * **** SHOOTER POSITION *****
      */
     // Note: The shooter angle is greater than possible to ensure the new shooter 
     //       can move the full range (after the slope and y-intercept have been 
     //       recalibrated)
+    
+    /** Shooter Angle Value.
+     * <p> Maximum Value
+     */
     public final static double SHOOTER_ANGLE_MAX_VALUE = 100.0;    // 850.0  - 45.848   50
+    /** Shooter Angle Value.
+     * <p> Minimum Value </p>
+     */
     public final static double SHOOTER_ANGLE_MIN_VALUE = -25.0;    //   0.0  - 17.203   10
     
+    /** Shooter Position.
+     * <p> Max Value </p>
+     */
     public final static double SHOOTER_PICKUP_POSITION = -13.6;     // 13.85
     public final static double SHOOTER_PASS_POSITION = 23;
     public final static double SHOOTER_REGULAR_SHOT_POSITION = 66;
