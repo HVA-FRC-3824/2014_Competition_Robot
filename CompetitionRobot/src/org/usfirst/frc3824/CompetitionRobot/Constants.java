@@ -210,4 +210,8 @@ public class Constants {
      */
     public final static double AUX_HOME_POSITION = 180.0; // degree
     
+    // ADC Auxiliary constants
+    public final static double AUX_ADC_PICKUP_POSITION = 600.0;
+    public final static double AUX_ADC_PLACE_POSITION = 350.0;
+    
 }
