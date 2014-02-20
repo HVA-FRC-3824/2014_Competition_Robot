@@ -11,30 +11,26 @@
 
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.command.WaitUntilCommand;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 
 /**
  *
  */
-public class AutonomouswithVisionFromLeft extends CommandGroup {
+public class AutonomousTestVision extends CommandGroup {
     
-    public  AutonomouswithVisionFromLeft() {
+    public  AutonomousTestVision() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addSequential(new VacuumOn());
-        addParallel(new WaitUntilCommand(1.0));
+
         addSequential(new LocateHotGoal());
         addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
-        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+       // addSequential(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME, 
                                                 Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
                                                 Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));
-        addSequential(new CannonShoot());
-        addSequential(new VacuumOff());
-
+        
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());

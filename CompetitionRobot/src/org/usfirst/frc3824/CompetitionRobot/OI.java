@@ -82,6 +82,7 @@ public class OI
         SmartDashboard.putData("Autonomous Drive to Right Box from Center", new AutonomousDrivetoRightBoxfromCenter());
         SmartDashboard.putData("Autonomous with Vision From Left", new AutonomouswithVisionFromLeft());
         SmartDashboard.putData("Autonomous with Vision From Right", new AutonomouswithVisionFromRight());
+        SmartDashboard.putData("Autonomous Test Vision", new AutonomousTestVision());
         SmartDashboard.putData("Autonomous Drive Straight", new AutonomousDriveStraight());
         SmartDashboard.putData("Cannon Shoot", new CannonShoot());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());

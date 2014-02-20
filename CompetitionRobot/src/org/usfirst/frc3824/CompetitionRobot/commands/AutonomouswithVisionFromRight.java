@@ -27,7 +27,7 @@ public class AutonomouswithVisionFromRight extends CommandGroup {
         addSequential(new VacuumOn());
         addSequential(new LocateHotGoal());
         addParallel(new WaitUntilCommand(1.0));
-        addSequential(new DelayIfTargetNotHot(LocateHotGoal.TargetSide.RIGHT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
+        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.RIGHT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
         addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME, 
                                                 Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
