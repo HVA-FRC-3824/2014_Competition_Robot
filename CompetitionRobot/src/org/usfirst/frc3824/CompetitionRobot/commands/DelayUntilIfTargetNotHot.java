@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.WaitUntilCommand;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
@@ -18,7 +19,7 @@ public class  DelayUntilIfTargetNotHot extends Command {
     protected int m_whichTarget;
     protected double m_delayUntil;
     protected Command driver;
-    private int executeCount = 0;
+    private int executeCount;
     
     public DelayUntilIfTargetNotHot() {
         // Use requires() here to declare subsystem dependencies
@@ -36,12 +37,15 @@ public class  DelayUntilIfTargetNotHot extends Command {
         m_whichTarget = whichTarget;
         m_delayUntil = delayUntil;
     }
+    
     // Called just before this Command runs the first time
     protected void initialize() {
+        executeCount = 0;
         if(m_whichTarget != Robot.hotGoalInfo.hotTarget)
         {
             // wait until 'delayUntil' time after the Autonomous starts.
             driver = new WaitUntilCommand(m_delayUntil);  // delay
+            //System.out.println("DELAY for " + m_delayUntil + " seconds - time: " + DriverStation.getInstance().getMatchTime());
         }
         else
         {
@@ -49,6 +53,7 @@ public class  DelayUntilIfTargetNotHot extends Command {
             // create a delay command object, but set the start time to a value already
             // in the past, so there will effectively be no delay
             driver = new WaitUntilCommand(0.0);          
+            //System.out.println("no delay");
        }
        driver.start();
     }
@@ -60,9 +65,12 @@ public class  DelayUntilIfTargetNotHot extends Command {
         // execute to run at lease 3 times, we guarantee that the timer will start and
         // run for the specified delay.
         executeCount++;
+       // System.out.println("execute count " + executeCount);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        //System.out.println("isFinished - time: " +  + DriverStation.getInstance().getMatchTime());
+        //System.out.println("returning: " + (!driver.isRunning() && (executeCount > 2)));
         return (!driver.isRunning() && (executeCount > 2));
     }
     // Called once after isFinished returns true
