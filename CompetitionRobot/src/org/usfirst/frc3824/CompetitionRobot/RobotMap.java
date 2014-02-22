@@ -31,7 +31,7 @@ public class RobotMap
     public static Solenoid shooterShootSolenoid3;
     public static Solenoid shooterShootSolenoid4;
     public static Compressor pumpCompressor;
-    public static Relay pickupWheelPickup;
+    public static SpeedController pickupWheelPickupTalon;
     public static AnalogChannel shooterAngleAdjustPIDShooterAnglePID;
     public static SpeedController shooterAngleAdjustPIDAngleMotorPID;
     public static SpeedController vacuumVacuum;
@@ -86,8 +86,8 @@ public class RobotMap
         pumpCompressor = new Compressor(1, 1, 1, 1);
 	
         
-        pickupWheelPickup = new Relay(1, 5);
-	LiveWindow.addActuator("Pickup", "Wheel Pickup", pickupWheelPickup);
+        pickupWheelPickupTalon = new Talon(1, 9);
+	LiveWindow.addActuator("Pickup", "Wheel Pickup Talon", (Talon) pickupWheelPickupTalon);
         
         shooterAngleAdjustPIDShooterAnglePID = new AnalogChannel(1, 5);
 	LiveWindow.addSensor("Shooter Angle Adjust PID", "Shooter Angle PID", shooterAngleAdjustPIDShooterAnglePID);
