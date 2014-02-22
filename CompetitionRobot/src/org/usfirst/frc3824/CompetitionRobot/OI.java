@@ -87,6 +87,7 @@ public class OI
         SmartDashboard.putData("Cannon Shoot", new CannonShoot());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());
         SmartDashboard.putData("ChassisDriveStraight", new ChassisDriveStraight());
+        SmartDashboard.putData("ChassisDriveAndTurnTest", new ChassisDriveAndTurnTest());
         SmartDashboard.putData("Locate Hot Goal TEST SAVE", new LocateHotGoalTESTSAVE());
         SmartDashboard.putData("Locate Hot Goal TEST USE SAVED", new LocateHotGoalTESTUSESAVED());
         SmartDashboard.putData("ChassisDriveToNotHotGoal", new ChassisDriveToNotHotGoal());

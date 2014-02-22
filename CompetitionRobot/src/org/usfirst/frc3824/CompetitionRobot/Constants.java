@@ -9,6 +9,10 @@ public class Constants {
     public final static double DrivetrainAngleGyroControllerP = 0.04;
     public final static double DrivetrainAngleGyroControllerI = 0.004;
     public final static double DrivetrainAngleGyroControllerD = 0.04;
+    
+    public final static double DrivetrainAngleGyroControllerTurnP = 0.005;
+    public final static double DrivetrainAngleGyroControllerTurnI = 0.00005;
+    public final static double DrivetrainAngleGyroControllerTurnD = 0.0004;
 
     // ===================================================
     // Cypress IO defines
@@ -154,7 +158,7 @@ public class Constants {
     /** <b><u>Shooter Position</u></b>
      * <p> Corner Shot </p>
      */
-    public final static double SHOOTER_CORNER_POSITION = 40;
+    public final static double SHOOTER_CORNER_POSITION = 76;
     /** <b><u>Shooter Position</u></b>
      * <p> Angled Corner Shot </p>
      */
@@ -162,7 +166,7 @@ public class Constants {
     /** <b><u>Shooter Position</u></b>
      * <p> Start Position </p>
      */
-    public final static double SHOOTER_START_POSITION = 96;
+    public final static double SHOOTER_START_POSITION = 90;
     /** <b><u>Shooter Position</u></b>
      * <p> Ball Transfer Position. This is used with the BallTransferAuxtoMain command. </p>
      */
