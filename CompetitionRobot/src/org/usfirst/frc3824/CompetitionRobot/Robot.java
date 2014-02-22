@@ -61,8 +61,11 @@ public class Robot extends IterativeRobot
     public static SendableChooser chooser;
     public static Command selectedCommand;
     
-    private static Timer timer = new Timer();
-    
+    private int tryDelay;
+    private AxisCamera primeImageStream;
+    private Timer startupTimeout;
+    private ColorImage image;
+     
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -104,33 +107,8 @@ public class Robot extends IterativeRobot
       // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser); 
         
-        Timer startupTimeout = new Timer();
-        startupTimeout.reset();
-        startupTimeout.start();
-        AxisCamera primeImageStream = AxisCamera.getInstance();
-        ColorImage image;
-        do{
-            image = null;
-            try
-            {
-                image = primeImageStream.getImage();
-                System.out.println("ROBOT - prime: Image Found - primed");
-            }
-            catch(AxisCameraException ex)
-            {
-                System.out.println("ROBOT - prime: No Image Available -- " + ex.getMessage());
-            }
-            catch(NIVisionException ex)
-            {
-                
-            }
-            Timer.delay(0.25);
-        } while ((image == null) && (startupTimeout.get() < Constants.CAMERA_STARTUP_TIMEOUT));
-        startupTimeout.stop();
-        
-        // if the image is null, set cameraAvailable to FALSE;
-        cameraAvailable = !(null == image);
-    }
+        startupTimeout = new Timer();
+   }
     public void autonomousInit()
     {
         // schedule the autonomous command (example)
@@ -180,5 +158,62 @@ public class Robot extends IterativeRobot
     public void testPeriodic()
     {
         LiveWindow.run();
+    }
+    
+    public void disabledInit()
+    {
+        primeImageStream = AxisCamera.getInstance();
+        tryDelay = 0;
+        cameraAvailable = false;
+        startupTimeout.reset();
+        startupTimeout.start();
+        
+        SmartDashboard.putString("ImageProcessStatus", " ");
+        SmartDashboard.putNumber("Image Process Time (ms)", 0.0);
+        SmartDashboard.putString("Camera State: ", " ");
+    }
+    
+    public void disabledPeriodic()
+    {
+        
+        if( (0 == tryDelay) && (startupTimeout.get() < Constants.CAMERA_STARTUP_TIMEOUT))
+        {
+            image = null;
+            try 
+            {
+                image = primeImageStream.getImage();
+                SmartDashboard.putString("Camera State: ", "Image found - READY");
+            } 
+            catch (AxisCameraException ex) 
+            {
+                SmartDashboard.putString("Camera State: ", "Waiting for Image (" + startupTimeout.get() + " ms)");
+            } 
+            catch (NIVisionException ex) 
+            {
+
+            }
+        }
+        else if(startupTimeout.get() >= Constants.CAMERA_STARTUP_TIMEOUT)
+        {
+            startupTimeout.stop();
+        }
+        
+        // if the image is null, set cameraAvailable to FALSE;
+        if(image != null)
+        {
+            cameraAvailable = true;
+            try
+            {
+                image.free();
+            }
+            catch (NIVisionException ex) 
+            {
+
+            }            
+        }
+
+        // this is so we only attempt to get an image once every 15 * 20ms = 300ms
+        tryDelay++;
+        tryDelay %= 15; 
     }
 }
