@@ -18,6 +18,7 @@ public class ChassisTurnAngle extends Command
 {
     private double degreesToTurn = 0;
     private boolean anglePassed;
+    public double initialAngle;
     
     public ChassisTurnAngle(double turnAngle)
     {
@@ -42,6 +43,7 @@ public class ChassisTurnAngle extends Command
     // Called just before this Command runs the first time
     protected void initialize()
     {
+        initialAngle = Robot.drivetrain.getGyro().pidGet();
         // Set angle for turning
         Robot.drivetrain.getAngleGyroController().setPID(Constants.DrivetrainAngleGyroControllerTurnP, Constants.DrivetrainAngleGyroControllerTurnI, Constants.DrivetrainAngleGyroControllerTurnD);
 

@@ -21,9 +21,7 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
 public class ChassisDriveAndTurnTest extends CommandGroup {
     
     public  ChassisDriveAndTurnTest() {
-        double initialAngle;
-        double newTurnAngle;
-        initialAngle = Robot.drivetrain.getGyro().pidGet();
+        ChassisTurnAngle chassisTurn = new ChassisTurnAngle(180.0);
         
         // Drive forward
         addSequential(new ChassisDriveStraight(2.0, 0.5, 0.0));
@@ -31,13 +29,12 @@ public class ChassisDriveAndTurnTest extends CommandGroup {
         addSequential(new WaitCommand(1.0));
         
         // Turn around
-        addSequential(new ChassisTurnAngle(180.0));
+        addSequential(chassisTurn);
         
         addSequential(new WaitCommand(1.0));
         
         // Drive forward in opposite direction
-        newTurnAngle = initialAngle + 180;
-        addSequential(new ChassisDriveStraight(2.0, 0.5, 0.0, newTurnAngle));
+        addSequential(new ChassisDriveStraight(2.0, 0.5, 0.0, chassisTurn));
         
         // Add Commands here:
         // e.g. addSequential(new Command1());
