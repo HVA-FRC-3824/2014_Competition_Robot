@@ -30,9 +30,9 @@ public class Drivetrain extends Subsystem
     private AnglePIDOutput angleOutput = new AnglePIDOutput();
     private PIDController angleGyroController
             = new PIDController(Constants.DrivetrainAngleGyroControllerP,
-                                Constants.DrivetrainAngleGyroControllerI,
-                                Constants.DrivetrainAngleGyroControllerD,
-                                gyro, angleOutput);
+                    Constants.DrivetrainAngleGyroControllerI,
+                    Constants.DrivetrainAngleGyroControllerD,
+                    gyro, angleOutput);
     //PIDController powerUltSndController = new PIDController(Kp, Ki, Kd, , angleOutput);
     //used as the value for drive while running under PIDControl. Those values
     //not set by the controller can be set by a command directly
@@ -64,12 +64,10 @@ public class Drivetrain extends Subsystem
     {
         holonomicDrive.mecanumDrive_Cartesian(x, y, rotation, gyro.getAngle());
     }
-    
     public double getFrontDistance()
     {
         return ultrasonicFront.getValue() * UNITS_TO_INCHES;
     }
-    
     public Gyro getGyro()
     {
         return gyro;
@@ -82,7 +80,6 @@ public class Drivetrain extends Subsystem
     {
         gyro.reset();
     }
-    
     /**
      * Only to be used while controlled by PID controller
      */

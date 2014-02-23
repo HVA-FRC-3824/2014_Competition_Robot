@@ -9,7 +9,6 @@
 // it from being updated in the future.
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**

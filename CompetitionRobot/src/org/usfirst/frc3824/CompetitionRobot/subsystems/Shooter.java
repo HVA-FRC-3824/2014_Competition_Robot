@@ -31,10 +31,11 @@ public class Shooter extends Subsystem
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
-    /** Sets Shooter Solenoids to the value of shoot.
+    /**
+     * Sets Shooter Solenoids to the value of shoot.
      * <br>if shoot is true, the solenoids will deploy.</br>
      * <br>if shoot is false, the solenoids will retract.</br>
+     *
      * @param shoot - true if desire to shoot is true
      */
     public void setShooterSolenoids(boolean shoot)

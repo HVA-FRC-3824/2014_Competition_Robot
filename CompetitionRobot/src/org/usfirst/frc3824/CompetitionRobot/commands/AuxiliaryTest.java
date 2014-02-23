@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
  */
 public class AuxiliaryTest extends CommandGroup
 {
-
     public AuxiliaryTest()
     {
         // Add Commands here:

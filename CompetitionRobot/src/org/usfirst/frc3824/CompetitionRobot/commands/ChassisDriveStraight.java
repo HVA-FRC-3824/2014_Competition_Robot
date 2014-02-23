@@ -10,9 +10,6 @@
 package org.usfirst.frc3824.CompetitionRobot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDSource;
-import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 public class ChassisDriveStraight extends Command
@@ -69,8 +66,7 @@ public class ChassisDriveStraight extends Command
         if (!setpointSpecified)
         {
             Robot.drivetrain.getAngleGyroController().setSetpoint(Robot.drivetrain.getGyroValue());
-        }
-        else
+        } else
         {
             Robot.drivetrain.getAngleGyroController().setSetpoint(chassisTurnAngle.initialAngle + 180);
         }
