@@ -98,32 +98,44 @@ public class OI
          */
         DigitalIOButton m_shooterAnglePickup = new DigitalIOButton(Constants.SHOOTER_ANGLE_PICKUP);
         m_shooterAnglePickup.whenPressed(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
+        
         DigitalIOButton m_shooterAnglePass = new DigitalIOButton(Constants.SHOOTER_ANGLE_PASS);
         m_shooterAnglePass.whenPressed(new SetShooterAngle(Constants.SHOOTER_PASS_POSITION));
+        
         DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_SHOOT);
         m_shooterAngleShoot.whenPressed(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        
         DigitalIOButton m_shooterAngleCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_CORNER);
         m_shooterAngleCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_CORNER_POSITION));
+        
         DigitalIOButton m_shooterAngleAngledCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_ANGLED_CORNER);
         m_shooterAngleAngledCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_ANGLED_CORNER_POSITION));
+        
         DigitalIOButton m_shooterAngleStart = new DigitalIOButton(Constants.SHOOTER_ANGLE_START);
         m_shooterAngleStart.whenPressed(new SetShooterAngle(Constants.SHOOTER_START_POSITION));
+        
         DigitalIOButton m_pickupIn = new DigitalIOButton(Constants.INPUT_PICKUP_IN);
         m_pickupIn.whileHeld(new PickupBallIn());
         m_pickupIn.whenReleased(new PickupBallStop());
+        
         DigitalIOButton m_pickupOut = new DigitalIOButton(Constants.INPUT_PICKUP_OUT);
         m_pickupOut.whileHeld(new PickupBallOut());
         m_pickupOut.whenReleased(new PickupBallStop());
+        
         DigitalIOButton m_vacuum = new DigitalIOButton(Constants.INPUT_VACUUM_TOGGLE);
         m_vacuum.whenPressed(new VacuumOn());
         m_vacuum.whenReleased(new VacuumOff());
+        
         DigitalIOButton m_cannonShoot = new DigitalIOButton(Constants.INPUT_CANNON_SHOOT);
         m_cannonShoot.whenPressed(new CannonShoot());
         SmartDashboard.putData("LocateHotGoal", new LocateHotGoal());
+        
         DigitalIOButton m_auxiliaryAngleControlToggle = new DigitalIOButton(Constants.AUXILIARY_ANGLE_CONTROL);
         m_auxiliaryAngleControlToggle.whileHeld(new AuxiliaryTestFromPot());
+        
         DigitalIOButton m_ballTransfer = new DigitalIOButton(Constants.INPUT_BALL_TRANSFER);
         m_ballTransfer.whenPressed(new BallTransferfromAuxtoMain());
+        
         DigitalIOButton m_homePosition = new DigitalIOButton(Constants.INPUT_HOME_POSITION);
         m_homePosition.whenPressed(new GoHome());
     }
