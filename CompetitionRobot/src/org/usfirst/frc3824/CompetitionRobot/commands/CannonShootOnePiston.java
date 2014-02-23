@@ -16,11 +16,11 @@ import org.usfirst.frc3824.CompetitionRobot.Robot;
 /**
  *
  */
-public class CannonShoot extends Command
+public class CannonShootOnePiston extends Command
 {
     private static Timer timer = new Timer();
 
-    public CannonShoot()
+    public CannonShootOnePiston()
     {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -33,9 +33,9 @@ public class CannonShoot extends Command
     protected void initialize()
     {
         // Fires the Shooter solenoids and starts the timer
-        Robot.shooter.setShooterSolenoids(true);
+        Robot.shooter.setShooterSolenoidsOnePiston(true);
         timer.reset();
-        timer.start();
+        timer.start();        
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -53,13 +53,13 @@ public class CannonShoot extends Command
     protected void end()
     {
         // retracts the shooter solenoids
-        Robot.shooter.setShooterSolenoids(false);
+        Robot.shooter.setShooterSolenoidsOnePiston(false);        
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted()
     {
-        this.end();
+        this.end();        
     }
 }
