@@ -57,7 +57,7 @@ public class AuxiliaryTestFromPot extends Command
         {
             ex.printStackTrace();
         }
-        SmartDashboard.putNumber("Auxiliary Rotation Input Value (0-1024): ", voltsIn * 1024);
+        //SmartDashboard.putNumber("Auxiliary Rotation Input Value (0-1024): ", voltsIn * 1024);
         Robot.auxiliaryLeft.setShooterTestPID(voltsIn * 1024);
     }
     // Make this return true when this Command no longer needs to run execute()

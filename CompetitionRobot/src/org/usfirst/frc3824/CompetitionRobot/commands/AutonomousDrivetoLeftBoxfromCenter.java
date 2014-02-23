@@ -23,14 +23,6 @@ public class AutonomousDrivetoLeftBoxfromCenter extends CommandGroup
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addSequential(new VacuumOn());
-        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
-        addSequential(new ChassisDriveStraight(2.2, 0.83, -50));
-
-        //addSequential(new ChassisTurnAngle(-45));
-        addSequential(new CannonShoot());
-        addSequential(new VacuumOff());
-
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
@@ -41,5 +33,12 @@ public class AutonomousDrivetoLeftBoxfromCenter extends CommandGroup
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        addSequential(new VacuumOn());
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        addSequential(new ChassisDriveStraight(2.2, 0.83, -50));
+
+        //addSequential(new ChassisTurnAngle(-45));
+        addSequential(new CannonShoot());
+        addSequential(new VacuumOff());
     }
 }

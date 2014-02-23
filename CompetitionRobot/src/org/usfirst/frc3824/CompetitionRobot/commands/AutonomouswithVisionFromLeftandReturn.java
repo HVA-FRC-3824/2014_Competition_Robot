@@ -10,20 +10,22 @@
 package org.usfirst.frc3824.CompetitionRobot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.command.WaitUntilCommand;
 import org.usfirst.frc3824.CompetitionRobot.Constants;
 
 /**
  *
  */
-public class AutonomouswithVisionFromLeft extends CommandGroup
+public class AutonomouswithVisionFromLeftandReturn extends CommandGroup
 {
-    public AutonomouswithVisionFromLeft()
+    public AutonomouswithVisionFromLeftandReturn()
     {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
+
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
@@ -33,9 +35,12 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
-        // arm.   
+        // arm.
         
-        // enable the vacuum and allow time for ball to attach to shooter
+        // create a class that knows how much to turn when requested
+        ChassisTurnAngle chassisTurn = new ChassisTurnAngle(180.0);           
+                
+        // enable the vacuum and allow time for ball to attach to shooter        
         addSequential(new VacuumOn());
         addParallel(new WaitUntilCommand(1.0));
         
@@ -53,6 +58,19 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
         
         // shoot and then disable the vacuum
         addSequential(new CannonShoot());
-        addSequential(new VacuumOff());
+        addSequential(new VacuumOff());    
+       
+        // wait for robot to stop
+        addSequential(new WaitCommand(0.5));
+
+        // Turn around
+        addSequential(chassisTurn);
+        addSequential(new WaitCommand(0.5));
+
+        // Drive forward in opposite direction
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE,
+                                               chassisTurn));        
     }
 }

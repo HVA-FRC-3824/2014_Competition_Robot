@@ -16,9 +16,9 @@ import org.usfirst.frc3824.CompetitionRobot.Constants;
 /**
  *
  */
-public class AutonomouswithVisionFromLeft extends CommandGroup
+public class AutonomousDriveandShoot extends CommandGroup
 {
-    public AutonomouswithVisionFromLeft()
+    public AutonomousDriveandShoot()
     {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -33,15 +33,11 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
-        // arm.   
+        // arm.
         
-        // enable the vacuum and allow time for ball to attach to shooter
+        // enable the vacuum and allow time for ball to attach to shooter        
         addSequential(new VacuumOn());
-        addParallel(new WaitUntilCommand(1.0));
-        
-        // locate the hot goal and decide if to wait or drive immediately
-        addSequential(new LocateHotGoal());
-        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
+        addSequential(new WaitUntilCommand(1.0));
         
         // set the shooter angle
         addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
@@ -53,6 +49,6 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
         
         // shoot and then disable the vacuum
         addSequential(new CannonShoot());
-        addSequential(new VacuumOff());
+        addSequential(new VacuumOff());        
     }
 }

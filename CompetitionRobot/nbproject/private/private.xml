@@ -3,57 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Drivetrain.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousDriveStraight.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousDrivetoLeftBoxfromCenter.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/UpdatePID.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousTestVision.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryLeftVerticalRetract.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryLeftVerticalDeploy.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/VacuumOn.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/LocateHotGoalTESTSAVE.java</file>
+            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromRightandReturn.java</file>
+            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromLeftandReturn.java</file>
             <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Robot.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ChassisDriveAndTurnTest.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromRight.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/LocateHotGoalTESTUSESAVED.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/PickupBallStop.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ChassisTurnAngle.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/SetShooterAngle.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousDrivetoRightBoxfromCenter.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ShooterAngleDown.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/OI.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/GoHome.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/DelayUntilIfTargetNotHot.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryLeftVacuumToggle.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousCommand.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/CannonShoot.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/AuxiliaryLeft.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/VacuumOff.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/RobotMap.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomousDrivetoNotHotGoal.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Shooter.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ShooterAngleUp.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ChassisDriveStraight.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryLeftVacuumOn.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/ChassisDriveToNotHotGoal.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Constants.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/ShooterAngleAdjustPID.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryLeftRetractandVacuumOff.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/BallTransferfromAuxtoMain.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/PickupBallIn.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/Teleoperated.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/VacuumToggle.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/PickupBallOut.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/SetAuxiliaryLeftAngle.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryTest.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Vacuum.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromLeft.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/SetPickupWheelSpeed.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Pump.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryLeftVacuumOff.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/subsystems/Pickup.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/LocateHotGoal.java</file>
-            <file>file:/C:/Users/Young/Documents/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AuxiliaryTestFromPot.java</file>
         </group>
     </open-files>
 </project-private>

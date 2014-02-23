@@ -24,17 +24,6 @@ public class AutonomouswithVisionFromRight extends CommandGroup
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addSequential(new VacuumOn());
-        addSequential(new LocateHotGoal());
-        addParallel(new WaitUntilCommand(1.0));
-        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.RIGHT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
-        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
-        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
-                                               Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
-                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));
-        addSequential(new CannonShoot());
-        addSequential(new VacuumOff());
-
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
@@ -44,6 +33,26 @@ public class AutonomouswithVisionFromRight extends CommandGroup
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
-        // arm.
+        // arm.        
+        
+        // enable the vacuum and allow time for ball to attach to shooter 
+        addSequential(new VacuumOn());
+        addParallel(new WaitUntilCommand(1.0));
+      
+        // locate the hot goal and decide if to wait or drive immediately
+        addSequential(new LocateHotGoal());
+        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.RIGHT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
+        
+        // set the shooter angle
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        
+        // drive to the goal
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));
+        
+        // shoot and then disable the vacuum        
+        addSequential(new CannonShoot());
+        addSequential(new VacuumOff());
     }
 }
