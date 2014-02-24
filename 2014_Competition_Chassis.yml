@@ -588,54 +588,6 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: Joystick Shoot One Piston
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id014
-          value: Cannon Shoot One Piston
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id015
-          default: '1'
-          name: Button
-          validators: null
-          value: '2'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: Drive Joystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id016
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
-    - Name: Joystick Shoot Two Pistons
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id014
-          value: Cannon Shoot Two Pistons
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id015
-          default: '1'
-          name: Button
-          validators: null
-          value: '3'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: Drive Joystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id016
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
     - Name: Joystick Shoot Three Pistons
       Base: Joystick Button
       Children: []
@@ -917,22 +869,6 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Shooter}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Cannon Shoot One Piston
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Shooter}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: Cannon Shoot Two Pistons
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Shooter}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
   - Name: Cannon Shoot Three Pistons
     Base: Command
     Children: []
