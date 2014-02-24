@@ -18,7 +18,6 @@ public class ChassisTurnAngle extends Command
 {
     private double degreesToTurn = 0;
     private boolean anglePassed;
-    public double initialAngle;
     public ChassisTurnAngle(double turnAngle)
     {
         // Use requires() here to declare subsystem dependencies
@@ -41,11 +40,14 @@ public class ChassisTurnAngle extends Command
     // Called just before this Command runs the first time
     protected void initialize()
     {
-        initialAngle = Robot.drivetrain.getGyro().pidGet();
         // Set angle for turning
-        Robot.drivetrain.getAngleGyroController().setPID(Constants.DrivetrainAngleGyroControllerTurnP, Constants.DrivetrainAngleGyroControllerTurnI, Constants.DrivetrainAngleGyroControllerTurnD);
+        Robot.drivetrain.getAngleGyroController().setPID(
+                Constants.DrivetrainAngleGyroControllerTurnP, 
+                Constants.DrivetrainAngleGyroControllerTurnI,
+                Constants.DrivetrainAngleGyroControllerTurnD);
+        
         // set the target turn position
-        if (!anglePassed) //degreesToTurn = SmartDashboard::GetNumber("Chassis Turn Angle Degrees");
+        if (anglePassed == false) //degreesToTurn = SmartDashboard::GetNumber("Chassis Turn Angle Degrees");
         {
             degreesToTurn = 10.0;
         }
@@ -63,7 +65,8 @@ public class ChassisTurnAngle extends Command
     protected boolean isFinished()
     {
         //return PIDcontroller.OnTarget();
-        return Math.abs(Robot.drivetrain.getAngleGyroController().getSetpoint() - Robot.drivetrain.getGyro().pidGet()) < Constants.TURN_THRESHOLD;
+        return Math.abs(Robot.drivetrain.getAngleGyroController().getSetpoint() -
+                        Robot.drivetrain.getGyro().pidGet()) < Constants.TURN_THRESHOLD;
     }
     // Called once after isFinished returns true
     protected void end()

@@ -108,7 +108,7 @@ public class RobotMap
 	LiveWindow.addActuator("Auxiliary Left", "ShooterAnglePID", auxiliaryLeftShooterAnglePID);
         auxiliaryLeftShooterAnglePID.setContinuous(false); auxiliaryLeftShooterAnglePID.setAbsoluteTolerance(5.0); 
         auxiliaryLeftShooterAnglePID.setOutputRange(-0.5, 0.5);        
-        auxiliaryLeftVerticalAdjust = new DoubleSolenoid(1, 7, 8);      
+        auxiliaryLeftVerticalAdjust = new DoubleSolenoid(1, 5, 6);      
 	
         
         auxiliaryLeftVacuum = new Talon(1, 8);

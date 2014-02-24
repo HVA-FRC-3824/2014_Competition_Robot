@@ -70,7 +70,6 @@ public class AutonomouswithVisionFromRightandReturn extends CommandGroup
         // Drive forward in opposite direction
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
-                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE,
-                                               chassisTurn));           
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));         
     }
 }

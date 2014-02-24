@@ -66,6 +66,7 @@ public class Robot extends IterativeRobot
     private AxisCamera primeImageStream;
     private Timer startupTimeout;
     private ColorImage image;
+    public static double initialGyroAngle;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -109,6 +110,7 @@ public class Robot extends IterativeRobot
         // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser);
         startupTimeout = new Timer();
+        initialGyroAngle = 9999.0;
     }
     public void autonomousInit()
     {

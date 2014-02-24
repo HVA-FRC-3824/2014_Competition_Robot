@@ -38,15 +38,18 @@ public class AutonomouswithVisionFromLeftandReturn extends CommandGroup
         // arm.
         
         // create a class that knows how much to turn when requested
-        ChassisTurnAngle chassisTurn = new ChassisTurnAngle(180.0);           
+        //ChassisTurnAngle chassisTurn = new ChassisTurnAngle(180.0);           
                 
+        // set the global inital Gyro angle to be used by the ChassisDriveStraight command
+        addSequential(new SetGlobalGyroSetting());
+        
         // enable the vacuum and allow time for ball to attach to shooter        
         addSequential(new VacuumOn());
-        addParallel(new WaitUntilCommand(1.0));
+        addParallel(new WaitUntilCommand(0.2));  // should be 1.0
         
         // locate the hot goal and decide if to wait or drive immediately
-        addSequential(new LocateHotGoal());
-        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
+//        addSequential(new LocateHotGoal());
+//        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
         
         // set the shooter angle
         addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
@@ -54,23 +57,52 @@ public class AutonomouswithVisionFromLeftandReturn extends CommandGroup
         // drive to the goal
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
-                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE, true));
         
         // shoot and then disable the vacuum
         addSequential(new CannonShoot());
-        addSequential(new VacuumOff());    
-       
-        // wait for robot to stop
-        addSequential(new WaitCommand(0.5));
+        //addSequential(new VacuumOff());    
 
+        addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
+        
         // Turn around
-        addSequential(chassisTurn);
-        addSequential(new WaitCommand(0.5));
+        addSequential(new ChassisTurnAngle(160.0));
+        //addSequential(new WaitCommand(0.1));
 
+        // wait for shooter to lower
+        addSequential(new WaitCommand(1.0));
+        
+        addParallel(new PickupBallIn());
+                
         // Drive forward in opposite direction
+        addSequential(new SetGlobalGryoValueReverse());
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
+                              
+                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE,
+                                               true));  
+                
+        // wait to grab the ball
+        addSequential(new WaitCommand(1.5));
+                
+        // set the shooter angle
+        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        
+        // Turn around
+        addSequential(new SetGlobalGryoValueReverse());        
+        addSequential(new ChassisTurnAngle(180.0));
+        
+        // Drive forward in opposite direction
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME + 0.2,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE,
-                                               chassisTurn));        
-    }
+                                               true));  
+        
+        // wait for shooter to reach shooting position
+        addSequential(new WaitCommand(1.5));
+                
+        // shoot and then disable the vacuum
+        addSequential(new CannonShoot());
+        addSequential(new VacuumOff());          
+    }  
 }
