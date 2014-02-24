@@ -11,6 +11,7 @@ package org.usfirst.frc3824.CompetitionRobot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 
 /**
@@ -46,7 +47,7 @@ public class CannonShoot extends Command
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
-        return timer.get() >= 0.2;
+        return timer.get() >= Constants.CANNON_SHOOT_TIME;
     }
 
     // Called once after isFinished returns true

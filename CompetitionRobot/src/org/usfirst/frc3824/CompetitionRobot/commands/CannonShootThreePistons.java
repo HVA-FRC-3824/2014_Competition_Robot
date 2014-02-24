@@ -11,6 +11,7 @@ package org.usfirst.frc3824.CompetitionRobot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 import org.usfirst.frc3824.CompetitionRobot.Robot;
 
 /**
@@ -46,14 +47,15 @@ public class CannonShootThreePistons extends Command
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
-        return timer.get() >= 1.0;
+        return timer.get() >= Constants.CANNON_SHOOT_TIME;
     }
 
     // Called once after isFinished returns true
     protected void end()
     {
         // retracts the shooter solenoids
-        Robot.shooter.setShooterSolenoidsThreePistons(false);
+        // Note: retract all silenoids just in case
+        Robot.shooter.setShooterSolenoids(false);
     }
 
     // Called when another command which requires one or more of the same
