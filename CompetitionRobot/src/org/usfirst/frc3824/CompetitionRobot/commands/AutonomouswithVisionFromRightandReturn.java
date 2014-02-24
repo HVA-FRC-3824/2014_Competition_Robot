@@ -20,31 +20,15 @@ import org.usfirst.frc3824.CompetitionRobot.Constants;
 public class AutonomouswithVisionFromRightandReturn extends CommandGroup
 {
     public AutonomouswithVisionFromRightandReturn()
-    {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-        
-        // create a class that knows how much to turn when requested
-        ChassisTurnAngle chassisTurn = new ChassisTurnAngle(180.0);           
-                  
+    {       
+        // set the global inital Gyro angle to be used by the ChassisDriveStraight command
+        addSequential(new SetGlobalGyroSetting());
+                
         // enable the vacuum and allow time for ball to attach to shooter        
         addSequential(new VacuumOn());
-        addParallel(new WaitUntilCommand(1.0));
+        addParallel(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
         
-                // locate the hot goal and decide if to wait or drive immediately
+        // locate the hot goal and decide if to wait or drive immediately
         addSequential(new LocateHotGoal());
         addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.RIGHT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
        
@@ -54,22 +38,25 @@ public class AutonomouswithVisionFromRightandReturn extends CommandGroup
         // drive to the goal
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
-                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE, true));
         
         // shoot and then disable the vacuum
         addSequential(new CannonShoot());
         addSequential(new VacuumOff());  
         
-        // wait for robot to stop
-        addSequential(new WaitCommand(0.5));
-
+        addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
+        
         // Turn around
-        addSequential(chassisTurn);
-        addSequential(new WaitCommand(0.5));
+        addSequential(new ChassisTurnAngle(160.0));
+
+        // wait for shooter to lower
+        addSequential(new WaitCommand(1.0));
+        
 
         // Drive forward in opposite direction
+        addSequential(new SetGlobalGryoValueReverse());        
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
-                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE));         
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE, true));         
     }
 }

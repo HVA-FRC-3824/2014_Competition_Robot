@@ -17,6 +17,7 @@ public class Constants
     public final static double TURN_THRESHOLD = 1.5; //works with 1 but is a bit slow    
 
     public final static double CANNON_SHOOT_TIME = 0.2;
+    public final static double WAIT_FOR_VACUUM_AUTONOMOUS_TIME = 1.0;
     
     // ===================================================
     // Cypress IO defines - Analog Inputs

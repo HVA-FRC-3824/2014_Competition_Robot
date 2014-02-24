@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/YoungAsus/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/Constants.java</file>
+            <file>file:/C:/Users/YoungAsus/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromLeft.java</file>
+            <file>file:/C:/Users/YoungAsus/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromRightandReturn.java</file>
             <file>file:/C:/Users/YoungAsus/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromLeftandReturn.java</file>
+            <file>file:/C:/Users/YoungAsus/Documents/NetBeansProjects/2014_Competition_Robot/CompetitionRobot/src/org/usfirst/frc3824/CompetitionRobot/commands/AutonomouswithVisionFromRight.java</file>
         </group>
     </open-files>
 </project-private>

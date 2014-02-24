@@ -20,24 +20,9 @@ public class AutonomousDriveandShoot extends CommandGroup
 {
     public AutonomousDriveandShoot()
     {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-        
         // enable the vacuum and allow time for ball to attach to shooter        
         addSequential(new VacuumOn());
-        addSequential(new WaitUntilCommand(1.0));
+        addSequential(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
         
         // set the shooter angle
         addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));

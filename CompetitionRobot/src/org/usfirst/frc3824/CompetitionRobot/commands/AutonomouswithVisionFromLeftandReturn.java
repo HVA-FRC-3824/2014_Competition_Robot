@@ -21,35 +21,16 @@ public class AutonomouswithVisionFromLeftandReturn extends CommandGroup
 {
     public AutonomouswithVisionFromLeftandReturn()
     {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-        
-        // create a class that knows how much to turn when requested
-        //ChassisTurnAngle chassisTurn = new ChassisTurnAngle(180.0);           
-                
         // set the global inital Gyro angle to be used by the ChassisDriveStraight command
         addSequential(new SetGlobalGyroSetting());
         
         // enable the vacuum and allow time for ball to attach to shooter        
         addSequential(new VacuumOn());
-        addParallel(new WaitUntilCommand(0.2));  // should be 1.0
+        addParallel(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
         
         // locate the hot goal and decide if to wait or drive immediately
-//        addSequential(new LocateHotGoal());
-//        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
+        addSequential(new LocateHotGoal());
+        addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
         
         // set the shooter angle
         addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
@@ -61,27 +42,26 @@ public class AutonomouswithVisionFromLeftandReturn extends CommandGroup
         
         // shoot and then disable the vacuum
         addSequential(new CannonShoot());
-        //addSequential(new VacuumOff());    
+        addSequential(new VacuumOff());    
 
         addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
         
         // Turn around
         addSequential(new ChassisTurnAngle(160.0));
-        //addSequential(new WaitCommand(0.1));
 
         // wait for shooter to lower
         addSequential(new WaitCommand(1.0));
         
-        addParallel(new PickupBallIn());
+        //addParallel(new PickupBallIn());
                 
         // Drive forward in opposite direction
         addSequential(new SetGlobalGryoValueReverse());
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
-                              
-                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
+                                               Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE,
                                                true));  
-                
+          
+        /*
         // wait to grab the ball
         addSequential(new WaitCommand(1.5));
                 
@@ -103,6 +83,7 @@ public class AutonomouswithVisionFromLeftandReturn extends CommandGroup
                 
         // shoot and then disable the vacuum
         addSequential(new CannonShoot());
-        addSequential(new VacuumOff());          
+        addSequential(new VacuumOff());  
+        */
     }  
 }
