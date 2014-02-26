@@ -20,7 +20,7 @@ public class GoHome extends CommandGroup
     public GoHome()
     {
         // Setup the robot for start of match     
-        addSequential(new SetShooterAngle(Constants.SHOOTER_HOME_POSITION));
+        addSequential(new SetShooterAngle(Constants.SHOOTER_VERTICAL_POSITION));
         //addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_HOME_POSITION));
         //addSequential(new AuxiliaryLeftVerticalRetract());
 

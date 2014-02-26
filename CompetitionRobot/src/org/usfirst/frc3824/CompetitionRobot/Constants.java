@@ -110,7 +110,7 @@ public class Constants
      * Digital 11
      * <br> Button.
      */
-    public final static int INPUT_CANNON_SHOOT = 11; // Button
+    public final static int SHOOTER_ANGLE_LOW_GOAL = 11; // Button
     /**
      * <b><u>Cypress IO Define</u></b>
      * <p>
@@ -257,7 +257,7 @@ public class Constants
      * <p>
      * Pickup </p>
      */
-    public final static double SHOOTER_PICKUP_POSITION = -13.6;     // 13.85
+    public final static double SHOOTER_PICKUP_POSITION = -13.6;
     /**
      * <b><u>Shooter Position</u></b>
      * <p>
@@ -287,11 +287,8 @@ public class Constants
      * <p>
      * Start Position </p>
      */
-    public final static double SHOOTER_START_POSITION = 90;
-    /**
-     * <b><u>Home Position</u></b>
-     * <p>
-     * Shooter Home Position</p>
-     */
-    public final static double SHOOTER_HOME_POSITION = 45.0; // degree    
+    public final static double SHOOTER_VERTICAL_POSITION = 90;
+
+    
+    public final static double SHOOTER_LOW_GOAL_POSITION = 0.0;
 }

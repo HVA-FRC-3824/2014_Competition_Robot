@@ -103,7 +103,7 @@ public class OI
         m_shooterAngleAngledCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_ANGLED_CORNER_POSITION));
         
         DigitalIOButton m_shooterAngleStart = new DigitalIOButton(Constants.SHOOTER_ANGLE_START);
-        m_shooterAngleStart.whenPressed(new SetShooterAngle(Constants.SHOOTER_START_POSITION));
+        m_shooterAngleStart.whenPressed(new SetShooterAngle(Constants.SHOOTER_VERTICAL_POSITION));
         
         DigitalIOButton m_pickupIn = new DigitalIOButton(Constants.INPUT_PICKUP_IN);
         m_pickupIn.whileHeld(new PickupBallIn());
@@ -117,8 +117,9 @@ public class OI
         m_vacuum.whenPressed(new VacuumOn());
         m_vacuum.whenReleased(new VacuumOff());
         
-        DigitalIOButton m_cannonShoot = new DigitalIOButton(Constants.INPUT_CANNON_SHOOT);
-        m_cannonShoot.whenPressed(new CannonShoot());
+        DigitalIOButton m_shooterAngleLowGoal = new DigitalIOButton(Constants.SHOOTER_ANGLE_LOW_GOAL);
+        m_shooterAngleLowGoal.whenPressed(new SetShooterAngle(Constants.SHOOTER_LOW_GOAL_POSITION));
+        
         SmartDashboard.putData("LocateHotGoal", new LocateHotGoal());
         
         DigitalIOButton m_auxiliaryAngleControlToggle = new DigitalIOButton(Constants.AUXILIARY_ANGLE_CONTROL);

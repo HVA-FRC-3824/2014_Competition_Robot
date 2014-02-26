@@ -47,15 +47,14 @@ public class AutonomouswithVisionFromRightandReturn extends CommandGroup
         addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
         
         // Turn around
-        addSequential(new ChassisTurnAngle(160.0));
+        addSequential(new ChassisTurnAngle(170.0));
 
         // wait for shooter to lower
-        addSequential(new WaitCommand(1.0));
-        
+        //addSequential(new WaitCommand(1.0));
 
         // Drive forward in opposite direction
         addSequential(new SetGlobalGryoValueReverse());        
-        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME - 0.4,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVER_POWER,
                                                Constants.AUTONOMOUS_STRAIGHT_DRIVE_ANGLE, true));         
     }
