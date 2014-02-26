@@ -62,14 +62,11 @@ public class Vacuum extends Subsystem
             // if vacuum is on, turn it off!
             vacuum.set(0.0);
             m_vacuumActive = false;
-        } else
+        } else if (m_vacuumActive == false)
         {
-            if (m_vacuumActive == false)
-            {
-                // if vacuum is off, turn it on!
-                vacuum.set(1.0);
-                m_vacuumActive = true;
-            }
+            // if vacuum is off, turn it on!
+            vacuum.set(1.0);
+            m_vacuumActive = true;
         }
     }
 }

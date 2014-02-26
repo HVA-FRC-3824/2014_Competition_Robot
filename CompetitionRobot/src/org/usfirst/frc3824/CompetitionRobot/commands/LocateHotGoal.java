@@ -214,18 +214,15 @@ public class LocateHotGoal extends Command
                         System.out.println();
                         System.out.println("particle: " + i + " is a Horizontal Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                         horizontalTargets[horizontalTargetCount++] = i; //Add particle to target array and increment count
-                    } else
+                    } else if (scoreCompare(scores[i], true)) 
                     {
-                        if (scoreCompare(scores[i], true))
-                        {
-                            System.out.println();
-                            System.out.println("particle: " + i + " is a Vertical Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
-                            verticalTargets[verticalTargetCount++] = i;  //Add particle to target array and increment count
-                        } else
-                        {
-                            System.out.println();
-                            System.out.println("particle: " + i + " is not a Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
-                        }
+                        System.out.println();
+                        System.out.println("particle: " + i + " is a Vertical Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
+                        verticalTargets[verticalTargetCount++] = i;  //Add particle to target array and increment count
+                    } else 
+                    {
+                        System.out.println();
+                        System.out.println("particle: " + i + " is not a Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                     }
                     System.out.println("      rect: " + scores[i].rectangularity + " -- ARHoriz: " + scores[i].aspectRatioHorizontal + " -- ARVert: " + scores[i].aspectRatioVertical);
                 }
@@ -282,15 +279,12 @@ public class LocateHotGoal extends Command
                         if (TargetSide.LEFT == lastTarget.hotTarget)
                         {
                             SmartDashboard.putString("ImageProcessStatus", "HOT Target LEFT");
+                        } else if (TargetSide.RIGHT == lastTarget.hotTarget)
+                        {
+                            SmartDashboard.putString("ImageProcessStatus", "HOT Target RIGHT");
                         } else
                         {
-                            if (TargetSide.RIGHT == lastTarget.hotTarget)
-                            {
-                                SmartDashboard.putString("ImageProcessStatus", "HOT Target RIGHT");
-                            } else
-                            {
-                                SmartDashboard.putString("ImageProcessStatus", "HOT NOT FOUND");
-                            }
+                            SmartDashboard.putString("ImageProcessStatus", "HOT NOT FOUND");
                         }
                     } else
                     {
@@ -405,8 +399,6 @@ public class LocateHotGoal extends Command
      * perform additional measurements
      * @param report The Particle Analysis Report for the particle, used for the
      * width, height, and particle number
-     * @param outer	Indicates whether the particle aspect ratio should be
-     * compared to the ratio for the inner target or the outer
      * @return The aspect ratio score (0-100)
      */
     public double scoreAspectRatio(BinaryImage image, ParticleAnalysisReport report, int particleNumber, boolean vertical) throws NIVisionException
@@ -502,12 +494,9 @@ public class LocateHotGoal extends Command
         if (target.leftScore > LR_SCORE_LIMIT)
         {
             ts = TargetSide.LEFT;
-        } else
+        } else if (target.rightScore > LR_SCORE_LIMIT)
         {
-            if (target.rightScore > LR_SCORE_LIMIT)
-            {
-                ts = TargetSide.RIGHT;
-            }
+            ts = TargetSide.RIGHT;
         }
         return ts;
     }

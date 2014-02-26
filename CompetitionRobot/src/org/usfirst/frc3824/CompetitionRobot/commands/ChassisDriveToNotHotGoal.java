@@ -31,19 +31,16 @@ public class ChassisDriveToNotHotGoal extends Command
             // found left, move right
             driver = new ChassisDriveStraight(1.6, 0.5, 0);  // 3 sec, 25% power, 45 degrees from straight
             System.out.println("ChassisDriveToNotHotGoal - driving right");
+        } else if ((LocateHotGoal.TargetSide.RIGHT == Robot.hotGoalInfo.hotTarget))
+        {
+            // found right, move left
+            driver = new ChassisDriveStraight(3.0, 0.25, -45.0);  // 3 sec, 25% power, -45 degrees from straight
+            System.out.println("ChassisDriveToNotHotGoal - driving left");
         } else
         {
-            if ((LocateHotGoal.TargetSide.RIGHT == Robot.hotGoalInfo.hotTarget))
-            {
-                // found right, move left
-                driver = new ChassisDriveStraight(3.0, 0.25, -45.0);  // 3 sec, 25% power, -45 degrees from straight
-                System.out.println("ChassisDriveToNotHotGoal - driving left");
-            } else
-            {
-                // found right, move left
-                driver = new ChassisDriveStraight(2.2, 0.83, 50.0);  // 3 sec, 25% power, -45 degrees from straight            
-                System.out.println("ChassisDriveToNotHotGoal - driving left - none found");
-            }
+            // found right, move left
+            driver = new ChassisDriveStraight(2.2, 0.83, 50.0);  // 3 sec, 25% power, -45 degrees from straight            
+            System.out.println("ChassisDriveToNotHotGoal - driving left - none found");
         }
         driver.start();
     }

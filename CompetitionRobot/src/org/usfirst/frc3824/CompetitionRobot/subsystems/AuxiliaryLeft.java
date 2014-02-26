@@ -103,16 +103,13 @@ public class AuxiliaryLeft extends Subsystem
             // if vacuum is on, turn it off!
             vacuum.set(0.0);
             m_vacuumActive = false;
-        } else
+        } else if (m_vacuumActive == false)
         {
-            if (m_vacuumActive == false)
-            {
-                // if vacuum is off, turn it on!
-                vacuum.set(1.0);
-                m_vacuumActive = true;
-            }
+            // if vacuum is off, turn it on!
+            vacuum.set(1.0);
+            m_vacuumActive = true;
         }
-    }
+}
     //====================================================================================
     // Shooter Angle Control methods
     //====================================================================================
@@ -123,7 +120,7 @@ public class AuxiliaryLeft extends Subsystem
      * <br>Sets the setpoint to the angle value converted to ADC.</br>
      * <br>Enables the PID Controller.</br></p>
      *
-     * @param angle - the angle to set
+     * @param adcVal - the angle to set
      */
     //------------------------------------------------------------------------------------
     public void setShooterAngle(double adcVal)
@@ -160,7 +157,6 @@ public class AuxiliaryLeft extends Subsystem
     /**
      * Converts the input angle from degrees to an ADC value.
      *
-     * @param angle - degree value to convert to an ADC value
      * @return converted ADC value
      */
     public double getMotorPower()
