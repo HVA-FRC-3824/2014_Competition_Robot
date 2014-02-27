@@ -16,8 +16,8 @@ public class Constants
 
     public final static double TURN_THRESHOLD = 1.5; //works with 1 but is a bit slow    
 
-    public final static double CANNON_SHOOT_TIME = 0.2;
-    public final static double WAIT_FOR_VACUUM_AUTONOMOUS_TIME = 1.0;
+    public final static double CANNON_SHOOT_TIME = 0.75;
+    public final static double WAIT_FOR_VACUUM_AUTONOMOUS_TIME = 1.5;
     
     // ===================================================
     // Cypress IO defines - Analog Inputs
@@ -207,7 +207,7 @@ public class Constants
      * <p>
      * Startup timeout.
      */
-    public final static double CAMERA_STARTUP_TIMEOUT = 5.0;
+    public final static double CAMERA_STARTUP_TIMEOUT = 180.0;
 
     // ===================================================
     // Autonomous configurations
@@ -220,7 +220,7 @@ public class Constants
      * <p>
      * Straight Drive Time</p>
      */
-    public final static double AUTONOMOUS_STRAIGHT_DRIVE_TIME = 1.6;
+    public final static double AUTONOMOUS_STRAIGHT_DRIVE_TIME = 1.8;
     /**
      * <b><u>Autonomous Straight Drive</u></b>
      * <p>
@@ -287,7 +287,7 @@ public class Constants
      * <p>
      * Start Position </p>
      */
-    public final static double SHOOTER_VERTICAL_POSITION = 90;
+    public final static double SHOOTER_VERTICAL_POSITION = 96.5;
 
     
     public final static double SHOOTER_LOW_GOAL_POSITION = 0.0;

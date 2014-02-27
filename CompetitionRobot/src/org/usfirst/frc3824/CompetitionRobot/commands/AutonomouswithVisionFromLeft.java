@@ -22,10 +22,12 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
     {
         // enable the vacuum and allow time for ball to attach to shooter
         addSequential(new VacuumOn());
+        addSequential(new PickupBallIn());
         addParallel(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
         
         // locate the hot goal and decide if to wait or drive immediately
         addSequential(new LocateHotGoal());
+        addSequential(new PickupBallStop());
         addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
         
         // set the shooter angle
