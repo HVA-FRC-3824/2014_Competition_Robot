@@ -71,7 +71,7 @@ public class OI
         joystickShooterDown.whileHeld(new ShooterAngleDown());
         joystickShooterUp = new JoystickButton(driveJoystick, 5);
         joystickShooterUp.whileHeld(new ShooterAngleUp());
-        joystickShootThreePistons = new JoystickButton(driveJoystick, 4);
+        joystickShootThreePistons = new JoystickButton(driveJoystick, 3);
         joystickShootThreePistons.whileHeld(new CannonShootThreePistons());
         joystickShoot = new JoystickButton(driveJoystick, 1);
         joystickShoot.whenPressed(new CannonShoot());
