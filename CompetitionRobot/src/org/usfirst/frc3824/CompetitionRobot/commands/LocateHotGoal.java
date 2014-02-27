@@ -73,14 +73,21 @@ public class LocateHotGoal extends Command
         double tapeWidthScore;
         double verticalScore;
     };
-    public class TargetSide
+    public static class TargetSide
     {
         public static final int NONE = 0;
         public static final int LEFT = 1;
         public static final int RIGHT = 2;
     }
-    public class TargetInfo
+    public static class TargetInfo
     {
+        public TargetInfo()
+        {
+            hotTarget = TargetSide.NONE;
+            targetDistance = -1;
+            lastDistanceFoundAtTime = -1;
+        }
+        
         public int hotTarget;                  // HOT TARGET: TargetSide.LEFT, TargetSide.RIGHT or NO HOT TARGET: TargetSide.NONE
         public double targetDistance;          // Distance to the Target (whether HOT or NOT)
         public double lastDistanceFoundAtTime; // time in seconds with uSec resolution since distance was last set
@@ -106,9 +113,6 @@ public class LocateHotGoal extends Command
         finished = false;
         camera = AxisCamera.getInstance();  // get an instance of the camera
         lastTarget = new TargetInfo();
-        lastTarget.hotTarget = TargetSide.NONE;
-        lastTarget.lastDistanceFoundAtTime = -1;
-        lastTarget.targetDistance = -1;
         cc = new CriteriaCollection();      // create the criteria for the particle filter
         cc.addCriteria(NIVision.MeasurementType.IMAQ_MT_AREA, AREA_MINIMUM, 65535, false);
         elapsedTime = new Timer();
@@ -328,6 +332,7 @@ public class LocateHotGoal extends Command
         SmartDashboard.putNumber("Image Process Time (ms)", time);
         if (timeForFirstImage.get() > Constants.CAMERA_STARTUP_TIMEOUT)
         {
+            SmartDashboard.putString("Camera State: ", "Camera Not Found (execute)- TIMEOUT");
             Robot.cameraAvailable = false;
             finished = true;
         }
