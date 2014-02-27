@@ -208,6 +208,13 @@ public class Constants
      * Startup timeout.
      */
     public final static double CAMERA_STARTUP_TIMEOUT = 180.0;
+    
+    public final static int HUE_MIN = 60;
+    public final static int HUE_MAX = 128;
+    public final static int SATURATION_MIN = 100;
+    public final static int SATURATION_MAX = 255;
+    public final static int VALUE_MIN = 90;
+    public final static int VALUE_MAX = 200;
 
     // ===================================================
     // Autonomous configurations

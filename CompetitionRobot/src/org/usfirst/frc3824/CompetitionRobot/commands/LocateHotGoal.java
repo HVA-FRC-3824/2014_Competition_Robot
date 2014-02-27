@@ -186,7 +186,11 @@ public class LocateHotGoal extends Command
             //image = new RGBImage(imageToProcess);		// get the sample image from the cRIO flash
             // values obtained from NIVision and sample images  90, 145, 90, 255, 128, 255
             // original values from samples 90, 137, 0, 51, 190, 255
-            thresholdImage = image.thresholdHSV(90, 145, 90, 255, 128, 255);   // keep only green objects
+           //  thresholdImage = image.thresholdHSV(90, 145, 90, 255, 128, 255);   // keep only green objects
+            thresholdImage = image.thresholdHSV(
+                    Constants.HUE_MIN, Constants.HUE_MAX, 
+                    Constants.SATURATION_MIN, Constants.SATURATION_MAX,
+                    Constants.VALUE_MIN, Constants.VALUE_MAX);   // keep only green objects
             filteredImage = thresholdImage.particleFilter(cc);           // filter out small particles
             System.out.println("ready for compare: imagesSaved: " + imagesSaved + ", useSavedImages: " + useSavedImages);
             if (!imagesSaved && !useSavedImages)
