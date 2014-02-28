@@ -23,7 +23,7 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
         // enable the vacuum and allow time for ball to attach to shooter
         addSequential(new VacuumOn());
         addSequential(new PickupBallIn());
-        addParallel(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
+        addSequential(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
         
         // locate the hot goal and decide if to wait or drive immediately
         addSequential(new LocateHotGoal());
