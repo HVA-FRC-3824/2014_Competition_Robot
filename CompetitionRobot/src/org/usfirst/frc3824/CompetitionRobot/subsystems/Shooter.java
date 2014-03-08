@@ -51,4 +51,10 @@ public class Shooter extends Subsystem
         shootSolenoid2.set(shoot);
         shootSolenoid3.set(shoot);
     }
+    public void setShooterSolenoidsTwoPistons(boolean shoot)
+    {
+        shootSolenoid1.set(shoot);
+        shootSolenoid3.set(shoot);
+    }
+    
 }
