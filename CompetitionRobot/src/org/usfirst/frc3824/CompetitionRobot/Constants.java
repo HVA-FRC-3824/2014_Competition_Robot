@@ -276,7 +276,7 @@ public class Constants
      * <p>
      * Regular Shot </p>
      */
-    public final static double SHOOTER_REGULAR_SHOT_POSITION = 62;
+    public final static double SHOOTER_REGULAR_SHOT_POSITION = 63;
     /**
      * <b><u>Shooter Position</u></b>
      * <p>
