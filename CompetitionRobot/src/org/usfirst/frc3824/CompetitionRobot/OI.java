@@ -122,12 +122,6 @@ public class OI
         
         SmartDashboard.putData("LocateHotGoal", new LocateHotGoal());
         
-        DigitalIOButton m_auxiliaryAngleControlToggle = new DigitalIOButton(Constants.AUXILIARY_ANGLE_CONTROL);
-        m_auxiliaryAngleControlToggle.whileHeld(new AuxiliaryTestFromPot());
-        
-        DigitalIOButton m_ballTransfer = new DigitalIOButton(Constants.INPUT_BALL_TRANSFER);
-        m_ballTransfer.whenPressed(new BallTransferfromAuxtoMain());
-        
         DigitalIOButton m_homePosition = new DigitalIOButton(Constants.INPUT_HOME_POSITION);
         m_homePosition.whenPressed(new GoHome());
     }

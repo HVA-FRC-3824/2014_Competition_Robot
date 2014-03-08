@@ -22,15 +22,7 @@ public class Constants
     // ===================================================
     // Cypress IO defines - Analog Inputs
     // ===================================================
-    /**
-     * <b><u>Cypress IO Define</u></b>
-     * <p>
-     * Analog 1
-     * <br> Potentiometer.
-     * <p>
-     * Used to change the auxiliary arm motor angle.
-     */
-    public final static int ANALOG_AUXILIARY_ANGLE = 1;
+   
     /**
      * <b><u>Cypress IO Define</u></b>
      * <p>
@@ -67,13 +59,6 @@ public class Constants
      * <br> Toggle Switch.
      */
     public final static int INPUT_VACUUM_TOGGLE = 4; // Toggle switch
-    /**
-     * <b><u>Cypress IO Define</u></b>
-     * <p>
-     * Digital 5
-     * <br> Toggle Switch.
-     */
-    public final static int AUXILIARY_ANGLE_CONTROL = 5; // Toggle switch  
     /**
      * <b><u>Cypress IO Define</u></b>
      * <p>
@@ -146,58 +131,6 @@ public class Constants
      * <br> Button.
      */
     public final static int SHOOTER_ANGLE_SHOOT = 16; // Button
-
-    // ===================================================
-    // Auxiliary Shooter
-    // Motor angle constants
-    // ===================================================
-    /**
-     * <b><u>Auxiliary Arm Angle</u></b>
-     * <p>
-     * Minimum Angle</p>
-     */
-    public final static double AUX_MIN_ANGLE = -90.0;   // 90 degrees below horizontal
-    /**
-     * <b><u>Auxiliary Arm Angle</u></b>
-     * <p>
-     * Maximum Angle</p>
-     */
-    public final static double AUX_MAX_ANGLE = 90.0;    // 90 degrees above horizontal
-    /**
-     * <b><u>Home Position</u></b>
-     * <p>
-     * Auxiliary Home Position</p>
-     */
-    public final static double AUX_HOME_POSITION = 180.0; // degree
-
-    // ADC Auxiliary constants
-    public final static double AUX_ADC_PICKUP_POSITION = 600.0;
-    public final static double AUX_ADC_PLACE_POSITION = 350.0;    
-    /**
-     * <b><u>Auxiliary Arm Angle</u></b>
-     * <p>
-     * Minimum ADC Value</p>
-     */
-    public final static double AUX_MIN_ANGLE_ADCVAL = 100;  // value read from the ADC of the POT
-    /**
-     * <b><u>Auxiliary Arm Angle</u></b>
-     * <p>
-     * Maximum ADC Value</p>
-     */
-    public final static double AUX_MAX_ANGLE_ADCVAL = 800;  // value read from the ADC of the POT
-    /**
-     * <b><u>Auxiliary Arm Angle</u></b>
-     * <p>
-     * Transfer Angle</p>
-     */
-    public final static double AUX_TRANSFER_ANGLE = 90.0;   // value for ball transfer
-    /**
-     * <b><u>Shooter Position</u></b>
-     * <p>
-     * Ball Transfer Position. This is used with the BallTransferAuxtoMain
-     * command. </p>
-     */
-    public final static double SHOOTER_TRANSFER_POSITION = 96;
 
     // ===================================================
     // Camera Related
