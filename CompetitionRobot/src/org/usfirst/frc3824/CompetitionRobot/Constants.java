@@ -6,17 +6,18 @@ package org.usfirst.frc3824.CompetitionRobot;
 public class Constants
 {
     /* Contants which might require tuning */
-    public final static double DrivetrainAngleGyroControllerP = 0.04;
-    public final static double DrivetrainAngleGyroControllerI = 0.004;
-    public final static double DrivetrainAngleGyroControllerD = 0.04;
+    public final static double DrivetrainAngleGyroControllerP     = 0.04;
+    public final static double DrivetrainAngleGyroControllerI     = 0.004;
+    public final static double DrivetrainAngleGyroControllerD     = 0.04;
 
     public final static double DrivetrainAngleGyroControllerTurnP = 0.005;
     public final static double DrivetrainAngleGyroControllerTurnI = 0.00005;
     public final static double DrivetrainAngleGyroControllerTurnD = 0.0004;
 
-    public final static double TURN_THRESHOLD = 1.5; //works with 1 but is a bit slow    
+    public final static double TURN_THRESHOLD    = 1.5; //works with 1 but is a bit slow    
 
     public final static double CANNON_SHOOT_TIME = 0.75;
+    
     public final static double WAIT_FOR_VACUUM_AUTONOMOUS_TIME = 1.0;
     
     // ===================================================
@@ -59,26 +60,30 @@ public class Constants
     // Autonomous configurations
     // ===================================================
     // Hot goal switches at 5.0 seconds into the game
-    public final static double AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH     = 5.0;   
+    public final static double AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH            = 5.0;   
  
     // Defines for autonomous single ball
-    public final static double AUTONOMOUS_STRAIGHT_DRIVE_TIME         = 1.8;
-    public final static double AUTONOMOUS_STRAIGHT_DRIVER_POWER       = 0.5;
-    public final static double AUTONOMOUS_STRAIGHT_DRIVE_ANGLE        = 0.0;
+    public final static double AUTONOMOUS_STRAIGHT_DRIVE_TIME                = 1.8;
+    public final static double AUTONOMOUS_STRAIGHT_DRIVER_POWER              = 0.5;
+    public final static double AUTONOMOUS_STRAIGHT_DRIVE_ANGLE               = 0.0;
 
     // Defines for autonomous double ball
-    public final static double AUTONOMOUS_TWO_BALL_START_DRIVE_TIME   =  2.2;
-    public final static double AUTONOMOUS_TWO_BALL_START_DRIVER_POWER =  0.5;
-    public final static double AUTONOMOUS_TWO_BALL_START_DRIVE_ANGLE  =  0.0;
-
-    public final static double AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_TIME  =  1.2;
-    public final static double AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_POWER =  0.5;
-    public final static double AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_ANGLE =  0.0;
-        
-    public final static double AUTONOMOUS_TWO_BALL_BACKUP_DRIVE_TIME  =  1.4;
-    public final static double AUTONOMOUS_TWO_BALL_BACKUP_DRIVE_POWER = -0.5;
-    public final static double AUTONOMOUS_TWO_BALL_BACKUP_DRIVE_ANGLE =  0.0;
+    public final static double AUTONOMOUS_TWO_BALL_START_DRIVE_TIME          =  2.2;  // 2.2
+    public final static double AUTONOMOUS_TWO_BALL_START_DRIVER_POWER        =  0.5;  // 0.5
+    public final static double AUTONOMOUS_TWO_BALL_START_DRIVE_ANGLE         =  0.0;
     
+    public final static double AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_TIME         =  0.8;
+    public final static double AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_POWER        =  0.5;
+    public final static double AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_ANGLE        =  0.0;
+            
+    public final static double AUTONOMOUS_TWO_BALL_BACKUP_SHOOT_DRIVE_TIME   =  1.2;
+    public final static double AUTONOMOUS_TWO_BALL_BACKUP_SHOOT_DRIVE_POWER  = -0.5;
+    public final static double AUTONOMOUS_TWO_BALL_BACKUP_SHOOT_DRIVE_ANGLE  =  0.0;
+     
+    public final static double AUTONOMOUS_TWO_BALL_FORWARD_SHOOT_DRIVE_TIME  =  0.6;
+    public final static double AUTONOMOUS_TWO_BALL_FORWARD_SHOOT_DRIVE_POWER =  0.75;
+    public final static double AUTONOMOUS_TWO_BALL_FORWARD_SHOOT_DRIVE_ANGLE = 15.0;
+
     // ===================================================
     // Shooter Positions
     // ===================================================    
@@ -88,11 +93,14 @@ public class Constants
     public final static double SHOOTER_ANGLE_MAX_VALUE        = 100.0;    // 850.0  - 45.848   50
     public final static double SHOOTER_ANGLE_MIN_VALUE        = -25.0;    //   0.0  - 17.203   10
     
+    // Practice robot: Min -23.9 (0.08V)   Max: 89.1 (4.5V)
     public final static double SHOOTER_PICKUP_POSITION        = -13.6;
-    public final static double SHOOTER_LOW_GOAL_POSITION      =   0.0;
+    public final static double SHOOTER_LOW_GOAL_POSITION      =  -1.0;   // 0.0
     public final static double SHOOTER_PASS_POSITION          =  23.0;
     public final static double SHOOTER_ANGLED_CORNER_POSITION =  40.0;
-    public final static double SHOOTER_REGULAR_SHOT_POSITION  =  63.0;
+    public final static double SHOOTER_REGULAR_SHOT_POSITION  =  55.0;    // 63.0
     public final static double SHOOTER_CORNER_POSITION        =  76.0;
-    public final static double SHOOTER_VERTICAL_POSITION      =  96.5;
+    public final static double SHOOTER_VERTICAL_POSITION      =  85.0;    // 96.5
+
+    public final static double PICKUP_WHEEL_POWER             = 0.6;
 }

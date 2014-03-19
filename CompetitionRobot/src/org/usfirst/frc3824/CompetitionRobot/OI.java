@@ -80,10 +80,12 @@ public class OI
         joystickShoot.whenPressed(new CannonShoot());
 	    
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Two Ball", new AutonomousTwoBall());
+        SmartDashboard.putData("Autonomous Two Ball Right", new AutonomousTwoBallRight());
         SmartDashboard.putData("Autonomous Test Vision", new AutonomousTestVision());
         SmartDashboard.putData("Locate Hot Goal TEST SAVE", new LocateHotGoalTESTSAVE());
         SmartDashboard.putData("Locate Hot Goal TEST USE SAVED", new LocateHotGoalTESTUSESAVED());
+        SmartDashboard.putData("Ball Guide In", new BallGuideIn());
+        SmartDashboard.putData("Ball Guide Out", new BallGuideOut());
         SmartDashboard.putData("ChassisTurnAngle", new ChassisTurnAngle());
         SmartDashboard.putData("ChassisDriveAndTurnTest", new ChassisDriveAndTurnTest());
         SmartDashboard.putData("Go Home", new GoHome());

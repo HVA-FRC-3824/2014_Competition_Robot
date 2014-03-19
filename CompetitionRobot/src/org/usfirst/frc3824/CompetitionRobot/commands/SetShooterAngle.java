@@ -53,12 +53,14 @@ public class SetShooterAngle extends Command
                 // Angle is currently in 0V to 3.3V
                 //angle = DriverStation::GetInstance()->GetEnhancedIO().GetAnalogIn(ANALOG_SHOOTER_ADJUST);
                 angle = DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID);
-            } catch (DriverStationEnhancedIO.EnhancedIOException ex)
+            } 
+            catch (DriverStationEnhancedIO.EnhancedIOException ex)
             {
                 ex.printStackTrace();
             }
             // Convert the Voltage to Degrees
-            angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
+            angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 
+                    3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
         } else
         {
             angle = m_Angle;
@@ -80,7 +82,9 @@ public class SetShooterAngle extends Command
                 ex.printStackTrace();
             }
             // Convert the Voltage to Degrees
-            angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
+            angle = angle * (Constants.SHOOTER_ANGLE_MAX_VALUE - Constants.SHOOTER_ANGLE_MIN_VALUE) / 
+                    3.3 + Constants.SHOOTER_ANGLE_MIN_VALUE;
+            
             // Set the setpoint in ADC
             Robot.shooterAngleAdjustPID.setTargetAngle(angle);
         }
@@ -89,7 +93,8 @@ public class SetShooterAngle extends Command
         try
         {
             SmartDashboard.putNumber("Pot Value", DriverStation.getInstance().getEnhancedIO().getAnalogIn(Constants.ANALOG_SHOOTER_ADJUST_PID));
-        } catch (DriverStationEnhancedIO.EnhancedIOException ex)
+        } 
+        catch (DriverStationEnhancedIO.EnhancedIOException ex)
         {
         }
     }

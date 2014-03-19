@@ -17,10 +17,11 @@ import org.usfirst.frc3824.CompetitionRobot.Constants;
 /**
  *
  */
-public class AutonomousTwoBall extends CommandGroup
+public class AutonomousTwoBallLeft extends CommandGroup
 {
-    public AutonomousTwoBall()
-    {
+
+    public AutonomousTwoBallLeft()
+   {
         // set the global inital Gyro angle to be used by the ChassisDriveStraight command
         addSequential(new SetGlobalGyroSetting());
               
