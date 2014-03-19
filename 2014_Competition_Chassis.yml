@@ -677,7 +677,13 @@ Children:
 - Name: Commands
   Base: Commands
   Children:
-  - Name: Autonomous Two Ball
+  - Name: Autonomous Two Ball Pre Common
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: Autonomous Two Ball Post Common
     Base: Command Group
     Children: []
     Properties:

@@ -17,9 +17,10 @@ import org.usfirst.frc3824.CompetitionRobot.Constants;
 /**
  *
  */
-public class AutonomousTwoBall extends CommandGroup
+public class AutonomousTwoBallPreCommon extends CommandGroup
 {
-    public AutonomousTwoBall()
+
+    public AutonomousTwoBallPreCommon()
     {
         // set the global inital Gyro angle to be used by the ChassisDriveStraight command
         addSequential(new SetGlobalGyroSetting());
@@ -54,7 +55,7 @@ public class AutonomousTwoBall extends CommandGroup
         // set shooter to pickup angle
         addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
         
-        // wait to capture ball against the low goal
+        // wait to for shooter angle to lower and ball to reach lower goal
         addSequential(new WaitCommand(0.8));
                  
         // turn on pickup wheels
@@ -77,16 +78,6 @@ public class AutonomousTwoBall extends CommandGroup
         addSequential(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new PickupBallStop());
 
-        addSequential(new SetGlobalGyroValue(4.0));
-        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_FORWARD_SHOOT_DRIVE_TIME,
-                                               Constants.AUTONOMOUS_TWO_BALL_FORWARD_SHOOT_DRIVE_POWER,
-                                               Constants.AUTONOMOUS_TWO_BALL_FORWARD_SHOOT_DRIVE_ANGLE, true));
-        
-        // shoot the second ball
-        addSequential(new CannonShoot());
 
-        // get ready to pickup a ball if need be in teleoperated
-        addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
-        addSequential(new VacuumOff());
     }
 }

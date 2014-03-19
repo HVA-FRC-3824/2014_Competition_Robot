@@ -67,6 +67,7 @@ public class Constants
     public final static double AUTONOMOUS_STRAIGHT_DRIVER_POWER              = 0.5;
     public final static double AUTONOMOUS_STRAIGHT_DRIVE_ANGLE               = 0.0;
 
+    // ===================================================
     // Defines for autonomous double ball
     public final static double AUTONOMOUS_TWO_BALL_START_DRIVE_TIME          =  2.2;  // 2.2
     public final static double AUTONOMOUS_TWO_BALL_START_DRIVER_POWER        =  0.5;  // 0.5

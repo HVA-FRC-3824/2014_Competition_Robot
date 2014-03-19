@@ -31,7 +31,6 @@ import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoLeftBoxfro
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoNotHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoRightBoxfromCenter;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTestVision;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBall;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallLeft;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallRight;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromLeft;
