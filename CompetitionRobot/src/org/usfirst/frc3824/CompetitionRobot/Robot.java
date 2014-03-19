@@ -27,16 +27,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousCommand;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDriveForward;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDriveandShoot;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoLeftBoxfromCenter;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoNotHotGoal;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousDrivetoRightBoxfromCenter;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTestVision;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallLeft;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallRight;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromLeft;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromLeftandReturn;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromRight;
-import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromRightandReturn;
 import org.usfirst.frc3824.CompetitionRobot.commands.LocateHotGoal;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.BallGuide;
 import org.usfirst.frc3824.CompetitionRobot.subsystems.ShooterAngleAdjustPID;
@@ -102,17 +97,12 @@ public class Robot extends IterativeRobot
         chooser.addObject("1) Do Nothing", new AutonomousCommand());
         chooser.addObject("2) Drive forward (NO SHOT)", new AutonomousDriveForward());
         chooser.addDefault("3) Drive forward and shoot", new AutonomousDriveandShoot());
-        chooser.addObject("4) Vision from LEFT", new AutonomouswithVisionFromLeft());
-        chooser.addObject("5) Vision from LEFT and return", new AutonomouswithVisionFromLeftandReturn()); 
-        chooser.addObject("6) Vision from RIGHT", new AutonomouswithVisionFromRight()); 
-        chooser.addObject("7) Vision from RIGHT and return", new AutonomouswithVisionFromRightandReturn());    
-        chooser.addObject("8) Autonomous TWO Ball Left", new AutonomousTwoBallLeft());       
-        chooser.addObject("9) Autonomous TWO Ball Right", new AutonomousTwoBallRight());
-        chooser.addObject("10) Vision Test (DO NOT USE)", new AutonomousTestVision());
-                
-        //chooser.addObject("2) Drive to NON-HOT goal", new AutonomousDrivetoNotHotGoal());
-        //chooser.addObject("3) Drive to right box", new AutonomousDrivetoRightBoxfromCenter());
-        //chooser.addObject("4) Drive to left box", new AutonomousDrivetoLeftBoxfromCenter());
+        chooser.addObject("4) Vision from LEFT", new AutonomouswithVisionFromLeft()); 
+        chooser.addObject("5) Vision from RIGHT", new AutonomouswithVisionFromRight());     
+        chooser.addObject("6) Autonomous TWO Ball Left", new AutonomousTwoBallLeft());       
+        chooser.addObject("7) Autonomous TWO Ball Right", new AutonomousTwoBallRight());
+        chooser.addObject("8) Vision Test (DO NOT USE)", new AutonomousTestVision());
+
         // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser);
         startupTimeout = new Timer();

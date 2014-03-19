@@ -725,19 +725,7 @@ Children:
     Properties:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Autonomous with Vision From Left and Return
-    Base: Command Group
-    Children: []
-    Properties:
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
   - Name: Autonomous with Vision From Right
-    Base: Command Group
-    Children: []
-    Properties:
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Autonomous with Vision From Right and Return
     Base: Command Group
     Children: []
     Properties:
@@ -749,24 +737,6 @@ Children:
     Properties:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: Autonomous Drive to Not Hot Goal
-    Base: Command Group
-    Children: []
-    Properties:
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Autonomous Drive to Right Box from Center
-    Base: Command Group
-    Children: []
-    Properties:
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Autonomous Drive to Left Box from Center
-    Base: Command Group
-    Children: []
-    Properties:
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
   - Name: Set Global Gyro Setting
     Base: Command
     Children: []
