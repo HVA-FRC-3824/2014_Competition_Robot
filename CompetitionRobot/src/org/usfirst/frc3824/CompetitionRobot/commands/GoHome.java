@@ -21,13 +21,13 @@ public class GoHome extends CommandGroup
     {
         // Setup the robot for start of match     
         addSequential(new SetShooterAngle(Constants.SHOOTER_VERTICAL_POSITION));
-        //addSequential(new SetAuxiliaryLeftAngle(Constants.AUX_HOME_POSITION));
-        //addSequential(new AuxiliaryLeftVerticalRetract());
 
         // Disable the vacuum
         addSequential(new VacuumOff());
-        //addParallel(new AuxiliaryLeftVacuumOff());
 
+        // retract the ball guides
+        addSequential(new BallGuideIn());
+        
         // Stop the ball pickup wheels
         addParallel(new PickupBallStop());
     }

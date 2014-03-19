@@ -102,7 +102,6 @@ public class Robot extends IterativeRobot
         chooser.addObject("6) Autonomous TWO Ball Left", new AutonomousTwoBallLeft());       
         chooser.addObject("7) Autonomous TWO Ball Right", new AutonomousTwoBallRight());
         chooser.addObject("8) Vision Test (DO NOT USE)", new AutonomousTestVision());
-
         // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser);
         startupTimeout = new Timer();
