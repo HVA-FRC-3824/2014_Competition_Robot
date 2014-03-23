@@ -91,16 +91,13 @@ public class OI
         DigitalIOButton m_shooterAnglePass = new DigitalIOButton(Constants.SHOOTER_ANGLE_PASS);
         m_shooterAnglePass.whenPressed(new SetShooterAngle(Constants.SHOOTER_PASS_POSITION));
         
-        DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_SHOOT);
+        DigitalIOButton m_shooterAngleShoot = new DigitalIOButton(Constants.SHOOTER_ANGLE_REGULAR);
         m_shooterAngleShoot.whenPressed(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         
         DigitalIOButton m_shooterAngleCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_CORNER);
         m_shooterAngleCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_CORNER_POSITION));
-        
-        DigitalIOButton m_shooterAngleAngledCorner = new DigitalIOButton(Constants.SHOOTER_ANGLE_ANGLED_CORNER);
-        m_shooterAngleAngledCorner.whenPressed(new SetShooterAngle(Constants.SHOOTER_ANGLED_CORNER_POSITION));
-        
-        DigitalIOButton m_shooterAngleStart = new DigitalIOButton(Constants.SHOOTER_ANGLE_START);
+         
+        DigitalIOButton m_shooterAngleStart = new DigitalIOButton(Constants.SHOOTER_ANGLE_VERTICAL);
         m_shooterAngleStart.whenPressed(new SetShooterAngle(Constants.SHOOTER_VERTICAL_POSITION));
         
         DigitalIOButton m_pickupIn = new DigitalIOButton(Constants.INPUT_PICKUP_IN);

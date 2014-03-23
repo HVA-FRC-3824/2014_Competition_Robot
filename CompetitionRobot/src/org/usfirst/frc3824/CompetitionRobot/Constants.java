@@ -118,7 +118,6 @@ public class Constants
     public final static double SHOOTER_PICKUP_POSITION        = -12.0;
     public final static double SHOOTER_LOW_GOAL_POSITION      =   2.0;
     public final static double SHOOTER_PASS_POSITION          =  23.0;
-    public final static double SHOOTER_ANGLED_CORNER_POSITION =  40.0;
     public final static double SHOOTER_REGULAR_SHOT_POSITION  =  62.0;   
     public final static double SHOOTER_CORNER_POSITION        =  76.0;
     public final static double SHOOTER_VERTICAL_POSITION      =  85.0;
