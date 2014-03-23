@@ -17,10 +17,9 @@ import org.usfirst.frc3824.CompetitionRobot.Constants;
 /**
  *
  */
-public class AutonomousTwoBallPreCommon extends CommandGroup
+public class AutonomousTwoBallCenter extends CommandGroup
 {
-
-    public AutonomousTwoBallPreCommon()
+    public AutonomousTwoBallCenter()
     {
         // set the global inital Gyro angle to be used by the ChassisDriveStraight command
         addSequential(new SetGlobalGyroSetting());
@@ -41,9 +40,9 @@ public class AutonomousTwoBallPreCommon extends CommandGroup
         addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
 
         // drive to the goal
-        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_START_DRIVE_TIME,
-                                               Constants.AUTONOMOUS_TWO_BALL_START_DRIVER_POWER,
-                                               Constants.AUTONOMOUS_TWO_BALL_START_DRIVE_ANGLE, true));
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_CENTER_START_DRIVE_TIME,
+                                               Constants.AUTONOMOUS_TWO_BALL_CENTER_START_DRIVER_POWER,
+                                               Constants.AUTONOMOUS_TWO_BALL_CENTER_START_DRIVE_ANGLE, true));
 
         // shoot and then disable the vacuum
         addParallel(new CannonShoot());
@@ -61,22 +60,34 @@ public class AutonomousTwoBallPreCommon extends CommandGroup
         addSequential(new PickupBallIn());
                 
         // drive forward to pickup the ball  
-        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_TIME,
-                                               Constants.AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_POWER,
-                                               Constants.AUTONOMOUS_TWO_BALL_PICKUP_DRIVE_ANGLE, true));  
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_TIME,
+                                               Constants.AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_POWER,
+                                               Constants.AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_ANGLE, true));  
         
         // wait to capture ball in shooter
         addSequential(new WaitCommand(1.2));
        
         // have ball so backup to shoot
-        addParallel(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_BACKUP_SHOOT_DRIVE_TIME,
-                                             Constants.AUTONOMOUS_TWO_BALL_BACKUP_SHOOT_DRIVE_POWER,
-                                             Constants.AUTONOMOUS_TWO_BALL_BACKUP_SHOOT_DRIVE_ANGLE, true));   
+        addParallel(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_TIME,
+                                             Constants.AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_POWER,
+                                             Constants.AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_ANGLE, true));   
         
         // get ready to shoot
         addSequential(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
         addSequential(new PickupBallStop());
+        
+        // determine if hot goal is on the other sied
+        //addSequential(new SetGlobalGyroValue(Constants.AUTONOMOUS_TWO_BALL_CENTER_TURN_HOT_ANGLE));
 
+        addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_CENTER_FORWARD_SHOOT_DRIVE_TIME,
+                                               Constants.AUTONOMOUS_TWO_BALL_CENTER_FORWARD_SHOOT_DRIVE_POWER,
+                                               Constants.AUTONOMOUS_TWO_BALL_CENTER_FORWARD_SHOOT_DRIVE_ANGLE, true));
+        
+        // shoot the second ball
+        addSequential(new CannonShoot());
 
+        // get ready to pickup a ball if need be in teleoperated
+        addParallel(new SetShooterAngle(Constants.SHOOTER_PICKUP_POSITION));
+        addSequential(new VacuumOff());
     }
 }

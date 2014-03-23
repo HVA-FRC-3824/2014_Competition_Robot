@@ -522,54 +522,6 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: Joystick Shooter Up
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id010
-          value: Shooter Angle Up
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id011
-          default: '1'
-          name: Button
-          validators: null
-          value: '5'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: Drive Joystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id012
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
-    - Name: Joystick Shooter Down
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id010
-          value: Shooter Angle Down
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id011
-          default: '1'
-          name: Button
-          validators: null
-          value: '6'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: Drive Joystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id012
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
     - Name: Joystick Toggle Main Vacuum
       Base: Joystick Button
       Children: []
@@ -586,6 +538,30 @@ Children:
           name: Button
           validators: null
           value: '8'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: Drive Joystick}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id012
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+    - Name: GoToHome
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id010
+          value: Go Home
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id011
+          default: '1'
+          name: Button
+          validators: null
+          value: '7'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: Drive Joystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
@@ -642,7 +618,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: GoToHome
+    - Name: Ball Guide Out Button
       Base: Joystick Button
       Children: []
       Properties:
@@ -651,13 +627,37 @@ Children:
           name: Command
           type: Command
           validators: *id010
-          value: Go Home
+          value: Ball Guide Out
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id011
           default: '1'
           name: Button
           validators: null
-          value: '7'
+          value: '10'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: Drive Joystick}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id012
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+    - Name: Ball Guide In Button
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id010
+          value: Ball Guide In
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id011
+          default: '1'
+          name: Button
+          validators: null
+          value: '12'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: Drive Joystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
@@ -684,6 +684,12 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: Autonomous Two Ball Post Common
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: Autonomous Two Ball Center
     Base: Command Group
     Children: []
     Properties:
@@ -890,22 +896,6 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: Set Shooter Angle
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Shooter Angle Adjust PID}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Shooter Angle Down
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Shooter Angle Adjust PID}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: Shooter Angle Up
     Base: Command
     Children: []
     Properties:
