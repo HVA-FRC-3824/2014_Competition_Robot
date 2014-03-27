@@ -87,15 +87,15 @@ public class Constants
 
     // ===================================================
     // Defines for autonomous double ball center
-    public final static double AUTONOMOUS_TWO_BALL_CENTER_START_DRIVE_TIME          =  2.3;
+    public final static double AUTONOMOUS_TWO_BALL_CENTER_START_DRIVE_TIME          =  2.1;
     public final static double AUTONOMOUS_TWO_BALL_CENTER_START_DRIVER_POWER        =  0.5;
     public final static double AUTONOMOUS_TWO_BALL_CENTER_START_DRIVE_ANGLE         =  0.0;
     
-    public final static double AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_TIME         =  0.9;
+    public final static double AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_TIME         =  1.2;
     public final static double AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_POWER        =  0.5;
     public final static double AUTONOMOUS_TWO_BALL_CENTER_PICKUP_DRIVE_ANGLE        =  0.0;
             
-    public final static double AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_TIME   =  1.3;
+    public final static double AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_TIME   =  1.5;
     public final static double AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_POWER  = -0.5;
     public final static double AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_ANGLE  =  0.0;
      
@@ -118,11 +118,11 @@ public class Constants
     public final static double SHOOTER_PICKUP_POSITION        = -12.0;
     public final static double SHOOTER_LOW_GOAL_POSITION      =   2.0;
     public final static double SHOOTER_PASS_POSITION          =  23.0;
-    public final static double SHOOTER_REGULAR_SHOT_POSITION  =  62.0;   
-    public final static double SHOOTER_TRUSS_POSITION         =  65.0;
+    public final static double SHOOTER_REGULAR_SHOT_POSITION  =  66.0;
+    public final static double SHOOTER_TRUSS_POSITION         =  66.0;
     public final static double SHOOTER_CORNER_POSITION        =  76.0;
     public final static double SHOOTER_TRUSS_CATCH_POSITION   =  80.0;
-    public final static double SHOOTER_VERTICAL_POSITION      =  85.0;
+    public final static double SHOOTER_VERTICAL_POSITION      =  92.0;
 
     public final static double PICKUP_WHEEL_POWER             =   0.6;
 }
