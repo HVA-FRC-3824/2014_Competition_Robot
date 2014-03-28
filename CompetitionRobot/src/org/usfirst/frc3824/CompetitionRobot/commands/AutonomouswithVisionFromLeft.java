@@ -31,7 +31,7 @@ public class AutonomouswithVisionFromLeft extends CommandGroup
         addSequential(new DelayUntilIfTargetNotHot(LocateHotGoal.TargetSide.LEFT, Constants.AUTONOMOUS_TIME_TO_HOT_GOAL_SWITCH));
         
         // set the shooter angle
-        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_AUTONOMOUS_POSITION));
         
         // drive to the goal
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,

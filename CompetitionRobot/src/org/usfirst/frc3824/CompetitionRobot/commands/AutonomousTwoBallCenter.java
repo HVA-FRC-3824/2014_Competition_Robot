@@ -37,7 +37,7 @@ public class AutonomousTwoBallCenter extends CommandGroup
         addSequential(new PickupBallStop());
 
         // set the shooter angle
-        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION + 2.0));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_AUTONOMOUS_POSITION + 2.0));
 
         // drive to the goal
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_CENTER_START_DRIVE_TIME,
@@ -73,7 +73,7 @@ public class AutonomousTwoBallCenter extends CommandGroup
                                              Constants.AUTONOMOUS_TWO_BALL_CENTER_BACKUP_SHOOT_DRIVE_ANGLE, true));   
         
         // get ready to shoot
-        addSequential(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION - 2.0));  // +3.0
+        addSequential(new SetShooterAngle(Constants.SHOOTER_AUTONOMOUS_POSITION - 2.0));  // +3.0
         addSequential(new PickupBallStop());
         
         // determine if hot goal is on the other sied

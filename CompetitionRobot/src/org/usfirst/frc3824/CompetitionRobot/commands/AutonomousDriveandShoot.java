@@ -25,7 +25,7 @@ public class AutonomousDriveandShoot extends CommandGroup
         addSequential(new WaitUntilCommand(Constants.WAIT_FOR_VACUUM_AUTONOMOUS_TIME));
         
         // set the shooter angle
-        addParallel(new SetShooterAngle(Constants.SHOOTER_REGULAR_SHOT_POSITION));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_AUTONOMOUS_POSITION));
         
         // drive to the goal
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_STRAIGHT_DRIVE_TIME,
