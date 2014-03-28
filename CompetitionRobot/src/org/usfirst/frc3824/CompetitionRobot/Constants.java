@@ -5,6 +5,8 @@ package org.usfirst.frc3824.CompetitionRobot;
  */
 public class Constants
 {
+    public final static double VACUUM_PUMP_POWER                  = 0.95;
+    
     /* Contants which might require tuning */
     public final static double DrivetrainAngleGyroControllerP     = 0.04;
     public final static double DrivetrainAngleGyroControllerI     = 0.004;

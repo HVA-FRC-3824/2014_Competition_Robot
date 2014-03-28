@@ -11,6 +11,7 @@ package org.usfirst.frc3824.CompetitionRobot.subsystems;
 import org.usfirst.frc3824.CompetitionRobot.RobotMap;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc3824.CompetitionRobot.Constants;
 /**
  *
  */
@@ -37,7 +38,7 @@ public class Vacuum extends Subsystem
      */
     public void setVacuumOn()
     {
-        vacuum.set(1.0);
+        vacuum.set(Constants.VACUUM_PUMP_POWER);
         m_vacuumActive = true;
     }
     /**
@@ -65,7 +66,7 @@ public class Vacuum extends Subsystem
         } else if (m_vacuumActive == false)
         {
             // if vacuum is off, turn it on!
-            vacuum.set(1.0);
+            vacuum.set(Constants.VACUUM_PUMP_POWER);
             m_vacuumActive = true;
         }
     }
