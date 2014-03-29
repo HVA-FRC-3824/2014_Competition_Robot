@@ -38,7 +38,7 @@ public class AutonomousTwoBallPreCommon extends CommandGroup
         addSequential(new PickupBallStop());
 
         // set the shooter angle
-        addParallel(new SetShooterAngle(Constants.SHOOTER_AUTONOMOUS_POSITION + 6.0));
+        addParallel(new SetShooterAngle(Constants.SHOOTER_AUTONOMOUS_POSITION + 5.0));
 
         // drive to the goal
         addSequential(new ChassisDriveStraight(Constants.AUTONOMOUS_TWO_BALL_START_DRIVE_TIME,
