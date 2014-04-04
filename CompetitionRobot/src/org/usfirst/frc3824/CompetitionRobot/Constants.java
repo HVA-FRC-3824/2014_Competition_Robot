@@ -5,8 +5,10 @@ package org.usfirst.frc3824.CompetitionRobot;
  */
 public class Constants
 {
-    public final static double VACUUM_PUMP_POWER                  = 0.95;
+    public final static double VACUUM_PUMP_POWER                  = 1.0;
     
+    public final static double PICKUP_WHEEL_POWER                 = 0.6;
+
     /* Contants which might require tuning */
     public final static double DrivetrainAngleGyroControllerP     = 0.04;
     public final static double DrivetrainAngleGyroControllerI     = 0.004;
@@ -113,19 +115,24 @@ public class Constants
     // Note: The shooter angle is greater than possible to ensure the new shooter 
     //       can move the full range (after the slope and y-intercept have been 
     //       recalibrated)
-    public final static double SHOOTER_ANGLE_MAX_VALUE        = 100.0;    // 850.0  - 45.848   50
-    public final static double SHOOTER_ANGLE_MIN_VALUE        = -25.0;    //   0.0  - 17.203   10
+    public final static double SHOOTER_ANGLE_MAX_VALUE                            = 100.0;    // 850.0  - 45.848   50
+    public final static double SHOOTER_ANGLE_MIN_VALUE                            = -25.0;    //   0.0  - 17.203   10
     
     // Practice robot: Min -23.9 (0.08V)   Max: 89.1 (4.5V)
-    public final static double SHOOTER_PICKUP_POSITION        = -12.0;
-    public final static double SHOOTER_LOW_GOAL_POSITION      =   0.0;
-    public final static double SHOOTER_PASS_POSITION          =  23.0;
-    public final static double SHOOTER_REGULAR_POSITION       =  62.0;  // Regular
-    public final static double SHOOTER_AUTONOMOUS_POSITION    =  67.0;  // Autonomous
-    public final static double SHOOTER_TRUSS_POSITION         =  66.0;
-    public final static double SHOOTER_CORNER_POSITION        =  76.0;
-    public final static double SHOOTER_TRUSS_CATCH_POSITION   =  80.0;
-    public final static double SHOOTER_VERTICAL_POSITION      =  92.0;
+    public final static double SHOOTER_PICKUP_POSITION                            = -12.0;
+    public final static double SHOOTER_LOW_GOAL_POSITION                          =   0.0;
+    public final static double SHOOTER_PASS_POSITION                              =  23.0;
+    public final static double SHOOTER_REGULAR_POSITION                           =  62.0;
+    public final static double SHOOTER_TRUSS_POSITION                             =  66.0;
+    public final static double SHOOTER_CORNER_POSITION                            =  76.0;
+    public final static double SHOOTER_TRUSS_CATCH_POSITION                       =  80.0;
+    public final static double SHOOTER_VERTICAL_POSITION                          =  92.0;
 
-    public final static double PICKUP_WHEEL_POWER             =   0.6;
+    public final static double SHOOTER_AUTONOMOUS_ONE_BALL_POSITION               =  67.0;
+    
+    public final static double SHOOTER_AUTONOMOUS_TWO_BALL_FIRST_CENTER_POSITION  =  72.0;
+    public final static double SHOOTER_AUTONOMOUS_TWO_BALL_SECOND_CENTER_POSITION =  65.0;
+    
+    public final static double SHOOTER_AUTONOMOUS_TWO_BALL_CORNER_FIRST_POSITION  =  72.0;
+    public final static double SHOOTER_AUTONOMOUS_TWO_BALL_CORNER_SECOND_POSITION =  67.0;
 }
