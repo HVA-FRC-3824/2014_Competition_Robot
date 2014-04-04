@@ -118,7 +118,7 @@ public class Constants
     
     // Practice robot: Min -23.9 (0.08V)   Max: 89.1 (4.5V)
     public final static double SHOOTER_PICKUP_POSITION        = -12.0;
-    public final static double SHOOTER_LOW_GOAL_POSITION      =  -2.0;
+    public final static double SHOOTER_LOW_GOAL_POSITION      =   0.0;
     public final static double SHOOTER_PASS_POSITION          =  23.0;
     public final static double SHOOTER_REGULAR_POSITION       =  62.0;  // Regular
     public final static double SHOOTER_AUTONOMOUS_POSITION    =  67.0;  // Autonomous
