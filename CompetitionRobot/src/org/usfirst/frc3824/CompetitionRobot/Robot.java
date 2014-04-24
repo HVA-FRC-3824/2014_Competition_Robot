@@ -31,6 +31,7 @@ import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTestVision;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallCenter;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallLeft;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousTwoBallRight;
+import org.usfirst.frc3824.CompetitionRobot.commands.AutonomousWaitandDriveForward;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromLeft;
 import org.usfirst.frc3824.CompetitionRobot.commands.AutonomouswithVisionFromRight;
 import org.usfirst.frc3824.CompetitionRobot.commands.LocateHotGoal;
@@ -97,13 +98,13 @@ public class Robot extends IterativeRobot
         chooser = new SendableChooser();
         chooser.addObject("1) Do Nothing", new AutonomousCommand());
         chooser.addObject("2) Drive forward (NO SHOT)", new AutonomousDriveForward());
-        chooser.addDefault("3) Drive forward and shoot", new AutonomousDriveandShoot());
-        chooser.addObject("4) Vision from LEFT", new AutonomouswithVisionFromLeft()); 
-        chooser.addObject("5) Vision from RIGHT", new AutonomouswithVisionFromRight());  
-        chooser.addObject("6) Autonomous TWO Ball Center", new AutonomousTwoBallCenter());
-        chooser.addObject("7) Autonomous TWO Ball Left", new AutonomousTwoBallLeft());       
-        chooser.addObject("8) Autonomous TWO Ball Right", new AutonomousTwoBallRight());
-        chooser.addObject("9) Vision Test (DO NOT USE)", new AutonomousTestVision());
+        chooser.addObject("3) Wait then Drive forward (NO SHOT)", new AutonomousWaitandDriveForward()); 
+        chooser.addDefault("4) Drive forward and shoot", new AutonomousDriveandShoot());
+        chooser.addObject("5) Vision from LEFT", new AutonomouswithVisionFromLeft()); 
+        chooser.addObject("6) Vision from RIGHT", new AutonomouswithVisionFromRight());  
+        chooser.addObject("7) Autonomous TWO Ball Center", new AutonomousTwoBallCenter());
+        chooser.addObject("8) Autonomous TWO Ball Left", new AutonomousTwoBallLeft());       
+        chooser.addObject("9) Autonomous TWO Ball Right", new AutonomousTwoBallRight());
         // show the autonomous modes
         SmartDashboard.putData("AutonomousModes", chooser);
         startupTimeout = new Timer();
